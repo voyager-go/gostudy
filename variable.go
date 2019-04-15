@@ -34,4 +34,8 @@ func main()  {
 	// 短变量赋值 在函数中使用
 	shortVar := 1000
 	fmt.Println(shortVar)
+	// 变量交换的简单方法
+	fmt.Println("交换前的值：", intVar, intVarA)
+	intVar,intVarA = intVarA, intVar
+	fmt.Println("交换后的值：", intVar, intVarA)
 }

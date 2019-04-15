@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4286bbcc-5091-485b-a076-25e8df59f93f" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/paintingSinPicture.go" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/variable.go" afterPath="$PROJECT_DIR$/variable.go" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,7 +14,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="variable.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="variable.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/variable.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="391">
@@ -23,6 +23,25 @@
                 <element signature="e#14#26#0" expanded="true" />
               </folding>
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="paintingSinPicture.go" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/paintingSinPicture.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="382">
+              <caret line="28" column="30" lean-forward="false" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+              <folding>
+                <element signature="e#14#82#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sin.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sin.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
@@ -87,6 +106,8 @@
         <option value="$PROJECT_DIR$/pointer.go" />
         <option value="$PROJECT_DIR$/enum.go" />
         <option value="$PROJECT_DIR$/variable.go" />
+        <option value="$PROJECT_DIR$/PaintingSinPicture.go" />
+        <option value="$PROJECT_DIR$/paintingSinPicture.go" />
       </list>
     </option>
   </component>
@@ -149,13 +170,22 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Build.go build enum.go">
+  <component name="RunManager" selected="Go Build.go build paintingSinPicture.go">
     <configuration name="go build enum.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
       <module name="gostudy" />
       <working_directory value="$PROJECT_DIR$/" />
       <go_parameters value="-i" />
       <kind value="FILE" />
       <filePath value="$PROJECT_DIR$/enum.go" />
+      <package value="gostudy" />
+      <directory value="$PROJECT_DIR$/" />
+    </configuration>
+    <configuration name="go build paintingSinPicture.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
+      <module name="gostudy" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/paintingSinPicture.go" />
       <package value="gostudy" />
       <directory value="$PROJECT_DIR$/" />
     </configuration>
@@ -186,18 +216,20 @@
       <package value="gostudy" />
       <directory value="$PROJECT_DIR$/" />
     </configuration>
-    <list size="4">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Go Build.go build variable.go" />
       <item index="1" class="java.lang.String" itemvalue="Go Build.go build types.go" />
       <item index="2" class="java.lang.String" itemvalue="Go Build.go build pointer.go" />
       <item index="3" class="java.lang.String" itemvalue="Go Build.go build enum.go" />
+      <item index="4" class="java.lang.String" itemvalue="Go Build.go build paintingSinPicture.go" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Go Build.go build enum.go" />
-        <item index="1" class="java.lang.String" itemvalue="Go Build.go build pointer.go" />
-        <item index="2" class="java.lang.String" itemvalue="Go Build.go build types.go" />
-        <item index="3" class="java.lang.String" itemvalue="Go Build.go build variable.go" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Go Build.go build paintingSinPicture.go" />
+        <item index="1" class="java.lang.String" itemvalue="Go Build.go build variable.go" />
+        <item index="2" class="java.lang.String" itemvalue="Go Build.go build enum.go" />
+        <item index="3" class="java.lang.String" itemvalue="Go Build.go build pointer.go" />
+        <item index="4" class="java.lang.String" itemvalue="Go Build.go build types.go" />
       </list>
     </recent_temporary>
   </component>
@@ -300,6 +332,21 @@
           <caret line="34" column="20" lean-forward="true" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
           <folding>
             <element signature="e#14#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sin.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/paintingSinPicture.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="28" column="30" lean-forward="false" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+          <folding>
+            <element signature="e#14#82#0" expanded="true" />
           </folding>
         </state>
       </provider>

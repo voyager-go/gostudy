@@ -41,6 +41,6 @@ func main() {
 	//输出 CPU 的值并按整型格式输出。
 	// 当这个类型需要显示为字符串时，Go 语言会自动寻找 String() 方法并进行调用。
 	fmt.Printf("%s %d", CPU, CPU)
+	// 如
 	fmt.Printf("%s %d", CPU.String(), CPU)
-
 }

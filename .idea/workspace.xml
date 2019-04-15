@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4286bbcc-5091-485b-a076-25e8df59f93f" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/array.go" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/slice.go" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,11 +38,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="array.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="array.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/array.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="16" column="22" lean-forward="false" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+            <state relative-caret-position="184">
+              <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <folding>
+                <element signature="e#14#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="slice.go" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/slice.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="97" column="53" lean-forward="false" selection-start-line="97" selection-start-column="53" selection-end-line="97" selection-end-column="53" />
               <folding>
                 <element signature="e#14#26#0" expanded="true" />
               </folding>
@@ -121,6 +133,7 @@
         <option value="$PROJECT_DIR$/PaintingSinPicture.go" />
         <option value="$PROJECT_DIR$/paintingSinPicture.go" />
         <option value="$PROJECT_DIR$/array.go" />
+        <option value="$PROJECT_DIR$/slice.go" />
       </list>
     </option>
   </component>
@@ -183,7 +196,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Build.go build array.go">
+  <component name="RunManager" selected="Go Build.go build slice.go">
     <configuration name="go build array.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
       <module name="gostudy" />
       <working_directory value="$PROJECT_DIR$/" />
@@ -211,12 +224,12 @@
       <package value="gostudy" />
       <directory value="$PROJECT_DIR$/" />
     </configuration>
-    <configuration name="go build pointer.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
+    <configuration name="go build slice.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
       <module name="gostudy" />
       <working_directory value="$PROJECT_DIR$/" />
       <go_parameters value="-i" />
       <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/pointer.go" />
+      <filePath value="$PROJECT_DIR$/slice.go" />
       <package value="gostudy" />
       <directory value="$PROJECT_DIR$/" />
     </configuration>
@@ -231,18 +244,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Go Build.go build variable.go" />
-      <item index="1" class="java.lang.String" itemvalue="Go Build.go build pointer.go" />
-      <item index="2" class="java.lang.String" itemvalue="Go Build.go build enum.go" />
-      <item index="3" class="java.lang.String" itemvalue="Go Build.go build paintingSinPicture.go" />
-      <item index="4" class="java.lang.String" itemvalue="Go Build.go build array.go" />
+      <item index="1" class="java.lang.String" itemvalue="Go Build.go build enum.go" />
+      <item index="2" class="java.lang.String" itemvalue="Go Build.go build paintingSinPicture.go" />
+      <item index="3" class="java.lang.String" itemvalue="Go Build.go build array.go" />
+      <item index="4" class="java.lang.String" itemvalue="Go Build.go build slice.go" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Go Build.go build array.go" />
-        <item index="1" class="java.lang.String" itemvalue="Go Build.go build paintingSinPicture.go" />
-        <item index="2" class="java.lang.String" itemvalue="Go Build.go build variable.go" />
-        <item index="3" class="java.lang.String" itemvalue="Go Build.go build enum.go" />
-        <item index="4" class="java.lang.String" itemvalue="Go Build.go build pointer.go" />
+        <item index="0" class="java.lang.String" itemvalue="Go Build.go build slice.go" />
+        <item index="1" class="java.lang.String" itemvalue="Go Build.go build array.go" />
+        <item index="2" class="java.lang.String" itemvalue="Go Build.go build paintingSinPicture.go" />
+        <item index="3" class="java.lang.String" itemvalue="Go Build.go build variable.go" />
+        <item index="4" class="java.lang.String" itemvalue="Go Build.go build enum.go" />
       </list>
     </recent_temporary>
   </component>
@@ -366,8 +379,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/array.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="16" column="22" lean-forward="false" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+        <state relative-caret-position="184">
+          <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding>
+            <element signature="e#14#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/slice.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="97" column="53" lean-forward="false" selection-start-line="97" selection-start-column="53" selection-end-line="97" selection-end-column="53" />
           <folding>
             <element signature="e#14#26#0" expanded="true" />
           </folding>

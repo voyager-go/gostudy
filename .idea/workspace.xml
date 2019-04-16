@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4286bbcc-5091-485b-a076-25e8df59f93f" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/labs/structLab09.go" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/labs/structLab10.go" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,28 +45,6 @@
               <caret line="24" column="34" lean-forward="true" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
               <folding>
                 <element signature="e#14#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="structLab03.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/labs/structLab03.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
-              <caret line="38" column="21" lean-forward="true" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="structLab04.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/labs/structLab04.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="49" column="22" lean-forward="true" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
-              <folding>
-                <element signature="e#14#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -120,13 +98,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="structLab09.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="structLab09.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/labs/structLab09.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
+            <state relative-caret-position="468">
               <caret line="39" column="38" lean-forward="false" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
               <folding>
                 <element signature="e#14#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="structLab10.go" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/labs/structLab10.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="67" column="40" lean-forward="false" selection-start-line="67" selection-start-column="40" selection-end-line="67" selection-end-column="40" />
+              <folding>
+                <element signature="e#14#48#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -182,6 +172,7 @@
         <option value="$PROJECT_DIR$/labs/structLab07.go" />
         <option value="$PROJECT_DIR$/labs/structLab08.go" />
         <option value="$PROJECT_DIR$/labs/structLab09.go" />
+        <option value="$PROJECT_DIR$/labs/structLab10.go" />
       </list>
     </option>
   </component>
@@ -254,7 +245,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Build.go build structLab09.go">
+  <component name="RunManager" selected="Go Build.go build structLab10.go">
     <configuration name="go build structLab06.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
       <module name="gostudy" />
       <working_directory value="$PROJECT_DIR$/" />
@@ -287,28 +278,28 @@
       <filePath value="$PROJECT_DIR$/labs/structLab09.go" />
       <directory value="$PROJECT_DIR$/" />
     </configuration>
-    <configuration name="go build structlab05.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
+    <configuration name="go build structLab10.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
       <module name="gostudy" />
       <working_directory value="$PROJECT_DIR$/" />
       <go_parameters value="-i" />
       <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/labs/structlab05.go" />
+      <filePath value="$PROJECT_DIR$/labs/structLab10.go" />
       <directory value="$PROJECT_DIR$/" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Go Build.go build structlab05.go" />
-      <item index="1" class="java.lang.String" itemvalue="Go Build.go build structLab06.go" />
-      <item index="2" class="java.lang.String" itemvalue="Go Build.go build structLab07.go" />
-      <item index="3" class="java.lang.String" itemvalue="Go Build.go build structLab08.go" />
-      <item index="4" class="java.lang.String" itemvalue="Go Build.go build structLab09.go" />
+      <item index="0" class="java.lang.String" itemvalue="Go Build.go build structLab06.go" />
+      <item index="1" class="java.lang.String" itemvalue="Go Build.go build structLab07.go" />
+      <item index="2" class="java.lang.String" itemvalue="Go Build.go build structLab08.go" />
+      <item index="3" class="java.lang.String" itemvalue="Go Build.go build structLab09.go" />
+      <item index="4" class="java.lang.String" itemvalue="Go Build.go build structLab10.go" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Go Build.go build structLab09.go" />
-        <item index="1" class="java.lang.String" itemvalue="Go Build.go build structLab08.go" />
-        <item index="2" class="java.lang.String" itemvalue="Go Build.go build structLab07.go" />
-        <item index="3" class="java.lang.String" itemvalue="Go Build.go build structLab06.go" />
-        <item index="4" class="java.lang.String" itemvalue="Go Build.go build structlab05.go" />
+        <item index="0" class="java.lang.String" itemvalue="Go Build.go build structLab10.go" />
+        <item index="1" class="java.lang.String" itemvalue="Go Build.go build structLab09.go" />
+        <item index="2" class="java.lang.String" itemvalue="Go Build.go build structLab08.go" />
+        <item index="3" class="java.lang.String" itemvalue="Go Build.go build structLab07.go" />
+        <item index="4" class="java.lang.String" itemvalue="Go Build.go build structLab06.go" />
       </list>
     </recent_temporary>
   </component>
@@ -729,10 +720,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/labs/structLab09.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
+        <state relative-caret-position="468">
           <caret line="39" column="38" lean-forward="false" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
           <folding>
             <element signature="e#14#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/go/src/encoding/json/encode.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="158" column="5" lean-forward="false" selection-start-line="158" selection-start-column="5" selection-end-line="158" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/labs/structLab10.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="67" column="40" lean-forward="false" selection-start-line="67" selection-start-column="40" selection-end-line="67" selection-end-column="40" />
+          <folding>
+            <element signature="e#14#48#0" expanded="true" />
           </folding>
         </state>
       </provider>

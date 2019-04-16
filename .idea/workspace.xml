@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4286bbcc-5091-485b-a076-25e8df59f93f" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/labs/structlab05.go" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/labs/structLab06.go" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,18 +14,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="funcLab05.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/labs/funcLab05.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="75" column="34" lean-forward="true" selection-start-line="75" selection-start-column="34" selection-end-line="75" selection-end-column="34" />
-              <folding>
-                <element signature="e#14#40#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="funcLab06.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/labs/funcLab06.go">
           <provider selected="true" editor-type-id="text-editor">
@@ -118,13 +106,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="structlab05.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="structlab05.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/labs/structlab05.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="185">
               <caret line="35" column="36" lean-forward="false" selection-start-line="35" selection-start-column="36" selection-end-line="35" selection-end-column="36" />
               <folding>
                 <element signature="e#14#73#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="structLab06.go" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/labs/structLab06.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="174">
+              <caret line="25" column="5" lean-forward="false" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+              <folding>
+                <element signature="e#14#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -176,6 +176,7 @@
         <option value="$PROJECT_DIR$/labs/structLab03.go" />
         <option value="$PROJECT_DIR$/labs/structLab04.go" />
         <option value="$PROJECT_DIR$/labs/structlab05.go" />
+        <option value="$PROJECT_DIR$/labs/structLab06.go" />
       </list>
     </option>
   </component>
@@ -248,15 +249,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Build.go build structlab05.go">
-    <configuration name="go build funcLab08.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
-      <module name="gostudy" />
-      <working_directory value="$PROJECT_DIR$/" />
-      <go_parameters value="-i" />
-      <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/labs/funcLab08.go" />
-      <directory value="$PROJECT_DIR$/" />
-    </configuration>
+  <component name="RunManager" selected="Go Build.go build structLab06.go">
     <configuration name="go build structLab01.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
       <module name="gostudy" />
       <working_directory value="$PROJECT_DIR$/" />
@@ -281,6 +274,14 @@
       <filePath value="$PROJECT_DIR$/labs/structLab04.go" />
       <directory value="$PROJECT_DIR$/" />
     </configuration>
+    <configuration name="go build structLab06.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
+      <module name="gostudy" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/labs/structLab06.go" />
+      <directory value="$PROJECT_DIR$/" />
+    </configuration>
     <configuration name="go build structlab05.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
       <module name="gostudy" />
       <working_directory value="$PROJECT_DIR$/" />
@@ -290,19 +291,19 @@
       <directory value="$PROJECT_DIR$/" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Go Build.go build funcLab08.go" />
-      <item index="1" class="java.lang.String" itemvalue="Go Build.go build structLab01.go" />
-      <item index="2" class="java.lang.String" itemvalue="Go Build.go build structLab02.go" />
-      <item index="3" class="java.lang.String" itemvalue="Go Build.go build structLab04.go" />
-      <item index="4" class="java.lang.String" itemvalue="Go Build.go build structlab05.go" />
+      <item index="0" class="java.lang.String" itemvalue="Go Build.go build structLab01.go" />
+      <item index="1" class="java.lang.String" itemvalue="Go Build.go build structLab02.go" />
+      <item index="2" class="java.lang.String" itemvalue="Go Build.go build structLab04.go" />
+      <item index="3" class="java.lang.String" itemvalue="Go Build.go build structlab05.go" />
+      <item index="4" class="java.lang.String" itemvalue="Go Build.go build structLab06.go" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Go Build.go build structlab05.go" />
-        <item index="1" class="java.lang.String" itemvalue="Go Build.go build structLab04.go" />
-        <item index="2" class="java.lang.String" itemvalue="Go Build.go build structLab02.go" />
-        <item index="3" class="java.lang.String" itemvalue="Go Build.go build structLab01.go" />
-        <item index="4" class="java.lang.String" itemvalue="Go Build.go build funcLab08.go" />
+        <item index="0" class="java.lang.String" itemvalue="Go Build.go build structLab06.go" />
+        <item index="1" class="java.lang.String" itemvalue="Go Build.go build structlab05.go" />
+        <item index="2" class="java.lang.String" itemvalue="Go Build.go build structLab04.go" />
+        <item index="3" class="java.lang.String" itemvalue="Go Build.go build structLab02.go" />
+        <item index="4" class="java.lang.String" itemvalue="Go Build.go build structLab01.go" />
       </list>
     </recent_temporary>
   </component>
@@ -327,7 +328,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21103448" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21103448" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914925" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2262069" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -687,6 +688,16 @@
           <caret line="35" column="36" lean-forward="false" selection-start-line="35" selection-start-column="36" selection-end-line="35" selection-end-column="36" />
           <folding>
             <element signature="e#14#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/labs/structLab06.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="25" column="5" lean-forward="false" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+          <folding>
+            <element signature="e#14#26#0" expanded="true" />
           </folding>
         </state>
       </provider>

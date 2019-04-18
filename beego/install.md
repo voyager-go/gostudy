@@ -19,22 +19,22 @@ $ echo 'export PATH="$GOPATH/bin:$PATH"' >> ~/.profile # 或者 ~/.zshrc, ~/.csh
 $ exec $SHELL
 ### 此时使用bee version来查看bee的版本
 artist@artist-pc:~/develop/go$ bee version
-______
-| ___ \
-| |_/ /  ___   ___
-| ___ \ / _ \ / _ \
-| |_/ /|  __/|  __/
-\____/  \___| \___| v1.10.0
+##### ______
+##### | ___ \
+##### | |_/ /  ___   ___
+##### | ___ \ / _ \ / _ \
+##### | |_/ /|  __/|  __/
+##### \____/  \___| \___| v1.10.0
 
-├── Beego     : 1.11.2
-├── GoVersion : go1.12.4
-├── GOOS      : linux
-├── GOARCH    : 386
-├── NumCPU    : 4
-├── GOPATH    : /home/artist/develop/go/
-├── GOROOT    : /usr/local/go
-├── Compiler  : gc
-└── Date      : Thursday, 18 Apr 2019
+##### ├── Beego     : 1.11.2
+##### ├── GoVersion : go1.12.4
+##### ├── GOOS      : linux
+##### ├── GOARCH    : 386
+##### ├── NumCPU    : 4
+##### ├── GOPATH    : /home/artist/develop/go/
+##### ├── GOROOT    : /usr/local/go
+##### ├── Compiler  : gc
+##### └── Date      : Thursday, 18 Apr 2019
 ### 我们可以尝试创建一个项目并运行
 #### 进入/go/src目录下
 #### bee new hello
@@ -42,3 +42,4 @@ ______
 #### bee run
 #### 此时我们打开浏览器访问127.0.0.1:8080
 #### 就可以看到请求的go页面
+#### 更多内容可以到beego的官网查看https://beego.me/quickstart

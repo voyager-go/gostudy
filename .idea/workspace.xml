@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4286bbcc-5091-485b-a076-25e8df59f93f" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/demo/handlers.go" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/negroni.go" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/negroniRouter.go" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,13 +37,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="handlers.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="handlers.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/demo/handlers.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="455">
-              <caret line="24" column="48" lean-forward="true" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
+              <caret line="24" column="51" lean-forward="false" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
               <folding>
                 <element signature="e#14#79#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="negroni.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demo/negroni.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="437">
+              <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+              <folding>
+                <element signature="e#14#71#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="negroniRouter.go" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/demo/negroniRouter.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="7" column="14" lean-forward="false" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+              <folding>
+                <element signature="e#14#71#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -117,6 +142,8 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/demo/context.go" />
         <option value="$PROJECT_DIR$/demo/handlers.go" />
+        <option value="$PROJECT_DIR$/demo/negroni.go" />
+        <option value="$PROJECT_DIR$/demo/negroniRouter.go" />
       </list>
     </option>
   </component>
@@ -228,7 +255,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Build.go build handlers.go">
+  <component name="RunManager" selected="Go Build.go build negroniRouter.go">
     <configuration name="go build context.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
       <module name="gostudy" />
       <working_directory value="$PROJECT_DIR$/" />
@@ -245,20 +272,20 @@
       <filePath value="$PROJECT_DIR$/demo/handlers.go" />
       <directory value="$PROJECT_DIR$/" />
     </configuration>
-    <configuration name="go build interLab01.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
+    <configuration name="go build negroniRouter.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
       <module name="gostudy" />
       <working_directory value="$PROJECT_DIR$/" />
       <go_parameters value="-i" />
       <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/labs/interLab01.go" />
+      <filePath value="$PROJECT_DIR$/demo/negroniRouter.go" />
       <directory value="$PROJECT_DIR$/" />
     </configuration>
-    <configuration name="go build slice.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
+    <configuration name="go build negroni.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
       <module name="gostudy" />
       <working_directory value="$PROJECT_DIR$/" />
       <go_parameters value="-i" />
       <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/slice.go" />
+      <filePath value="$PROJECT_DIR$/demo/negroni.go" />
       <directory value="$PROJECT_DIR$/" />
     </configuration>
     <configuration name="go build spider.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
@@ -270,19 +297,19 @@
       <directory value="$PROJECT_DIR$/" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Go Build.go build interLab01.go" />
-      <item index="1" class="java.lang.String" itemvalue="Go Build.go build slice.go" />
-      <item index="2" class="java.lang.String" itemvalue="Go Build.go build spider.go" />
-      <item index="3" class="java.lang.String" itemvalue="Go Build.go build context.go" />
-      <item index="4" class="java.lang.String" itemvalue="Go Build.go build handlers.go" />
+      <item index="0" class="java.lang.String" itemvalue="Go Build.go build spider.go" />
+      <item index="1" class="java.lang.String" itemvalue="Go Build.go build context.go" />
+      <item index="2" class="java.lang.String" itemvalue="Go Build.go build handlers.go" />
+      <item index="3" class="java.lang.String" itemvalue="Go Build.go build negroni.go" />
+      <item index="4" class="java.lang.String" itemvalue="Go Build.go build negroniRouter.go" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Go Build.go build handlers.go" />
-        <item index="1" class="java.lang.String" itemvalue="Go Build.go build context.go" />
-        <item index="2" class="java.lang.String" itemvalue="Go Build.go build spider.go" />
-        <item index="3" class="java.lang.String" itemvalue="Go Build.go build slice.go" />
-        <item index="4" class="java.lang.String" itemvalue="Go Build.go build interLab01.go" />
+        <item index="0" class="java.lang.String" itemvalue="Go Build.go build negroniRouter.go" />
+        <item index="1" class="java.lang.String" itemvalue="Go Build.go build negroni.go" />
+        <item index="2" class="java.lang.String" itemvalue="Go Build.go build handlers.go" />
+        <item index="3" class="java.lang.String" itemvalue="Go Build.go build context.go" />
+        <item index="4" class="java.lang.String" itemvalue="Go Build.go build spider.go" />
       </list>
     </recent_temporary>
   </component>
@@ -300,7 +327,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="820" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26466382" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32965517" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -309,7 +335,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21103448" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914925" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14206897" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14206897" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39888424" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -334,21 +360,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/array.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/map.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="17" column="33" lean-forward="true" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/slice.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2093">
@@ -722,9 +733,29 @@
     <entry file="file://$PROJECT_DIR$/demo/handlers.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="455">
-          <caret line="24" column="48" lean-forward="true" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
+          <caret line="24" column="51" lean-forward="false" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
           <folding>
             <element signature="e#14#79#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/negroni.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+          <folding>
+            <element signature="e#14#71#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/negroniRouter.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="14" lean-forward="false" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+          <folding>
+            <element signature="e#14#71#0" expanded="true" />
           </folding>
         </state>
       </provider>

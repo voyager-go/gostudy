@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"strconv"
 )
-
+// 使用Golang实现PHP的部分函数
 func main() {
 	Chr(63)
 	//fmt.Println(Bin2Hex("acx"))

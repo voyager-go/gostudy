@@ -18,7 +18,17 @@ func main()  {
 	//fmt.Println(str)
 	//fmt.Println(strings.Contains(str, "s"))
 	//fmt.Println(strings.Index(str, "t"))
-	fmt.Println(strings.LastIndex(str, "s"))
+	//fmt.Println(strings.LastIndex(str, "s"))
 
 	//fmt.Println(strings.IndexRune(str, 5))
+	oldStr := "s"
+	newStr := "l"
+	fmt.Println(strings.Replace(str, oldStr, newStr, 2))
+	strOne := "stringSs"
+	fmt.Println(strings.Count(strOne, "s"))
+	strTwo := "SSSTRINGS"
+	fmt.Println(strings.ToLower(strTwo))
+	strThree := "sssss"
+	fmt.Println(strings.ToUpper(strThree))
+	fmt.Println(strings.NewReader(strOne))
 }

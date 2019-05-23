@@ -58,3 +58,59 @@ func (bb *BlockBrowser) handleGetBlocks(w http.ResponseWriter, r *http.Request) 
 	content = content + "</html>"
 	w.Write([]byte(content))
 }
+
+//处理Url为 http://SERVER_ADDR:8080/generateblock 的请求，生成新区块
+func (bb *BlockBrowser) handleGenerateBlock(w http.ResponseWriter, r *http.Request)  {
+	//获取区块链高度
+	height := bb.blockChain.Iterator().GetCount()
+	//创建新的区块
+	bb.blockChain.AddBlock("MiniBC Block " + strconv.Itoa(height))
+	blockHeight := strconv.Itoa(bb.blockChain.Iterator().GetCount())
+	content := "<html><br>"
+	content = content + "<a href=\"/\">返回首页</a>&nbsp;&nbsp;&nbsp;&nbsp;"
+	content = content + "<a href=\"generateblock\">生成新区块</a>&nbsp;&nbsp;&nbsp;&nbsp;<br>"
+	content = content + "<br><b>&nbsp;&nbsp;&nbsp;&nbsp;当前MiniBC区块链高度：" + blockHeight + "</b><br><br>"
+
+	//遍历区块链
+	iterator := bb.blockChain.Iterator()
+	for {
+		block := iterator.Next()
+		if block == nil {
+			break
+		}
+		content = content + "当前区块哈希值：" + BytesToHex(block.GetHash()) + "<br>"
+		content = content + "当前区块内容为：" +  string(block.Data) + "<br>"
+		content = content + "前一区块哈希值：" +  BytesToHex(block.HashPrevBlock) + "<br>"
+		content = content + "=============================================" + "<br>"
+	}
+	content = content + "</html>"
+	w.Write([]byte(content))
+
+}
+
+//启动区块链浏览器
+func (bb *BlockBrowser) Start() {
+	fmt.Println("=========================================================================")
+	fmt.Println("MiniBC 区块链浏览器已经启动，请通过浏览器http://" + SERVER_ADDR + ":8080访问....")
+	fmt.Println("=========================================================================")
+
+	http.HandleFunc("/", bb.handleIndex)
+	http.HandleFunc("/shutdown", bb.handleShutdown)
+	http.HandleFunc("/getblocks", bb.handleGetBlocks)
+	http.HandleFunc("/generateblock", bb.handleGenerateBlock)
+
+	go http.ListenAndServe(":8080", nil)
+
+	//只有接到退出通知，才能结束
+	select {
+	case <-bb.chanQuit:
+	}
+}
+
+//创建一个区块链浏览器BlockBrowser
+func NewBlockBrowser(blockchain *BlockChain) *BlockBrowser {
+	BlockBrowser := BlockBrowser{}
+	BlockBrowser.chanQuit = make(chan bool)
+	BlockBrowser.blockChain = blockchain
+	return &BlockBrowser
+}

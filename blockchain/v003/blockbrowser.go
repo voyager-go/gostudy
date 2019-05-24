@@ -91,6 +91,7 @@ func (bb *BlockBrowser) handleGenerateBlock(w http.ResponseWriter, r *http.Reque
 //启动区块链浏览器
 func (bb *BlockBrowser) Start() {
 	fmt.Println("=========================================================================")
+
 	fmt.Println("MiniBC 区块链浏览器已经启动，请通过浏览器http://" + SERVER_ADDR + ":8080访问....")
 	fmt.Println("=========================================================================")
 
@@ -107,10 +108,11 @@ func (bb *BlockBrowser) Start() {
 	}
 }
 
-//创建一个区块链浏览器BlockBrowser
+// 创建一个区块链浏览器BlockBrowser
 func NewBlockBrowser(blockchain *BlockChain) *BlockBrowser {
 	BlockBrowser := BlockBrowser{}
 	BlockBrowser.chanQuit = make(chan bool)
 	BlockBrowser.blockChain = blockchain
 	return &BlockBrowser
+
 }

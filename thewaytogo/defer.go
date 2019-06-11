@@ -2,9 +2,30 @@ package main
 import "fmt"
 
 func main() {
-	function1()
-	af()
-	f()
+	fmt.Println(td1(), td2(), td3())
+}
+
+func td1() int  {
+	n := 3
+	defer func() {
+		n =  2
+	}()
+	n++
+	return n	// 按值传递，n的copy已经传给了"返回值"，defer对n做修改，并不能影响到n的copy(返回值)
+}
+
+func td2() (result int){
+	defer func() {
+		result++
+	}()	// 闭包内的result是引用，在原始result上的操作
+	return 0
+}
+
+func td3() (r int)  {
+	defer func(r int) {
+		r = r + 3
+	}(r)	// 按值传递，在r的copy上的操作，r还是0
+	return
 }
 
 func function1() {
@@ -19,10 +40,12 @@ func function2() {
 
 
 // 使用 defer 的语句同样可以接受参数，下面这个例子就会在执行 defer 语句时打印 0：
-func af() {
-	i := 0
-	defer fmt.Println(i)
-	i++
+var ii int = 0
+func dFun() {
+	defer func() {
+		fmt.Println(ii)
+	}()
+	ii++
 	return
 }
 

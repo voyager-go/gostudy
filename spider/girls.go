@@ -18,7 +18,7 @@ func GrabIndexPage()  {
 	url := "http://www.mmmjpg.com"
 	document, err := goquery.NewDocument(url)
 	if err != nil {
-		fmt.Println(err)
+		fmt.Println(fmt.Sprintf("%v", err))
 	}
 	document.Find(".pic li").Each(func(i int, selection *goquery.Selection) {
 		// 缩略图
@@ -33,7 +33,7 @@ func GrabIndexPage()  {
 func GrabDetailPage(link string)  {
 	document,err := goquery.NewDocument(link)
 	if err != nil {
-		fmt.Println(err)
+		fmt.Println(fmt.Sprintf("%v", err))
 	}
 	imgSrc,_ := document.Find(".content img").Attr("src")
 	series,_ := document.Find(".content img").Attr("alt")
@@ -53,20 +53,21 @@ func DownloadImage(src, series, filename string)  {
 	dir := "spider/images/www.mmmjpg.com/" + series + "/"
 	err := os.MkdirAll(dir, os.ModePerm)
 	if err != nil {
-		fmt.Println(err)
+		fmt.Println(fmt.Sprintf("%v", err))
 	}
 	req, err := http.NewRequest("Get", src, nil)
 	if err != nil {
-		fmt.Println(err)
+		fmt.Println(fmt.Sprintf("%v", err))
 	}
 	resp, _ := http.DefaultClient.Do(req)
 	file, err := os.OpenFile(dir + filename, os.O_CREATE|os.O_RDWR, os.ModePerm)
 	if err != nil {
-		fmt.Println(err)
+		fmt.Println(fmt.Sprintf("%v", err))
 	}
 	fmt.Println("正在抓取图片链接为:" + src)
-	if _, err := io.Copy(file, resp.Body);err != nil {
+	if _, err  = io.Copy(file, resp.Body);err != nil {
 		panic("文件保存失败: " + fmt.Sprintf("%v", err))
 	}
+
 	fmt.Println("抓取" + src + "结束")
 }

@@ -5,23 +5,23 @@ import (
 	"time"
 )
 
-func main(){
+func main() {
 	ch := make(chan string)
 	go sendData(ch)
 	go getData(ch)
 	time.Sleep(1e9)
 }
-func sendData(ch chan string){
+func sendData(ch chan string) {
 	ch <- "zhangwenjie"
 	ch <- "liusiji"
 	ch <- "duandapao"
 	ch <- "shumengnan"
 }
 
-func getData(ch chan string){
+func getData(ch chan string) {
 	var input string
 	for {
-		input = <- ch
+		input = <-ch
 		fmt.Printf("%s\n", input)
 	}
 }

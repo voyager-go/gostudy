@@ -1,0 +1,3131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<title>才俊佳丽-世纪佳缘交友网</title>
+<link href="//imgv.jiayuan.com/w4/common/c/base.css" rel="stylesheet" type="text/css" />
+<link href="//imgv.jiayuan.com/w4/liehun/c/new_common.css" rel="stylesheet" type="text/css" />
+<link href="//imgv.jiayuan.com/w4/liehun/c/layout.css" rel="stylesheet" type="text/css" />
+<script type='text/javascript' src='//imgv.jiayuan.com/w4/common/j/jquery.js'></script>
+<script type='text/javascript' src='//imgv.jiayuan.com/w4/hongniang/j/love_common.js'></script>
+<script type="text/javascript" src="//imgv.jiayuan.com/w4/global/j/pv.js"></script>
+<script type="text/javascript" src="//imgv.jiayuan.com/w4/jsLib/JY.login.js"></script> 
+<script type="text/javascript" src="../viplog.js"></script>
+	<!--[if lte IE 6]>
+     <script type='text/javascript' src='//imgv.jiayuan.com/w4/common/j/DD_belatedPNG_0.0.8a_IE6.js'></script>
+     <script>
+        DD_belatedPNG.fix('.ie6png');
+     </script>
+	<![endif]-->
+<!--<script src="//imgv.jiayuan.com/w4/liehun/j/PIE_css.js"></script>-->
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#logo_img").attr("src","//imgv.jiayuan.com/w4/liehun/i/logo_03.gif");
+});
+function get_head_cookie(c_name){
+	if(document.cookie.length>0){
+		c_start=document.cookie.indexOf(c_name + "=");
+		if(c_start!=-1){
+			c_start=c_start + c_name.length+1;
+			c_end=document.cookie.indexOf(";",c_start);
+			if(c_end==-1){
+				c_end=document.cookie.length;
+			}
+			return decodeURIComponent(document.cookie.substring(c_start,c_end));
+		}
+	}
+	return null;
+}
+
+var profile = get_head_cookie('PROFILE');
+if(profile){array_of_profile = profile.split(':');cookie_uid = array_of_profile[0];cookie_sex = array_of_profile[2];cookie_nickname_en = array_of_profile[1];cookie_nickname = decodeURIComponent(cookie_nickname_en);cookie_avatar = array_of_profile[4]=='1' ? 'http://'+array_of_profile[3]+'/avatar.jpg' : array_of_profile[6]+':'+array_of_profile[7];}
+function initAjax() {
+	var ajax = false;
+	if(window.XMLHttpRequest) {
+		ajax = new XMLHttpRequest();
+	}else{
+		try{
+			ajax = new ActiveXObject('Msxml2.XMLHTTP');
+		}catch(e){
+			ajax = new ActiveXObject('Microsoft.XMLHTTP');
+		}
+	}
+	return ajax;
+}
+
+var start = false;
+function checkvip() {
+	if(start == true) {return;}
+		var xmlHttp = initAjax();
+	if(typeof(xmlHttp)!="object") {
+		alert("Your browser does not support ajax");
+		return;
+	}
+	start = true;
+	var url = "checkvip.php";
+	if (start) {
+		xmlHttp.onreadystatechange=function() {
+		if(xmlHttp.readyState==4 && xmlHttp.status==200) {
+			var Result = xmlHttp.responseText;
+			start = false;
+			result = Math.ceil(Result);
+			if(result==4){
+			   $('#service_button').html('<img src="//imgv.jiayuan.com/w4/liehun/i/loginbtn_03.gif" class="ie6png" width="274" height="274">');
+			   $('#service_button').attr('href','profile.php');
+			   $('#service_button').attr('onclick',"send_jy_pv2('|vip_index_myvip_c|')");
+			   send_jy_pv2('|vip_index_myvip_v|');//进入个人中心
+			}else {
+				send_jy_pv2('|vip_index_signup_v|');
+			}
+		}
+		}
+		xmlHttp.open("GET", url, true);
+		xmlHttp.send(null);
+	}
+}
+</script>
+
+<!--[if lte IE 6]>
+     <script type='text/javascript' src='//imgv.jiayuan.com/w4/common/j/DD_belatedPNG_0.0.8a_IE6.js'></script>
+     <script>
+        DD_belatedPNG.fix('.ie6png');
+     </script>
+<![endif]--><!-- IE6 png -->
+<script>
+	var show_app_down_qrcode = false; //包含 //imgv.jiayuan.com/w4/liehun/j/chatbtn.js 必须定义此参数
+	function getVip(){
+		var u = JY.login.getUser();
+		var flag = false;
+		if(u.uid){
+			$.ajax({
+				url: '/ajax/cust_type.php',
+				async: false,
+				type: 'POST',
+				success: function(msg){
+					if(msg == '1'){
+						flag = true;
+					}
+				}
+			})
+		}
+		return flag;
+	}
+	function getUrl(){
+		var arr = '';
+		$.ajax({
+			url: '/ajax/get_looyu_url.php',
+			type: 'POST',
+			async: false,
+			success: function(data){
+				arr = JSON.parse(data);
+			}
+		})
+		return arr;
+	}
+</script>
+<!-- 小能客服 start -->
+<link rel="stylesheet" href="//imgv.jiayuan.com/w4/liehun/c/xiaonengkf.css">
+<script src="//imgv.jiayuan.com/w4/liehun/j/function.js"></script>
+<script src="//imgv.jiayuan.com/w4/liehun/j/xn_chatbtn.js"></script>
+<script src="//imgv.jiayuan.com/w4/liehun/j/xn_talker.js"></script>
+<script>
+    var kf_id = '';
+    var shopid = getUrlParam('sd');
+    function xnClick(){
+        $.ajax({
+            url: '/xiaoneng_kf/index.php',
+            type: 'post',
+            data: "sd=" + shopid,
+            dataType: 'json',
+            success: function(json) {
+                console.log(json);
+                if(json.code == 1 && json.msg !== '') {
+                    kf_id = json.msg;
+                    nTalker();
+                }else{
+                    leaveMsg();
+                }
+            }
+        });
+    }
+    var nTalker = function(){
+        NTKF.im_openInPageChat(kf_id);
+    }
+    var leaveMsg = function(){
+        $('.leavemsgbox').slideDown();
+    }
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return '';
+    }
+</script>
+<div class="leavemsgbox">
+    <div class="leavemsg-head">
+        <span class="logo-magpie"></span>
+        <span class="leavemsg-head-name">世纪佳缘线下服务顾问</span>
+        <a href="javascript:;" class="leavemsg-close"></a>
+    </div>
+    <div class="leavemsg-cont">
+        <div class="leavemsg-success"><p>提交成功</p></div>
+        <form action="" id="leavemsgform">
+            <div class="iptbox fn-clear">
+                <div class="ipt-name">姓名：</div>
+                <div class="ipt-cont">
+                    <input type="text" id="xnfullname" name="xnfullname" class="ipt ipt-fullname" placeholder="请输入您的真实姓名">
+                </div>
+            </div>
+            <div class="iptbox fn-clear">
+                <div class="ipt-name">性别：</div>
+                <div class="ipt-cont">
+                    <input type="radio" class="gender" name="gender" id="gender-male" value="1"> <label for="gender-male">男</label>&nbsp;&nbsp;
+                    <input type="radio" class="gender" name="gender" id="gender-female" value="2"> <label for="gender-female">女</label>
+                </div>
+            </div>
+            <div class="iptbox fn-clear">
+                <div class="ipt-name">手机号：</div>
+                <div class="ipt-cont">
+                    <input type="text" id="xnphone" name="xnphone" class="ipt" maxlength="11" placeholder="请输入您的手机号">
+                    <p class="phonetip">工作人员会通过此手机号与您联系</p>
+                    <p class="leavemsgerr" id="leavemsgerr"></p>
+                </div>
+            </div>
+            <a href="javascript:;" class="btn-leavemsg-sign" id="btn-leavemsg-sign">提交</a>
+        </form>
+    </div>
+</div>
+<script>
+    $(function(){
+        $('.leavemsg-close').on('click', function(){
+            $('.leavemsgbox').slideUp();
+        })
+        $("#xnfullname,#xnphone,#gender-male,#gender-female").focus(function(){
+            $("#leavemsgerr").html('');
+        })
+        $('#btn-leavemsg-sign').on('click', function(){
+            window.location.href='//vip.jiayuan.com/register.php';
+
+            var xnfullname = $.trim($('#xnfullname').val());
+            var gender = $('#leavemsgform .gender[name="gender"]:checked').val();
+            var xnphone = $.trim($('#xnphone').val());
+
+            var submitflag = false;
+            if(xnfullname == "" || xnfullname.length == 0) {
+                $('#leavemsgerr').html("请输入您的真实姓名");
+                submitflag = false;
+            }else if(xnfullname.ByteCount(true) < 2 || xnfullname.ByteCount(true) > 20) {
+                $('#leavemsgerr').html("姓名限2~20个字符");
+                submitflag = false;
+            }else if (!xnfullname.checkNickname()) {
+                $('#leavemsgerr').html("姓名限数字、字母、中文");
+                submitflag = false;
+            }else if (!isNaN(xnfullname)) {
+                $('#leavemsgerr').html("姓名不能全是数字");
+                submitflag = false;
+            }else if(!gender) {
+                $('#leavemsgerr').html('请选择性别');
+                submitflag = false;
+            }else if(xnphone == "" || xnphone.length == 0) {
+                $('#leavemsgerr').html("请填写手机号");
+                submitflag = false;
+            }else if(!is_mobile(xnphone)) {
+                $('#leavemsgerr').html("请填写有效的手机号");
+                submitflag = false;
+            }else{
+                $('#leavemsgerr').html('');
+                submitflag = true;
+            }
+            if(submitflag){
+
+                $.ajax({
+                    url: '/xiaoneng_kf/insert.php?',
+                    type: 'post',
+                    data: {fullname:xnfullname,gender:gender,phone:xnphone},
+                    dataType: 'json',
+                    success: function(data){
+                        if(data.code == '1'){
+                            $('#leavemsgform').hide();
+                            $('.leavemsg-success').show();
+                        }else{
+                            $('#leavemsgerr').html(data.msg);
+                        }
+                    }
+                });
+
+            }
+        })
+
+    })
+</script>
+<!-- 小能客服 end --></head>
+<body>
+<!--头部begin-->
+<div class="head fn-clear">
+	<div class="banner fn-clear" style="background-image:none;">
+    	<a id="shouye_logo" href="../" class="logohref fn-left"><img id="logo_img" src="" width="214" height="61" title=""/></a>
+        <span class="hotline fn-right" id="service_phone_header" style="display:none;width:auto;"><a style="color:#ad00bc;" href="/shop/">服务热线</a>：<span id="area_tel" class="telnum"><a href="/shop/detail.php?id=1">4001 520 062</a></span></span> 
+	<div class="icon_qgtel" id="icon_qgtel"  style="display:none">全国热线：4001 520 062</div>
+ 	<div class="topLogin">
+		<div class="loginBox">
+		<span id="head_nologin"  style="display:none">
+				<iframe id="hder_hid_login_win" name="hder_hid_login_win" width=0 height=0 style="display:none" onload="if(typeof JY != 'undefined'){JY.login.frameLoadCallback();}"></iframe>
+				<form id="hder_login_form" target="hder_hid_login_win" action="/login/dologin.php?channel=15&position=10" method="post">
+				<!--<label class="f_gray_999">用户名</label><input type="text" name="name" id="login_name" class="input_text"/>-->
+				<!--<label class="f_gray_999">密码</label><input type="password" autocomplete="off" id="login_pass" name="password"  onkeydown="if(typeof event !='undefined' && event.keyCode==13)login();"class="input_text"/>-->
+				<!--<a href="javascript:;;" onClick="login();" class="loginBtn"></a>-->
+	 <a href="/register.php?action=login&amp;pre_url=" class="col_2">从这里登录</a>
+				<a target="_blank" href="http://www.jiayuan.com/login/validate.php" class="a_gray_999">忘记密码</a>
+				<a id="51register" target="_blank" href="//vip.jiayuan.com/register.php" class="a_gray_999">免费注册</a>
+				</form>
+		</span>
+		</div>
+	</div>
+
+
+    </div>
+    <div class="navbar">
+    	<div class="nav fn-clear">
+        	<div class="navlinks fn-clear">
+				<a id="shouye" href="../" onClick="send_jy_pv2('|vip_head_navindex_c|');">首页</a>
+				<a id="gerenzhongxin" href="../profile.php" onClick="send_jy_pv2('|vip_head_myvip_c|');">个人中心</a>
+				<a id="aiqingdingzhi" href="../fuwujieshao.html" onClick="send_jy_pv2('|vip_head_navfwjs_c|');">服务介绍</a>
+				<a id="caijunjiali" href="../cjjllist.php" onClick="send_jy_pv2('|vip_head_navcjjl_c|');">才俊佳丽</a>
+				<a id="fuwuzhongxin" href="../shop/" onClick="send_jy_pv2('|vip_head_navfwzx_c|');">全国服务中心</a>
+				<a id="yiduiyihetong" href="../hetong.php" onClick="send_jy_pv2('|vip_head_hetong_c|');">合同查询</a>
+				<a id="recruit" href="../recruit.php" >人员招聘</a>
+				<a id="hongzhengshu" href="../assistcertificate.php">证书查询</a>
+				<a href="../gonggao.php">管理公告</a>
+				<a id="dianzifapiao" href="../electronicinvoice.php" onclick="send_jy_pv2('|vip_head_invoice_c|');">发票信息</a>
+				<a id="marriage_test" href="../marriage/marriage_index.php" onclick="send_jy_pv2('|vip_head_marriage_c|');">婚恋测评</a>
+            </div>
+            <div id="head_login" class="loginbox">
+           	 	<a href="javascript:window.location.href='../login/?pre_url=/vip/'" id="loginuser" class="loginuser"><!-- 登录 --></a>&nbsp;|&nbsp;
+				<a href="/login/logout2.php" id="logout" class="logout" onClick="javascript:document.getElementById('logout').style.display = '';" style="display:none">退出</a><a href="http://www.jiayuan.com" class="backtojy">返回佳缘</a>
+        	</div>
+        </div>
+
+    </div>
+</div>
+<!--头部end-->
+<script>
+var basePath = "/vip/";
+if(/xique|vip.jiayuan|vip.miuu/.test(location.host))
+{
+   basePath = "/";
+}
+$("#shouye_logo").attr("href", basePath );
+
+</script><script type="text/javascript">
+$(document).ready(function(){
+	document.title="才俊佳丽-世纪佳缘交友网"; 
+});
+</script>
+<style>
+
+/* common */
+.f_bold{font-weight:bold;}.aclear{clear:both;height:0px;display: block;width:1px;margin:0;padding:0;border:none;font: normal 0px/0px arial;}
+.btn30_pink_95 {width:95px; height:30px; line-height:30px; text-align:center; color:#fff; background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/buttonBg30.png) no-repeat 0 -540px; _background:url(//imgv.jiayuan.com/w4/common/i/buttonBg30.gif) no-repeat 0 -540px; display:inline-block;}
+.btn30_pink_95:hover { background-position:0 -570px; text-decoration:none;}
+.btn30_pink_108 {width:108px; height:30px; line-height:30px; text-align:center; color:#fff; background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/buttonBg30.png) no-repeat 0 -600px; _background:url(//imgv.jiayuan.com/w4/common/i/buttonBg30.gif) no-repeat 0 -600px; display:inline-block;}
+.btn30_pink_108:hover { background-position:0 -630px; text-decoration:none;}
+.btn30_pink_134 {width:134px; height:30px; line-height:30px; text-align:center; color:#fff; background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/buttonBg30.png) no-repeat 0 -720px; _background:url(//imgv.jiayuan.com/w4/common/i/buttonBg30.gif) no-repeat 0 -720px; display:inline-block;}
+.btn30_pink_134:hover { background-position:0 -750px; text-decoration:none;}
+.btn30_blue_95 {width:95px; height:30px; line-height:30px; text-align:center; color:#fff; background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/buttonBg30.png) no-repeat 0 -960px; _background:url(//imgv.jiayuan.com/w4/common/i/buttonBg30.gif) no-repeat 0 -1020px; display:inline-block;}
+.btn30_blue_95:hover { background-position:0 -990px; text-decoration:none;}
+.btn30_blue_108 {width:108px; height:30px; line-height:30px; text-align:center; color:#fff; background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/buttonBg30.png) no-repeat 0 -1020px; _background:url(//imgv.jiayuan.com/w4/common/i/buttonBg30.gif) no-repeat 0 -1020px; display:inline-block;}
+.btn30_blue_108:hover { background-position:0 -1050px; text-decoration:none;}
+.btn30_gray_95 {width:95px; height:30px; line-height:30px; text-align:center; color:#666; background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/buttonBg30.png) no-repeat 0 -180px; _background:url(//imgv.jiayuan.com/w4/common/i/buttonBg30.gif) no-repeat 0 -180px; display:inline-block;}
+.btn30_gray_95:hover { background-position:0 -210px; text-decoration:none;}
+html,body{background:#f7f7f7;}
+/* pages */
+.pages{width: 100%;margin-bottom:25px;clear:both; overflow:hidden; margin-top:32px;}
+.pages ol{height: 20px;}
+.pages li{float: right;margin: 0 0 0 8px;}
+.pages li a{background: #E8E8E8;color: #333;display: block;height: 20px;line-height: 20px;text-align: center;width: 40px;}
+.pages li a:hover,.pages li.on a{background: #F3969C;color: #FFF;text-decoration: none;}
+/* loginBox */
+/* header_liehun */
+.header_liehun{height:85px;width:100%;background-color:#e36aa3;}
+.header_liehun .headMain{width:970px;margin:0 auto;}
+.header_liehun .logoLink{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_logo.jpg) no-repeat;display:inline-block;width:105px;height:85px;}
+.header_liehun .flashBox{width:270px;height:85px;}
+.header_liehun .mainNav_liehun{height:85px;}
+.mainNav_liehun  li{float:left;margin:35px 5px 0;display:inline;width:75px;}
+.mainNav_liehun  li a{display:inline-block;height:31px;line-height:31px;width:75px;text-align:center;color:#fff;font-weight:bold;font-size:14px;}
+.mainNav_liehun  li.curr a,.mainNav_liehun  li a:hover{background-color:#fff;color:#d34186;text-decoration:none;}
+/* middleWrap */
+.middleWrap{width:100%;}
+.middleMain{width:970px;margin:0 auto;}
+/* loveTestBox */
+.loveTestBox{border:8px solid #d9d9d9;background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_caijunjiali.jpg) no-repeat;height:459px;margin:15px 0 0;}
+.loveTestCon{padding: 112px 0 0 131px;width:601px;}
+.loveTestCon .topTitle{font-weight:bold;margin-bottom:20px;}
+.loveTestCon .btnBox{}
+.btnBox a.testBtn{display:inline-block;background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_btn.png) no-repeat 0 0;width:127px;height:41px;color:#fff;font:bold 16px/41px arial;text-align:center;}
+.btnBox a.testBtn:hover{text-decoration:none;background-position:-129px 0;}
+.btnBox .noteInfor{color:#92777c;margin-left:10px;vertical-align:bottom;}
+dl.step{margin-bottom: 15px;padding-right: 45px;}
+dl.step dt{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_tag_ico.jpg) no-repeat 0 2px;color: #666;font: bold 16px/22px arial;padding-left: 15px;margin-bottom:5px;}
+dl.step dd{color: #999;font: 14px/30px arial;padding-left: 15px;}
+/* applyBox */
+.applyBox{}
+.applyBox .topTitle{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/img_02.jpg) no-repeat center center;height: 27px;padding-right: 5px;padding-top: 35px;text-align: right;}
+/* form_caijun */
+.form_caijun{background-color: #FFF;border-bottom: 1px solid #E5E5E5;padding: 30px 82px;}
+.form_caijun .top1{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/img_03.jpg) no-repeat;height: 30px;margin-bottom: 20px;width: 100%;}
+.form_caijun .top2{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/img_04.jpg) no-repeat;border-bottom: 1px solid #EFEFEF;height: 80px;margin-bottom: 20px;width: 100%;}
+.form_caijun .top3{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/img_05.jpg) no-repeat;height: 80px;margin-bottom: 20px;width: 100%;}
+.formWrap_caijun{position:relative;width:100%;}
+.formWrap_caijun .cTop,.formWrap_caijun .cBottom{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_radiusBox_02.jpg) no-repeat;height:15px;width:100%;overflow:hidden;position:absolute;left:0;}
+.formWrap_caijun .cTop{top:0;}.formWrap_caijun .cBottom{background-position:0 -15px;bottom:0;}
+.formWrap_caijun .cMain{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_radiusBox_01.jpg) repeat-y;padding:15px 20px;}
+.formWrap_caijun .cMain .whiteLine{background-color: #FFF;font-size: 0;height: 1px;margin-bottom: 25px;overflow: hidden;}
+.formTitle_caijun{border-bottom: 1px solid #cac3b7;height: 35px;}
+.formTitle_caijun strong{color: #5d492e;margin-right:10px;}
+.formCon_caijun{}
+.formCon_caijun .formItem{margin-bottom: 20px;}
+.formItem label{color: #745D3E;display: inline-block;font-size: 14px;text-align: right;vertical-align: top;width: 95px;}
+.formItem select{width:140px;vertical-align: middle;padding:1px;}
+.formItem textarea{border: 1px solid #CBC4B8;color: #999;height: 85px;padding: 5px;width: 560px;}
+.formItem .input_text,.formItem .input_text_s{border: 1px solid #CAC3B7;height: 16px;padding: 2px 3px;width: 132px;vertical-align:middle}
+.formItem .input_text_s{width:60px;}
+.formItem .rightNote{color: #f00;margin-left: 5px;}
+.formItem .inputBox{display:inline-block;width:140px;}
+.formCon_caijun  .formSubmit{margin-bottom: 20px;text-align:center;}
+.formCon_caijun  .formSubmit a.submitBtn{display:inline-block;background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_btn.png) no-repeat 0 -45px;width:127px;height:41px;color:#fff;font:bold 16px/41px arial;text-align:center;}
+.formCon_caijun  .formSubmit a.submitBtn:hover{text-decoration:none;background-position:-127px -45px;}
+/* form_liehun */
+.form_liehun{background-color: #FFF;border-bottom: 1px solid #E5E5E5;padding: 40px 82px;}
+.form_liehun .top1{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/img_01.jpg) no-repeat;height: 70px;width: 100%;}
+.form_liehun .top2{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/img_06.jpg) no-repeat;height: 179px;margin-bottom: 20px;width: 100%;}
+.form_liehun .top3{height:40px;margin-bottom: 20px;padding-left:35px;}.form_liehun .top3 img{vertical-align:middle;margin:0 2px;}
+.formWrap_liehun{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_form_01.jpg) no-repeat;height: 374px;margin: 0 auto;position: relative;width: 571px;}
+.formWrap_liehun div{position: absolute;}
+.formWrap_liehun .input_text{border: 1px solid #D6D6D6;height: 16px;padding: 2px 3px;width: 112px;}
+.formWrap_liehun .input_radio{margin: 0 3px 0 0;vertical-align: middle;}
+.formWrap_liehun select{height: 21px;width: 170px;}
+.formItem_name{height: 21px;left: 342px;top: 112px;width: 120px;}
+.formItem_sex{left: 320px;top: 148px;}
+.formItem_mobile{left: 342px;top: 182px;}
+.formItem_salary{left: 342px;top: 218px;}
+.formItem_money{left: 365px;top: 255px;}
+.formWrap_liehun  .formSubmit {left: 260px;text-align: center;top: 315px;}
+.formWrap_liehun  .formSubmit a.submitBtn{display:inline-block;background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_btn.png) no-repeat 0 -90px;width:246px;height:39px;color:#fff;font:bold 16px/41px arial;text-align:center;}
+.formWrap_liehun  .formSubmit a.submitBtn:hover{text-decoration:none;background-position:0 -131px;}
+/* topTitle_liehun */
+.topTitle_liehun{height:50px;}
+.topTitle_liehun .cLeft{display:inline-block;padding-top:13px;height:24px;}
+.topTitle_liehun .cLeft .tag_pink,.topTitle_liehun .cLeft .tag_blue{display:inline-block;background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico.png) no-repeat 0 0;width:4px;height:16px;margin-right:10px;vertical-align:text-bottom;}
+.topTitle_liehun .cLeft .tag_blue{background-position:0 -20px;}
+.topTitle_liehun .cRight{width:300px;text-align:right;line-height:50px;}.topTitle_liehun .cRight a{margin-left:3px;}
+/* helpBox */
+.helpBox{background-color: #FFF;border: 5px solid #E4E4E4;padding:30px 20px;}
+.questionsBox{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_helpBanner.jpg) no-repeat;padding-left:11px;width:897px;}
+.questionsBox .askCurr{height:37px;line-height:37px;padding-left:540px;width:357px;}
+.questionsBox .askBox{width:521px;border:1px solid #b8b8b8;border-top:medium none;height:258px;overflow:hidden;}
+.questionsBox .answerBox{width:373px;border:1px solid #bcbcbc;border-top:medium none;border-left:medium none;height:258px;overflow:hidden;}
+.questionsBox .answerBox p{height: 238px;line-height: 35px;overflow-x: hidden;overflow-y: auto;padding: 10px 3px 10px 50px;text-indent: -3em;width: 320px;}
+.askList{padding: 12px 20px;}
+.askList li{border-bottom: 1px dashed #CCC;height: 22px;line-height: 22px;margin-bottom: 8px;padding-bottom: 8px;}
+.askList li a.askLink{color: #999;font-size: 14px;}
+.askList li a.askLink:hover{color:#333;text-decoration:none;}
+.askList li a.curr{color:#333}
+.myAsk{padding-left:11px;width:897px;}
+.myAsk .topTitle{width:860px;margin:20px auto 0;border-bottom:1px solid #ebebeb;line-height:30px;height:30px;}
+.myAsk .topTitle .buldIco{display:inline-block;background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico.png) no-repeat 0 -90px;width:14px;height:24px;margin-left:5px;margin-bottom:-5px;}
+.myAskForm{width:860px;margin:20px auto 0;}
+.myAskForm .noteInfor{color: #666;line-height: 20px;margin-bottom: 10px;padding-left: 90px;text-indent: -3em;}
+.myAskForm .formBtn_myAsk{margin-bottom: 35px;padding-left: 94px;}
+.myAskForm .formItem_myAsk{margin-bottom: 15px;}
+.formItem_myAsk label{display: inline-block;font-size: 14px;text-align: right;vertical-align: top;width: 90px;}
+.formItem_myAsk label em{display: inline-block;margin-right: 3px;vertical-align: middle;}
+.formItem_myAsk select{padding: 3px;}.formItem_myAsk img{vertical-align: middle;}
+.formItem_myAsk textarea{height: 80px;width: 400px;}
+.formItem_myAsk .input_text,.formItem_myAsk .input_text_s{padding: 3px;vertical-align: middle;width: 180px;}
+.formItem_myAsk .input_text_s{width: 80px;}
+/* successBox */
+.successBox{padding:104px 534px 198px 60px;width:376px;height:148px;background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_success.jpg) no-repeat 440px 104px #fff;border-bottom:1px solid #e5e5e5;margin-top:15px;position:relative;}
+.successBox .bigfont{color: #333;font: bold 30px/45px arial;}
+.successBox .highlight{padding-bottom: 5px;}
+.successBox .highlight span{background-color: #EEE;display: inline-block;height: 20px;line-height: 20px;padding: 2px 5px;}
+.successBox .backPrev,.successBox .backHome{position:absolute;}
+.successBox .backPrev{height: 75px;left: 730px;top: 140px;width: 70px;}
+.successBox .backHome{height: 75px;left: 825px;top: 140px;width: 70px;}
+/* memberInfor_free */
+.memberInfor_free{border:5px solid #fff;padding:35px;position:relative;min-height:542px;_height:542px;}
+.memberInfor_free .memberShow{position:absolute;left:35px;top:35px;}
+.memberShow .photoBox{padding:5px;}
+.memberShow .photoBox img{width:303px;height:352px;}
+.memberShow .btnBox{padding: 40px 0;text-align: center;}
+.memberShow .btnBox a{font-size: 14px;font-weight: bold;}
+.memberInfor_free .memberDesc{width:518px;padding-left:373px;}
+dl.memberMode{margin-bottom:15px;}
+dl.memberMode dt{}
+dl.memberMode dt .cTitle{border-bottom: 2px solid #B8C8C6;font: bold 14px/24px arial;height:24px;margin-bottom: 15px;}
+dl.memberMode dt .arrowPink,dl.memberMode dt .arrowBlue{display:inline-block;background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico.png) no-repeat 0 -60px;width:12px;height:12px;margin-right:3px;overflow:hidden;*vertical-align:middle;}
+dl.memberMode dt .arrowBlue{background-position:0 -75px;}
+dl.memberMode dd p{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_line.gif) repeat;line-height: 29px;padding-bottom:1px;width:415px;color:#666;}
+dl.memberMode dd .item{display:inline-block;width:205px;}
+.caijunInfor{background-color:#ecf2f4}
+.caijunInfor .memberShow .photoBox{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_boy_photo.jpg) no-repeat;}
+.caijunInfor .memberShow .btnBox{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_boy.jpg) no-repeat center center;}
+.jialiInfor{background-color:#f9f1f2}
+.jialiInfor .jialiFlower{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_flower2.png) no-repeat;position:absolute;bottom: -16px;height: 60px;right: -30px;width: 200px;}
+.jialiInfor .memberShow .photoBox{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_girl_photo.jpg) no-repeat;}
+.jialiInfor .memberShow .btnBox{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_girl.jpg) no-repeat center center;}
+/* memberInfor_vip */
+.memberInfor_vip{height: 518px;padding: 20px 10px;position:relative;}
+.memberInfor_vip .headImg{left: 303px;padding: 10px 9px;position: absolute;top: 61px;width: 322px;}
+.memberInfor_vip .baseInfor_vip{left: 30px;position: absolute;top: 80px;width: 270px;}
+.memberInfor_vip .otherInfor_vip{position: absolute;top: 290px;width: 272px;left:31px;}
+.memberInfor_vip .evaluate_vip{left: 670px;position: absolute;top: 140px;width: 260px;}
+.memberInfor_vip a.signupBtn {left: 390px;position: absolute;top: 480px;width:167px;height:50px;}
+.baseInfor_vip td{color: #666;height: 24px;}
+dl.descModel{margin-bottom: 15px;}
+dl.descModel dt{font: bold 14px/30px arial;}
+dl.descModel dt .icoBlue,dl.descModel dt .icoPink{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico.png) no-repeat -24px -25px;display:inline-block;
+height:11px;width:11px;overflow:hidden;margin-right:5px;margin-bottom:-1px;}
+dl.descModel dt .icoPink{background-position:-24px -40px}
+dl.descModel dd{color: #666;line-height: 26px;padding:0 10px 0 15px;}
+.evaluate_vip dl.descModel dd{line-height: 28px;}
+.requires_vip .cTitle{color: #FFF;font-size: 14px;font-weight: bold;padding: 5px;margin-bottom: 15px;}
+.requires_vip  p{color: #666;line-height: 24px;padding:0 6px 0 15px;}
+.mingshiInfor{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_mingshi.jpg) no-repeat 0 30px #fff;}
+.memberInfor_vip a.signupBtn{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_btn_mingshi.png) no-repeat;}
+.mingshiInfor  .requires_vip .cTitle{background-color: #5FB9FF;}
+.mingyuanInfor{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_mingyuan.jpg) no-repeat 0 30px #fff;}
+.mingyuanInfor  .requires_vip .cTitle{background-color: #ff8e8e;}
+.mingyuanInfor a.signupBtn{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_btn_mingyuan.png) no-repeat;}
+/* loveStoryBox */
+.loveStoryBanner{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_loveStory.jpg) no-repeat;height:108px;width:100%;}
+.loveStoryBox{width:100%;background-color:#fff;padding:25px 0;}
+.loveStoryList{padding-left: 74px;}
+.loveStoryList li{border: 1px solid #d4d4d4;float: left;margin-bottom: 25px;margin-right: 74px;padding: 9px;text-align: center;width: 353px;}
+.loveStoryList li img{width:353px;height:259px;display:block}
+.loveStoryList li .headImg{display:block}
+.loveStoryList li .storyLink{display: inline-block;font: bold 14px/22px arial;margin-top: 10px;color:#999;}
+.loveStoryList li a.storyLink:hover{color:#ec444f;text-decoration:none;}
+.loveStoryBox .pages{width:898px;overflow:hidden;}
+/* loveZoneBox */
+.loveZoneBox{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_rightDesc.jpg) repeat-y 602px 0 #fff;padding: 25px 0 5px;width: 100%;}
+.lovePhotoBox{width: 565px;}
+.lovePhotoBox .lovePhotoShow{height: 384px;margin: 0 0 13px 40px;overflow: hidden;width: 524px;}
+.lovePhotoBox .lovePhotoShow img{height: 384px;overflow: hidden;width: 524px;}
+.lovePhotoSliderWrap{height: 96px;margin-left: 40px;overflow: hidden;padding: 0 38px 0 51px;position: relative;width: 435px;}
+.lovePhotoSliderWrap a.arrowLeft,.lovePhotoSliderWrap a.arrowRight,.lovePhotoSliderWrap a.agrayleft,.lovePhotoSliderWrap a.agrayright{
+background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_btn.png) no-repeat 0 -175px;display: inline-block;width: 38px;height: 96px;position: absolute;top: 0;}
+.lovePhotoSliderWrap a.arrowLeft{left: 0;}
+.lovePhotoSliderWrap a.arrowRight{background-position:-40px -175px;right: 0;}
+.lovePhotoSliderWrap a.agrayleft{background-position:-80px -175px;left: 0;}
+.lovePhotoSliderWrap a.agrayright{background-position:-120px -175px;right: 0;}
+.lovePhotoSlider{height: 96px;overflow: hidden;position: relative;width: 435px;}
+.lovePhotoSlideList{position: absolute;top: 0;width: 1440px;}
+.lovePhotoSlideList li{float: left;margin-right: 14px;width: 131px;}
+.lovePhotoSlideList li a{display: block;height: 92px;outline: medium none;overflow: hidden;width: 127px;border:2px solid #ccc;}
+.lovePhotoSlideList li a:hover{border-color:#FF8182;}
+.lovePhotoSlideList li img{width:127px;height:92px;}
+.lovePhotoSlideList li.current a{border-color:#FF8182;}
+.loverDescBox{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_loverDesc.jpg) no-repeat 20px 0 ;margin-top: 20px;padding: 62px 0 0 40px;width: 524px;}
+.loverDescBox .loverDesc{border: 1px solid #EDEDED;border-top:medium none;padding: 10px 38px 20px;width: 446px;margin-bottom:20px;line-height: 28px;}
+.loverDesc p{color: #888;line-height: 28px;}
+.loverDesc .btnBox{text-align:center;margin-top:20px;}
+.loverDesc .btnBox a{color:#ec3839;font-weight:bold;font-size:14px;}
+.loverDesc .btnBox .marSep{margin-right:30px;}
+.loveZoneBox .rightDesc{padding-left: 40px;width: 327px;}
+.item_phone{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_item_phone.jpg) no-repeat;padding-top: 40px;}
+.item_phoneBg{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_item_phone2.jpg) no-repeat right top;height: 90px;padding-right: 90px;width: 200px;}
+.item_phoneBg p{border-bottom: 1px dotted #CCC;height: 32px;line-height: 32px;width: 200px;}
+.item_phoneBg .icoMobile{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico.png) no-repeat 3px -165px;display: inline-block;height: 20px;margin: 0 5px -3px 0;width: 19px;}
+.item_phoneBg .icoTele{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico.png) no-repeat 0 -190px;display: inline-block;height: 20px;margin: 0 5px -3px 0;width: 21px;}
+.item_phoneBg .highLight{color: #FF6061;font: 16px/32px tahoma;}
+.item_moreStory{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_item_moreStory.jpg) no-repeat;padding-top: 32px;}
+.moreLoveStory li{background-color: #F3F3F3;margin-bottom: 20px;text-align: center;width: 286px;}
+.moreLoveStory li img{width:286px;height:210px;display:block;}
+.moreLoveStory li .headImg{}
+.moreLoveStory li .link{color: #666;display: inline-block;font: bold 14px/30px arial;}
+.moreLoveStory li a.link:hover{color:#ec444f;text-decoration:none;}
+/* bannerAd_liehun */
+.bannerAd_liehun {width:970px;}
+/* loveOrder */
+.loveOrder{background-color:#fff;padding:27px 0;}
+.loveOrder .cLeft{width:570px;padding-left:27px}
+.loveOrderStep{}
+.loveOrderStep .topTitle{height:31px;font:bold 14px/31px SimSun;padding:0 0 0 10px;background-color:#ffdada;}
+.orderStepList{border-bottom: 1px solid #e8e8e8;margin-bottom: 20px;padding: 10px 0 10px 10px;}
+.orderStepList li{height: 32px;line-height: 32px;margin-bottom: 5px;}
+.orderStepList .ico1,.orderStepList .ico2,.orderStepList .ico3,.orderStepList .ico4{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico.png) no-repeat 0 -215px;
+display: inline-block;height: 20px;width: 23px;margin-bottom:-6px;}
+.orderStepList .ico2{background-position:0 -240px;}
+.orderStepList .ico3{background-position:0 -265px;}
+.orderStepList .ico4{background-position:0 -290px;}
+.orderStepList .cLabel{color:#d1566d;}
+.loveOrderHelp .topTitle{height:31px;font:bold 14px/31px SimSun;padding:0 0 0 10px;background-color:#ededed;}
+.loveOrderHelp .topTitle a{font:bold 14px/31px SimSun;color:#000}.loveOrderHelp .topTitle a:hover{text-decoration:none;}
+.loveOrderHelp .helpPhone{padding: 15px 0;}
+.helpPhone p{margin-bottom: 15px;padding-left: 10px;}
+.helpPhone select{padding: 2px;width: 140px;}
+.helpPhone .cityPhone{color: #E31F52;}
+.loveOrder .cRight{width:322px;padding-right:27px}
+.loveOrder .applyLiehun{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_applyHunlian.jpg) no-repeat;height: 55px;margin-bottom: 20px;padding: 142px 0 0 22px;width: 300px;}
+.loveOrder .applyLiehun a{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_btn.png) repeat 0 -275px;color: #FFF;display: inline-block;font: 14px/34px simsun;height: 34px;text-align: center;width: 107px;}
+.loveOrder .applyLiehun a:hover{text-decoration:none;}
+.loveOrder .loveOrderAd {text-align:center;}
+/* member_elite member_vip */
+.middleBg{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_middleBg.jpg) repeat-x 0 50px;}
+.member_elite .topIntro,.member_vip .topIntro{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_flower2.jpg) no-repeat 0 0 #FFF;height: 177px;padding: 15px 0 10px;}
+.topIntro .cLeft{border-right: 1px solid #d4d4d4;height: 170px;margin-right: 40px;padding: 2px 0 0 20px;position: relative;width: 444px;}
+.topIntro .cLeft p{height: 37px;}
+.topIntro .cLeft span{color: #666;border-bottom:1px solid #E0E6E8;padding:10px 0;display:inline-block;line-height:16px;}
+.topIntro .cLeft a{position: absolute;right: 40px;top: 125px;}
+.topIntro .cRight{height: 177px;width: 445px;}
+.topIntro .cRight .picIntro{margin-top: 10px;}.topIntro .cRight .sep_mab{margin-bottom: 25px;}
+.picIntro .picItem{float: left;margin-right: 5px;width: 215px;}
+.picIntro .picItem img{float: left;margin-top: 3px;width: 55px;}
+.picIntro .picItem .rightDesc{float: right;width: 150px;}
+.picItem .rightDesc h5{font-family: "Microsoft Yahei","simsun";font-size: 16px;}
+.picItem .rightDesc .c1{color:#ec407d}.picItem .rightDesc .c2{color:#f49b1c}
+.picItem .rightDesc .c3{color:#3470d5}.picItem .rightDesc .c4{color:#51b636}
+.picItem .rightDesc p{color: #999;}
+.middleSubTitle{padding: 20px 0 0 0;}
+.middleSubTitle .subTab{width: 150px;}
+.middleSubTitle .subTab a{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_btn.png) no-repeat 0 -315px;color: #FFF;display: inline-block;font: bold 16px/33px simsun;
+height: 32px;margin-right: 2px;padding-bottom: 6px;text-align: center;width: 68px;}
+.middleSubTitle .subTab a.curr{background-position: -70px -315px;}
+.middleSubTitle a.tipBtn{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_gray_tip.jpg) no-repeat 0 0;color: #F03B85;display: inline-block;font-family: "Microsoft Yahei","SimSun";
+height: 18px;line-height: 18px;margin-top: 4px;padding: 3px 0 14px 8px;width: 97px;}
+.middleSubTitle a.zhenghun{color: #999;font-family: "Microsoft Yahei";font-size: 14px;margin-top: 8px;}
+.middleSubTitle a.zhenghun span{font-family: simsun,serif;font-weight: bold;margin-left: 5px;}
+.middleSubTitle  a:hover{text-decoration:none;}
+.memberList_elite{margin-right: -11px;padding-bottom:15px;}
+.memberList_elite li{background-color:#fff;border: 1px solid #e7e7e7;padding: 14px 14px 10px;text-align: center;width: 157px;float:left;margin:0 8px 8px 0;height:250px;overflow:hidden;}
+.memberList_elite li img{width:157px;height:186px;}
+.memberList_elite li .memberName{color: #FF6464;font-weight: bold;}
+.memberList_elite li p{line-height: 20px;}
+.member_elite .lovePage,.member_vip .lovePage{margin-bottom:15px;}
+/*member_vip add*/
+.member_vip .topIntro{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_flower3.jpg) no-repeat 0 0 #fff;}
+.member_vip .topIntro .cLeft{border-color:#fff;margin-right:0;}
+.member_vip .topIntro .cRight{width:485px;}
+.member_vip .topIntro .picText{padding-top:20px;}
+.topIntro .picText p{font-family:"Microsoft Yahei", "SimHei","simsun";font-size:14px;color:#666;margin-bottom:15px;}
+.picText p .ico_love{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico.png) repeat 0 -365px;display:inline-block;height:18px;width:24px;margin:0 8px -4px 0}
+.memberList_vip_tabCon{width:100%;overflow:hidden;clear:both;}
+.memberList_vip{width:100%;margin-right:-32px;overflow:hidden; clear:both; }
+.memberList_vip li{background-color: #FFF;border: 1px solid #dedede;float: left;padding: 11px;width: 445px;margin:32px 16px 0 0;cursor:pointer; _display:inline;}
+.memberList_vip li.curr{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_flower5.jpg) no-repeat left bottom #fff;border-color:#e36aa3;}
+.memberList_vip li .headImg{float: left;margin-right: 20px;width: 184px;}
+.memberList_vip li .headImg img{height: 214px;width: 184px;}
+.memberList_vip li .memberDesc_right{float: left;width: 240px;}
+.memberDesc_right p{line-height: 30px;}
+.memberDesc_right p.btnBox{margin-top:20px;}
+.memberDesc_right p.btnBox a{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_btn.png) no-repeat 0 -360px;display:inline-block;height:35px;width:106px;text-align:center;
+font:bold 14px/35px "simsun",arial;color:#da4059;}
+.memberDesc_right p.btnBox a:hover{background-position:-108px -360px;color:#fff;text-decoration:none;}
+.member_vip .lovePage a.prev,.member_vip .lovePage a.next,.member_vip .lovePage a.curr{background-color: #e03778;}
+/* contact_jiayuan */
+.contact_jiayuan{background-color: #FFF;border-bottom: 1px solid #E5E5E5;min-height: 363px;_height: 363px;padding: 40px 40px 60px;position: relative;}
+.contact_jiayuan .contactBox{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_contact_line.jpg) no-repeat 438px 0;padding-right: 445px;width: 445px;}
+.contactBox .topBg{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_contact_top.jpg) no-repeat;height: 12px;width: 405px;overflow:hidden;}
+.contactBox .bottomBg{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_contact_bottom.jpg) no-repeat;height: 56px;}
+.contactBox .tabNav_contact{background-color: #CCC;height: 31px;width: 405px;}
+.tabNav_contact li{float: left;}
+.tabNav_contact li a{color: #666;display: inline-block;font-weight: bold;height: 31px;line-height: 31px;text-align: center;width: 42px;}
+.tabNav_contact li a:hover{text-decoration:none;}
+.tabNav_contact li.curr a{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_contact_tab.jpg) no-repeat;width: 62px;}
+.contactBox .tabCon_contact{border-left: 1px solid #CCC;border-right: 1px solid #CCC;width: 403px;}
+.tabItem_contact{height: 240px;overflow: hidden;}
+.tabItem_contact .topTitle{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/phone2.jpg) no-repeat 20px 25px;color: #E36A8F;font: bold 14px/30px simsun;height: 30px;padding: 20px 0 0 50px;}
+.tabItem_contact .phoneBox{color: #666;font-weight: bold;line-height: 30px;padding: 0 20px 0 50px;}
+.tabItem_contact .phoneBox span{margin-right: 25px;}
+.tabItem_contact .phoneBox2{color: #666;font-weight: bold;line-height: 30px;padding: 0 0 0 50px;width:353px;}
+.tabItem_contact .phoneBox2 .ctit{display:inline-block;width:100px;}
+.tabItem_contact .phoneBox2 .desc {width:253px;}
+.tabItem_contact .phoneBox2 .desc span{margin-right: 20px;}
+.tabItem_contact .imgBox{border-bottom: 1px solid #E2E0DF;border-top: 1px solid #E2E0DF;margin-top: 20px;}
+.contact_jiayuan .flash_contact{position:absolute;width:445px;top:40px;right:40px;}
+/*tab add more*/
+.tabNav_contact li {position:relative;z-index:2;}
+.lastCurr{position:absolute;border:1px solid #ececec;border-top:0;border-radius:0 0 5px 5px;display:none;top:31px;left:0;background:#fff;}
+.tabNav_contact li .lastCurr a{display:block;background-color:#fff;border-top:1px solid #ececec;background:none;height:22px;line-height:22px;padding:0;}
+.tabNav_contact li i{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/tarr.png) no-repeat right center;display:inline-block;width:9px;height:7px;padding-left:2px;}
+.tabNav_contact li .lastCurr a:hover{background:#f0f0f0;}
+.tabNav_contact li a{padding:8px 0;line-height:normal;height:15px;}
+/*tab add more E*/
+/*---index page css---*/
+.conBox_index{margin-top:14px;width:970px;overflow:hidden;}
+/* topSlider_index */
+.topSlider_index{width:680px;position:relative;height:284px;}
+.conBox_topSlider{}
+.conBox_topSlider .imgItem_slider{position: relative;width: 680px;}
+.imgItem_slider .slideImg{}
+.imgItem_slider .slideImg img{width:680px;height:284px;display:block;}
+.imgItem_slider .slideBg{background-color: #000;position:absolute;bottom: 0;left:0;height: 37px;width: 680px;opacity:0.7;z-index:2}
+.imgItem_slider .slideText {position:absolute;bottom: 0;left:0;height: 37px;width: 660px;line-height: 37px;padding: 0 10px;z-index:5}
+.imgItem_slider .slideText .aNote{margin-right: 15px;}
+.tab_topSlider{bottom: 8px;height: 15px;position: absolute;right: 10px;z-index: 10;}
+.tab_topSlider a{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico.png) no-repeat 0 -325px;_background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico.gif) no-repeat 0 -325px;display: inline-block;height: 14px;margin-right: 5px;width: 15px;overflow:hidden;}
+.tab_topSlider a.curr{background-position:0 -310px;}
+/* topIntro_index */
+.topIntro_index{background-color:#fff;width:256px;height:254px;padding:12px 6px 6px;border:6px solid #cacaca;}
+.topIntro_index .ico1,.topIntro_index .ico2,.topIntro_index .ico3,.topIntro_index .ico4{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico.png) no-repeat 0 -215px;
+display: inline-block;height: 20px;width: 23px;margin-bottom:-6px;margin-right:10px;}
+.topIntro_index .ico2{background-position:0 -240px;}
+.topIntro_index .ico3{background-position:0 -265px;}
+.topIntro_index .ico4{background-position:3px -290px;}
+.topIntro_index .ico5{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico.png) no-repeat 0 -340px;display: inline-block;height: 18px;margin: 0 0 -3px 5px;width: 15px;overflow:hidden;*vertical-align:middle;*margin-top:-3px!important;}
+.topIntro_index p{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_line_index.jpg) no-repeat left bottom;color: #666;font: 14px/50px "Microsoft Yahei",arial;height: 50px;text-align: center;}
+.topIntro_index p.last{background: none;}
+.topIntro_index p span{display:inline-block;height:50px}
+.topIntro_index .btnBox{height: 54px;text-align: center;}
+.topIntro_index .btnBox a{background-color: #ED63A4;color: #FFF;display: inline-block;font: 20px/54px "Microsoft Yahei",arial;width: 100%;height: 54px;}
+.topIntro_index .btnBox a:hover{text-decoration:none;}
+.topIntro_index .btnBox a span{display: inline-block;cursor:pointer;}
+/* subNav_index */
+.subNav_index{padding: 4px 0 0;width: 100%;height:54px;}
+.lovewitness,.meitibaodao,.gaoduanhuodong,.ico_pink,.more_blue,.more_gray{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico_index.jpg) no-repeat;display: inline-block;}
+.lovewitness{background-position: 0 -170px;height: 32px;width: 310px;}
+.meitibaodao{background-position: 0 -270px;height: 32px;width:110px;}
+.gaoduanhuodong{background-position: 0 -310px;height: 32px;width:112px;}
+.ico_pink{background-position: -10px 0;height: 32px;width:4px;margin-right:8px;margin-bottom:-2px;}
+.more_blue{background-position: 0 -345px;height: 25px;width:40px;}
+.more_gray{background-position: -70px -345px;height: 25px;width:40px;}
+.subNav_index .tabBox{margin-top:4px;}.subNav_index .tabBox a{margin-right:10px;}
+.subNav_index .tabBox .jiali,.subNav_index .tabBox .jiali_curr,.subNav_index .tabBox .caijun,.subNav_index .tabBox .caijun_curr,
+.subNav_index .tabBox .mingshi,.subNav_index .tabBox .mingshi_curr,.subNav_index .tabBox .mingyuan,.subNav_index .tabBox .mingyuan_curr{
+background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico_index.jpg) no-repeat;display: inline-block;}
+.subNav_index .tabBox .jiali{background-position:0 -109px;height:25px;width:48px;}
+.subNav_index .tabBox .jiali_curr{background-position:-60px -109px;}
+.subNav_index .tabBox .caijun{background-position:0 -140px;height:25px;width:48px;}
+.subNav_index .tabBox .caijun_curr{background-position:-60px -140px;}
+.subNav_index .tabBox .mingshi{background-position:0 -40px;height:25px;width:48px;}
+.subNav_index .tabBox .mingshi_curr{background-position:-60px -40px;}
+.subNav_index .tabBox .mingyuan{background-position:0 -75px;height:25px;width:48px;}
+.subNav_index .tabBox .mingyuan_curr{background-position:-60px -75px;}
+.subNav_index .grayTip{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico_index.jpg) no-repeat 0 -380px;display: inline-block;width: 105px;height:37px;margin-top:4px;}
+.caijunjiali_right{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico_index.jpg) no-repeat 0 -245px;display: inline-block;width: 262px;height:20px;margin-top:10px;}
+.caijunjiali_right .appyLink{display: inline-block;height: 20px;width: 202px;}
+.caijunjiali_right .more{display: inline-block;height: 20px;margin-left: 20px;width: 40px;}
+.winners_right{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico_index.jpg) no-repeat 3px -215px;display: inline-block;width: 225px;height:20px;margin-top:10px;}
+.winners_right .appyLink{display: inline-block;height: 20px;width: 165px;}
+.winners_right .more{display: inline-block;height: 20px;margin-left: 20px;width: 40px;}
+/* lovewitnessList */
+.lovewitnessList{border-bottom: 1px solid #DDD;margin-right:-20px;}
+.lovewitnessList li{float: left;margin-right: 20px;width: 178px;}
+.lovewitnessList li a.headImg{}
+.lovewitnessList li img{width:178px;height:112px;display:block;}
+.lovewitnessList li p{height: 35px;line-height: 32px;text-align: center;}
+/* memberList1_index */
+.memberList1_index{margin-right: -3px;}
+.memberList1_index  li{float: left;margin: 0 3px 3px 0;width: 163px;height:190px;overflow:hidden;position:relative;}
+.memberList1_index  li .headImg{}
+.memberList1_index  li  img{display: block;height: 190px;width: 163px;}
+.memberList1_index  li .slideDesc{position:absolute;left:0;bottom:-64px;width:100%;text-align:center;padding:5px 0;height:54px;z-index:5;}
+.memberList1_index  li .slideBg{background:#000;bottom:-64px;height: 64px;left: 0;opacity: 0.7;position: absolute;width: 100%;z-index: 4;}
+.memberList1_index  li.first{width: 306px;height:383px;}
+.memberList1_index  li.first  img{height: 383px;width: 306px;}
+/* memberList2_index */
+.memberList2_index{margin-right:-22px;}
+.memberList2_index  li{float: left;margin-right: 22px;width: 226px;}
+.memberList2_index  li  img{height: 284px;width: 226px;display:block;}
+.memberList2_index  li p{}
+.memberList2_index  li .viewDescLink{border-bottom: 2px solid #CECECE;color: #999;display: inline-block;height: 30px;line-height: 30px;text-align: center;width: 100%;}
+.memberList2_index  li.curr a.viewDescLink,.memberList2_index  li a.viewDescLink:hover{border-color:#f14d90;color:#000;text-decoration:none;}
+/* tvBox ---activityMain */
+.mediaReport{width:282px;margin-right:20px;}
+.tvBox{width:282px;}
+.hignActivity{width:668px;}
+.activityMain{border: 1px solid #E4E4E4;padding: 1px;width: 664px;}
+.tvSlider{margin-right: 20px;width: 280px;position: relative;height: 185px;overflow:hidden; }
+.tabCon_tvSlider{height: 185px;overflow:hidden;}
+.imgItem_tv{height: 185px;position: relative;width: 280px;}
+.imgItem_tv .slideImg{}
+.imgItem_tv .slideImg img{width:280px;height:185px;display:block}
+.imgItem_tv .slideText{bottom: 0;font: bold 14px/30px simsun;height: 30px;padding-left: 10px;position: absolute;width: 270px;z-index: 5;}
+.imgItem_tv .slideBg{background-color: #000;bottom: 0;height: 30px;opacity: 0.7;position: absolute;width: 100%;z-index: 4;}
+.tab_tvSlider{bottom: 10px;height: 10px;overflow: hidden;position: absolute;right: 10px;z-index: 10;}
+.tab_tvSlider a{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico.png) no-repeat -15px -390px;_background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico.gif) no-repeat -15px -390px;display: inline-block;height: 9px;margin-right: 5px;width: 9px;overflow:hidden;}
+.tab_tvSlider a.curr{background-position:0 -390px;}
+.tab_tvSlider a:hover{}
+.activityList_index{padding-top: 10px;width: 343px;}
+.activityList_index ul{}
+.activityList_index li{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_arrow_left.jpg) no-repeat 0 12px;padding-left:20px;border-bottom: 1px dashed #CCC;height: 32px;line-height: 32px;}
+.activityList_index li.last{border-bottom: medium none;}
+.activityList_index li a{color:#999}
+.activityList_index li a:hover{color:#000;text-decoration:none;}
+/* rightPop_love */
+.rightPop_love{width:244px;position:fixed;_position:absolute;bottom:1px;left:1px;z-index:99;}
+.rightPop_love .headTitle{width:100%;height:28px;background-color:#e36aa3;}
+.rightPop_love .headTitle h5{font-weight:bold;line-height:28px;float:left;width:180px;color:#fff;padding-left:10px;}
+.rightPop_love .headTitle .closeThis{color:#fff;float:right;width:32px;line-height:28px;}.rightPop_love .headTitle a.closeThis:hover{text-decoration:none;}
+.rightPop_love .conBox{background-color:#fff;border:1px solid #e8dbe1;border-top:medium none;}
+.loveIndex_rightPop{padding: 10px 0 0;width: 242px;}
+.loveIndex_rightPop  p{color: #E36AA3;font-weight: bold;height: 26px;line-height: 26px;padding-left: 40px;}
+.loveIndex_rightPop  .tele{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico.png) repeat 0 -405px;display: inline-block;height: 16px;margin: 0 5px -3px 0;width: 16px;}
+.loveIndex_rightPop  .phone{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico.png) repeat 2px -425px;display: inline-block;height: 16px;margin:0 6px -2px 0;width: 16px;}
+.loveIndex_rightPop  .popNote{background-color: #EEDFE6;height: 40px;margin: 10px 1px 1px;text-align: center;color:#cf4586;font:bold 14px/40px arial;}
+/* userInforBox */
+.userInforBox{background-color: #FFF;border-bottom: 1px solid #E5E5E5;padding: 26px 26px 0;}
+.leftMenu_user{margin-right: 25px;width: 168px;}
+.leftMenuList_user{width: 100%;}
+.leftMenuList_user li{height: 35px;margin-bottom: 1px;width: 100%;}
+.leftMenuList_user li a{background-color: #F7F7F7;color: #E36AA3;display: block;height: 35px;padding-left: 20px;width: 148px;font:bold 14px/35px sinsum;}
+.leftMenuList_user li.curr a{background-color: #E36AA3;color: #FFF;}.leftMenuList_user li a:hover{text-decoration:none;}
+.rightCon_user{width: 725px;}
+.userInfor_table{border: 1px solid #FDCCEA;border-collapse:collapse;width: 724px;margin-bottom:30px;}
+.userInfor_table td{padding: 5px;text-align: center;border: 1px solid #FDCCEA;empty-cells:show;font-family:sinsum;color:#666;}
+.userInfor_table td.itemName{font-weight: bold;}.userInfor_table td.tal{text-align:left;}
+.userInfor_table td.padleft1{padding-left:10px;}.userInfor_table td.padleft2{padding-left:20px;}
+.userInfor_table td.padleft3{padding-left:25px;}.userInfor_table td.padleft4{padding-left:47px;}
+.userInfor_table td.title{padding-left:10px;color: #E36AA3;font-size: 14px;font-weight: bold;text-align: left;}
+.userInfor_table tr.pinkBg td{background-color:#fff9fd;}
+.userInfor_table .photoList{padding: 15px 20px 0;}
+.userInfor_table .photoList li{width:132px;height:142px;overflow:hidden;float:left;margin:0 20px 0 0;padding-bottom:15px;}
+.userInfor_table .photoList li a{display:table-cell;*display:block;vertical-align:middle;text-align:center;width:130px;height:140px;border:1px solid #e4c0d3;}
+.userInfor_table .photoList li i{*display:inline-block;*height:100%;*vertical-align:middle}
+.userInfor_table .photoList li img{_width: expression(this.width >130 ? 130: true);_height: expression(this.height >140 ? 140: true); max-width: 130px;max-height: 140px;*vertical-align:middle;}
+.fitUserBox{width:100%;}
+.fitUserList{width:100%;}
+.fitUserList li{width:100%;float:left;position:relative;padding-bottom:20px;border-bottom:1px solid #ccc;margin-bottom:20px;}
+.fitUserList li .headImg{width:116px;height:142px;display:block;padding:4px;border:1px solid #ccc;float:left;margin-right:20px;}
+.fitUserList li .headImg img{width:116px;height:142px;display:block}
+.fitUserList li .rightDesc{float: left;width: 370px;}
+.fitUserList li .rightDesc .textDesc{color: #666;line-height: 24px;padding-left: 6em;text-indent: -6em;}
+.fitUserList li .btnBox{bottom: 20px;position: absolute;right: 0;width: 200px;}
+.fitUserList li .btnBox a{float:left;}.fitUserList li .btnBox a.btn30_pink_95{margin-right:10px;}
+.fitUserBox .pages{}
+.fitUserBox .pages ol{}
+.fitUserBox .pages li a{background:#fff;border: 1px solid #CFCFCF;height: 18px;line-height: 18px;}
+.fitUserBox .pages li a:hover,.fitUserBox  .pages li.on a{background:#FFEEF4;border: 1px solid #D32972;color: #D32972;}
+/*--- applyVipBox ---*/
+.applyVipBox{background-color: #FFF;border-bottom: 1px solid #E5E5E5;padding: 30px 0;width:970px;overflow:hidden;}
+/* applyVip_caption */
+.applyVip_caption{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_line_mid.jpg) no-repeat scroll center bottom;height: 52px;margin-bottom: 5px;padding: 10px 82px 0;}
+.applyVip_caption .cTitle{color: #F44698;font: bold 16px/36px simsun;width: 600px;}
+.applyVip_caption .currpage{color: #999;text-align: right;width: 100px;line-height:36px;}
+/* applyVipForm */
+.applyVipForm{padding:0 82px;width:806px;}
+.applyVipForm .input60{width:60px;}.applyVipForm .cNote{padding:5px 0; width:560px;}.applyVipForm .cname{margin-right:5px;color:#666;}
+.applyVipForm .input_text{padding: 2px 5px;vertical-align: middle;}
+.applyVipForm .input_radio{vertical-align:middle;}
+.applyVipForm .input_check{vertical-align: middle;}
+.applyVipForm  select{padding: 2px;vertical-align: middle;}
+.applyVipForm  textarea{height: 80px;vertical-align: middle;width: 450px;padding:5px;}
+.applyVipForm .applyVipTit{float: left;margin-bottom: 20px;width: 806px;}
+.applyVipForm .applyVipTit span{font-size:14px;font-weight:bold;}
+.applyVipForm .applyVipTit .ico{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_btn2.jpg) no-repeat 0 -100px;display:inline-block;width:16px;height:16px;margin:0 8px -3px 0;}
+.applyVipForm .applyVipItem{float: left;margin-bottom: 20px;width: 806px;}
+.applyVipItem .applyVipLeft{display: inline-block;font-size: 14px;margin-right: 10px;width: 96px;text-align:right;}
+.applyVipItem .applyVipRight{width: 700px;}
+.applyVipRight .subLabel{vertical-align: middle;}
+.applyVipRight .checkCon{width:420px;}
+.applyVipRight .checkCon li{float:left;margin:0 3px 5px 0;white-space:nowrap;}
+.applyVipRight .checkCon2{width:445px;}
+.applyVipRight .checkCon2 li{float:left;width:145px;margin:0 3px 5px 0;white-space:nowrap;}
+.applyVipRight .checkCon4{width:470px;}
+.applyVipRight .checkCon4 li{float:left;width:230px;margin:0 3px 5px 0;white-space:nowrap;}
+.applyVipRight .checkCon3{}
+.applyVipRight .checkCon3 .citem{margin-right:3px;}
+.applyVipForm .btnBox{text-align: center;width: 806px;}
+.applyVipForm .btnBox a{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_btn2.jpg) no-repeat;display: inline-block;height: 41px;width: 127px;}
+.applyVipForm .btnBox a:hover{}
+.applyVipForm .btnBox a.nextStepBtn{background-position: 0 -50px;}
+.applyVipForm .btnBox a.nextStepBtn:hover{background-position: -129px -50px;}
+.applyVipForm .btnBox a.submitBtn:hover{background-position: -129px 0;}
+.applyVipStep3 .applyVipLeft{width:176px;}.applyVipStep3 .applyVipRight{width:620px;}
+.applyVipForm .applyVipItems{width: 766px;padding:0 20px;}
+.applyVipItems li{float: left;margin-bottom: 20px;width: 383px;}
+.applyVipItems li label{display: inline-block;text-align: right;width: 80px;margin-right:10px;}
+.applyVipForm  .sendwordBox{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_jiyu.jpg) repeat;border: 1px solid #D8D8D8;margin: 30px auto 20px;padding: 40px 30px;position: relative;width: 669px;}
+.applyVipForm  .sendwordBox h5{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_line39.jpg) repeat;color: #666;font: 18px/38px simsun;height: 38px;margin-bottom: 10px;
+overflow: hidden;padding-bottom: 1px;padding-left: 20px;}
+.applyVipForm  .sendwordBox .textdesc{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_line39.jpg) repeat;color: #666;font: 16px/39px simsun;margin-bottom: 20px;padding:0 20px;text-indent: 2em;}
+.applyVipForm  .sendwordBox .signature{color: #666;font: bold 20px/38px simsun;padding-right: 30px;text-align: right;}
+.applyVipForm  .sendwordBox .bottomShad{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_jiyu_bottom.jpg) no-repeat;bottom: -15px;height: 14px;left: -1px;overflow: hidden;position: absolute;width: 729px;}
+/* 20130416 鐢宠鐚庡�椤甸潰鏍峰紡 write by hongye */
+.cTitle_liehun{height: 32px;}
+.cTitle_liehun .keyTit{font: bold 16px/32px "SimSun";}
+.applyLiehun2{background-color: #FFF;margin-top: 15px;width: 936px;padding: 12px 0 20px 34px;}
+.applyLiehun2 .inforBox{float: left;margin-right: 18px;width: 372px;}
+.applyLiehun2 .applyBox_liehun{float: left;width: 514px;}
+.applyLiehun2 .keyText{color:#f69}
+.cService_liehun{margin:12px 0 15px;}
+.cService_liehun .topImg{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_service.jpg) no-repeat;height: 146px;width: 372px;}
+.cService_liehun .serviceDesc{margin-top: 12px;}
+.cService_liehun .serviceDesc .tit{color: #333;font: 14px/28px "SimSun";}
+.cService_liehun .serviceDesc .cNote{color: #999;font: 12px/24px "SimSun";margin-bottom: 5px;padding-left: 26px;}
+.cService_liehun .serviceDesc  em{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico2.gif) no-repeat;display: inline-block;margin-right: 10px;width: 16px;}
+.cService_liehun .serviceDesc  em.ico1{height: 15px;margin-bottom: -4px;}
+.cService_liehun .serviceDesc  em.ico2{background-position: 0 -23px;height: 12px;margin-bottom: -2px;}
+.cService_liehun .serviceDesc  em.ico3{background-position: 0 -45px;height: 12px;margin-bottom: -1px;}
+.cHotline_liehun{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/balloon.jpg) no-repeat 260px 0;height: 80px;width: 360px;}
+.cHotline_liehun p{color: #666;font: 14px/40px arial;}
+.cHotline_liehun p.top{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_line1.jpg) no-repeat left bottom;}
+.cHotline_liehun p em{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico2.gif) no-repeat;display: inline-block;margin-right: 10px;width: 16px;}
+.cHotline_liehun p em.tel{background-position: 0 -66px;height: 15px;margin-bottom: -3px;}
+.cHotline_liehun p em.iphone{background-position: 3px -90px;height: 16px;}
+.applyForm_liehun{border: 1px solid #E5E5E5;margin-top:8px;margin-bottom:13px;}
+.applyForm_liehun .formHead{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_title1.jpg) repeat-x;font: bold 16px/46px "SimSun";height: 46px;margin-bottom: 25px;text-align: center;}
+.applyForm_liehun .applyFormItem{margin-bottom: 18px;}
+.applyFormItem  label{color: #666;display: inline-block;line-height: 24px;margin-right: 5px;text-align: right;width: 135px;vertical-align:middle;}
+.applyFormItem  input{border: 1px solid #CDCDCD;color: #666;height: 22px;line-height: 22px;padding: 0 5px;vertical-align:middle;}
+.applyFormItem  input.grayText{color:#ccc}
+.applyFormItem  input.cPhone{width:180px;}
+.applyFormItem  select{border: 1px solid #CDCDCD;height: 24px;line-height: 24px;padding: 2px;color:#ccc}
+.applyFormItem  .match{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/check.gif) no-repeat;display: inline-block;height: 16px;margin: 0 0 -3px 5px;width: 16px;}
+.applyFormItem  .tipBox{background-color:#fff7f7;border:1px solid #f3d9d9;display: inline-block;height: 22px;line-height: 22px;position: relative;margin-left:10px;
+-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;vertical-align:middle;}
+.applyFormItem  .wrong{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/wrong.gif) no-repeat 0 4px;display: inline-block;height: 22px;line-height: 22px;*line-height: 23px;margin: 0 0 0 5px;padding-left: 20px;color:#c00;padding-right:5px;}
+.applyFormItem a.getValidateBtn{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_btn.png) no-repeat 0 -452px;width:104px;height:24px;display:inline-block;font:12px/24px arial;color:#666;text-align:center;margin-left:5px;}
+.applyFormItem a.getValidateBtn:hover{text-decoration:none;}
+.tipBox .arrow_left{height: 12px;left: -10px;position: absolute;top: 6px;width: 10px;z-index: 10;overflow:hidden;}
+.tipBox .arrow_left em{border-width: 5px;border-style:dashed solid dashed dashed;display: inline-block;height: 0;position: absolute;width: 0;overflow:hidden;}
+.tipBox .arrow_left em.layer1{border-color: transparent #FFF7F7 transparent transparent;left: 0;top: 0;z-index: 12;}
+.tipBox .arrow_left em.layer2{border-color: transparent #F3D9D9 transparent transparent;left: -1px;top: 0;z-index: 11;}
+.applyForm_liehun .formBtn{padding:2px 0 24px;text-align: center;}
+.applyForm_liehun .formBtn a.submitBtn{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_btn.png) no-repeat 0 -406px;color: #FFF;display: inline-block;font: bold 16px/41px "SimSun";height: 41px;-moz-text-shadow: -1px -1px #D93F73;-webkit-text-shadow: -1px -1px #D93F73;text-shadow: -1px -1px #D93F73;width: 123px;}
+.applyForm_liehun .formBtn a.submitBtn:hover{background-position:-127px -406px;text-decoration:none;}
+.loverShowList{margin-right: -14px;margin-top:8px;}
+.loverShowList li{float: left;height: 73px;margin-right: 14px;width: 118px;}
+.loverShowList li img{display:block;height: 73px;width: 118px;}
+
+</style>
+
+<div class="middleWrap middleBg">
+<div class="middleMain">
+<div class="topTitle_liehun">
+<span class="cLeft"><em class="tag_pink"></em><strong class="f_16">才俊佳丽</strong></span>
+</div>
+<div class="member_elite">
+<div class="topIntro fn-clear">
+<div class="cLeft fn-left">
+<p><span>您是否拥有足够的自信？</span></p>
+<p><span>您是否拥有傲人的自身条件？</span></p>
+<p><span>您是否苦于周围没有结识精英人士的机会？</span></p>
+<p><span>您是否想拥有免费推荐给名仕名媛的机会？</span></p>
+
+<a href="female.php" target="_blank" class="btn30_pink_95" onclick="send_jy_pv2('|1001483_20|');">申请加入</a>
+</div>
+<div class="cRight fn-left">
+<div class="picIntro sep_mab fn-left">
+<div class="picItem">
+<img src="//imgv.jiayuan.com/w4/hongniang/i/newImg/pic1.jpg" alt="" />
+<div class="rightDesc">
+<h5 class="c1">高端派对</h5>
+<p>免费参加红娘专场交友活动</p>
+</div>
+</div>
+<div class="picItem">
+<img src="//imgv.jiayuan.com/w4/hongniang/i/newImg/pic2.jpg" alt="" />
+<div class="rightDesc">
+
+<h5 class="c2">梦中情人</h5>
+<p>由佳缘红娘不定期的免费为您推荐符合您条件的TA</p>
+</div>
+</div>
+</div>
+<div class="picIntro fn-left">
+<div class="picItem">
+<img src="//imgv.jiayuan.com/w4/hongniang/i/newImg/pic3.jpg" alt="" />
+<div class="rightDesc">
+<h5 class="c3">一见钟情</h5>
+<p>享受佳缘红娘为您和您心仪的TA安排1对1私密二人约会</p>
+</div>
+</div>
+
+<div class="picItem">
+<img src="//imgv.jiayuan.com/w4/hongniang/i/newImg/pic4.jpg" alt="" />
+<div class="rightDesc">
+<h5 class="c4">心灵碰撞</h5>
+<p>与爱情顾问当面沟通，深度了解您的择偶需求</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="middleSubTitle fn-clear">
+<div class="subTab fn-left"><a href="../cjlist.php" class=" ie6png">才俊</a><a href="../cjjllist.php" class="curr ie6png">佳丽</a></div>
+<a href="female.php" target="_blank" class="tipBtn fn-left" onclick="send_jy_pv2('|1001483_21|');">我要出现在这里</a>
+
+<a href="female.php" target="_blank" class="zhenghun fn-right" onclick="send_jy_pv2('|1001483_22|');">我是才俊佳丽，申请一对一服务<span class="f_pink">>></span></a>
+</div>
+<div class="memberList_elite_tabCon">
+
+<ul class="memberList_elite fn-clear">
+
+		<li>
+	<a target="_blank" href="/cjjl.php?cust_id=136353401" class="headImg"><img src="https://vipfile.jiayuan.com/vip_img_url.php?id=136353401&date=1519703465&filename=a6956a743b99b4566db533e4ec874a28.jpg&width=1024&height=1024&token=0ffaedf3c07f78606fd16f26b9a809cf" alt="" /></a>
+	<p><a target="_blank" href="/cjjl.php?cust_id=136353401" class="memberName">复旦大学李小姐</a></p>
+	<p>28岁 167cm 52kg</p>
+	<p>初见她，感觉气质非常好。...</p>
+	</li>
+		<li>
+	<a target="_blank" href="/cjjl.php?cust_id=104894454" class="headImg"><img src="https://vipfile.jiayuan.com/vip_img_url.php?id=104894454&date=1472710139&filename=90c50e7ba88d68bf11dd27b677b9ea8a.jpg&width=1024&height=1024&token=49f820261c74d5be3760dc1f060eae79" alt="" /></a>
+	<p><a target="_blank" href="/cjjl.php?cust_id=104894454" class="memberName">瑶瑶女生</a></p>
+	<p>28岁 165cm 49kg</p>
+	<p>初见女孩子便眼前一亮，明...</p>
+	</li>
+		<li>
+	<a target="_blank" href="/cjjl.php?cust_id=114941035" class="headImg"><img src="https://vipfile.jiayuan.com/vip_img_url.php?id=114941035&date=1505527414&filename=ecd8f223dfaec12d444d8014cb19400e.jpg&width=1024&height=1024&token=ede18bfb9886e0ca00f10c06f462600e" alt="" /></a>
+	<p><a target="_blank" href="/cjjl.php?cust_id=114941035" class="memberName">段凯芩</a></p>
+	<p>29岁 162cm 50kg</p>
+	<p>女孩身材窈窕，性感迷人，...</p>
+	</li>
+		<li>
+	<a target="_blank" href="/cjjl.php?cust_id=134764025" class="headImg"><img src="https://vipfile.jiayuan.com/vip_img_url.php?id=134764025&date=1501739477&filename=c4effaf66e21d4941efbed85f126eacc.jpg&width=1024&height=1024&token=e3369601426c2dcfab838cbc9952bf42" alt="" /></a>
+	<p><a target="_blank" href="/cjjl.php?cust_id=134764025" class="memberName">卢圆媛</a></p>
+	<p>31岁 168cm 58kg</p>
+	<p>女孩广州本地人，父母经商...</p>
+	</li>
+		<li>
+	<a target="_blank" href="/cjjl.php?cust_id=124685210" class="headImg"><img src="https://vipfile.jiayuan.com/vip_img_url.php?id=124685210&date=1492578923&filename=f80301cd108f09ebdba8bf5b4851c118.jpg&width=1024&height=1024&token=a69ef6ffc68220c220d8934005f2ab35" alt="" /></a>
+	<p><a target="_blank" href="/cjjl.php?cust_id=124685210" class="memberName">馨儿</a></p>
+	<p>30岁 169cm 52kg</p>
+	<p>小姐出生在一个很温馨的家...</p>
+	</li>
+		<li>
+	<a target="_blank" href="/cjjl.php?cust_id=133401514" class="headImg"><img src="https://vipfile.jiayuan.com/vip_img_url.php?id=133401514&date=1492846643&filename=bd6e1ab0943a1a047cc341a6484c03e8.jpg&width=1024&height=1024&token=78fc775fd80e3eb3e5fe1f28f7875f2d" alt="" /></a>
+	<p><a target="_blank" href="/cjjl.php?cust_id=133401514" class="memberName">可 可</a></p>
+	<p>27岁 165cm 50kg</p>
+	<p>小姐给人第一感觉是甜美可...</p>
+	</li>
+		<li>
+	<a target="_blank" href="/cjjl.php?cust_id=120960016" class="headImg"><img src="https://vipfile.jiayuan.com/vip_img_url.php?id=120960016&date=1497405918&filename=f68c4931f14e9b2d5edc37268d8bcf10.jpg&width=1024&height=1024&token=d9e65ecf6777746221b43d13981acc8d" alt="" /></a>
+	<p><a target="_blank" href="/cjjl.php?cust_id=120960016" class="memberName">月 儿</a></p>
+	<p>27岁 162cm 45kg</p>
+	<p>小姐给我第一印象非常的甜...</p>
+	</li>
+		<li>
+	<a target="_blank" href="/cjjl.php?cust_id=80823267" class="headImg"><img src="https://vipfile.jiayuan.com/vip_img_url.php?id=80823267&date=1498015459&filename=9a5498795072b6f8f70d188551e9a031.jpg&width=1024&height=1024&token=ebcf03223719c8cd506a624afcebf978" alt="" /></a>
+	<p><a target="_blank" href="/cjjl.php?cust_id=80823267" class="memberName">白 雪</a></p>
+	<p>32岁 170cm 52kg</p>
+	<p>小姐给我第一印象清甜可人...</p>
+	</li>
+		<li>
+	<a target="_blank" href="/cjjl.php?cust_id=105381095" class="headImg"><img src="https://vipfile.jiayuan.com/vip_img_url.php?id=105381095&date=1498016178&filename=abb49de5c8b010b0f77e2d5d1948a6e1.jpg&width=1024&height=1024&token=05eb6c50e8c3aee2ac7f7bbbb81d47d5" alt="" /></a>
+	<p><a target="_blank" href="/cjjl.php?cust_id=105381095" class="memberName">薇 薇</a></p>
+	<p>30岁 170cm 52kg</p>
+	<p>小姐给人第一印象气质很好...</p>
+	</li>
+		<li>
+	<a target="_blank" href="/cjjl.php?cust_id=134939330" class="headImg"><img src="https://vipfile.jiayuan.com/vip_img_url.php?id=134939330&date=1498888872&filename=749bcfabfa4a32ebd03181e6d038af7e.jpg&width=1024&height=1024&token=09471a010517393853a90ce0d96bf42c" alt="" /></a>
+	<p><a target="_blank" href="/cjjl.php?cust_id=134939330" class="memberName">芸 芸</a></p>
+	<p>31岁 160cm 49kg</p>
+	<p>小姐给我第一印象是位非常...</p>
+	</li>
+	</ul>
+ <!--分页符和版权开始 -->
+<div class="aclear"></div>
+<div class="pages">
+<ol>
+ <li><a href='/cjjllist.php?&p=131' class=''>末页</a></li><li><a href='/cjjllist.php?&p=2' class=''>下一页</a></li> <li><a href='/cjjllist.php?&p=10'>10</a></li>   <li><a href='/cjjllist.php?&p=9'>9</a></li>   <li><a href='/cjjllist.php?&p=8'>8</a></li>   <li><a href='/cjjllist.php?&p=7'>7</a></li>   <li><a href='/cjjllist.php?&p=6'>6</a></li>   <li><a href='/cjjllist.php?&p=5'>5</a></li>   <li><a href='/cjjllist.php?&p=4'>4</a></li>   <li><a href='/cjjllist.php?&p=3'>3</a></li>   <li><a href='/cjjllist.php?&p=2'>2</a></li>   <li class='on'><a href='/cjjllist.php?&p=1'>1</a></li> <li><a href='/cjjllist.php?&p=1' class=''>上一页</a></li> <li><a href='/cjjllist.php?&p=1' class=''>首页</a></li> 
+</ol></div>
+
+<!--分页符和版权结束 -->
+</div>
+</div>
+</div>
+</div>
+
+<script>
+function checklength_place(){
+	$(".dateplacecls").each(function(index,element){
+		var _this=$(this);
+		var pos=6;
+		var _html=_this.html();
+		if(_html.length>8){
+			_this.html(_html.substr(0,8));
+		}
+	});
+}
+checklength_place();
+
+
+function initAjax() {
+	var ajax = false;
+	if(window.XMLHttpRequest) {
+		ajax = new XMLHttpRequest();
+	}else{
+		try{
+			ajax = new ActiveXObject('Msxml2.XMLHTTP');
+		}catch(e){
+			ajax = new ActiveXObject('Microsoft.XMLHTTP');
+		}
+	}
+	return ajax;
+}
+var start = false;
+//弹层
+function getPageHeight(){//检测浏览器的渲染模式
+	var body = (document.compatMode&&document.compatMode.toLowerCase() == "css1compat")?document.documentElement:document.body;
+	var bodyOffsetHeight = 0;
+	var bodyScrollHeight = 0;
+	var pageDimensions = 0;
+	pageDimensions=body.clientHeight;
+	bodyOffsetHeight=body.offsetHeight;
+	bodyScrollHeight=body.scrollHeight;
+	if(bodyOffsetHeight > pageDimensions){
+		pageDimensions=bodyOffsetHeight;
+	}
+	if(bodyScrollHeight > pageDimensions){
+		pageDimensions=bodyScrollHeight;
+	}
+	return pageDimensions;
+}
+
+function openWind( _popid, _height, _cust_id, _cjjl_id) {
+	_height=_height || "300px";
+	$("#popUpMask").css("height",getPageHeight()+"px");
+	$("#popUpMask").css("opacity","0.6");
+	$("#popUpMask").fadeIn();
+	$("#"+ _popid).css("position","absolute");
+	$("#"+ _popid).css("z-index","444");
+
+	if(_popid == "sureMeet") {
+		$("#popup_cust_id").attr("cust_id", _cust_id);
+		$("#popup_cjjl_id").attr("cjjl_id", _cjjl_id);
+	}else if(_popid == "wantMeet") {
+		$("#popup_want_cust_id").attr("cust_id", _cust_id);
+		$("#popup_want_cjjl_id").attr("cjjl_id", _cjjl_id);
+	}else if(_popid == "notMeet" ) {
+		$("#popup_notmeet_cust_id").attr("cust_id", _cust_id);
+		$("#popup_notmeet_cjjl_id").attr("cjjl_id", _cjjl_id);
+	}
+
+	$("#"+ _popid).css("top", _height);
+	$("#"+ _popid).css("left",($(document).width()-$("#"+ _popid).width())/2+"px");
+	$("#"+ _popid).fadeIn();
+
+	if(_popid == "wantMeet") {
+		if(_cust_id != "" && _cjjl_id != "") {
+			yaoqing(_cust_id,_cjjl_id);
+		}
+	}
+}
+
+function trim(str){ //删除左右两端的空格
+	return str.replace(/(^\s*)|(\s*$)/g, "");
+}
+/*$("#description").blur(function(){
+	if( trim($("#description").text()) == ''){
+		$("#description").get(0).style.color="#f00";
+		$("#description").text('请填写投诉描述！');
+	}
+});*/
+$("#description").click(function(){
+	if(trim($("#description").val())=='请填写投诉描述！'){
+		$("#description").val('');
+	}
+	$(this).get(0).style.color="#000";
+});
+function send_customers_complain() {
+	var emp_id = ;
+	var cust_id =  ;
+	var reason = $('input[name="reason"]:checked').val();//获取选中的radio值
+	var phone = encodeURI($("#phone").val());
+	var description = encodeURI($("#description").val());
+
+	if( trim($("#description").val()) == '' || trim($("#description").val())=='请填写投诉描述！') {
+		//alert($("#description").val());
+		//openTipWin($("#popUpMask_age"),$("#addFail_age"));
+		$("#description").get(0).style.color="#f00";
+		$("#description").val('请填写投诉描述！');
+		return;
+	}
+
+	var url = "service.php?functype=4&emp_id="+emp_id +"&cust_id="+cust_id + "&reason="+reason + "&phone="+phone + "&description="+description;
+	if(start == true) {
+		return;
+	}
+
+    var xmlHttp = initAjax();
+    if(typeof(xmlHttp)!="object") {
+        alert("Your browser does not support ajax");
+        return;
+    }
+    start = true;
+    if (start) {
+        xmlHttp.onreadystatechange=function() {
+            if(xmlHttp.readyState==4 && xmlHttp.status==200) {
+                var Result = xmlHttp.responseText;
+                start = false;
+                var result = Math.ceil(Result);
+				if(result==1)
+				{
+					alert('您的投诉已经收到，我们会尽快处理');
+					$(".closepop2").trigger("click");
+				}else{
+					alert('提交投诉失败');
+				}
+            }
+        }
+        xmlHttp.open("GET", url, true);
+        xmlHttp.send(null);
+    }
+}
+
+function yuejian_sure() {
+	var cjjl_id  = $("#popup_cjjl_id").attr("cjjl_id");
+	var cust_id  = $("#popup_cust_id").attr("cust_id");
+	if(cjjl_id != "" && cjjl_id != "") {
+		yuejian(cust_id, cjjl_id, 1);
+	}
+	/*关闭窗口*/
+	$("#sureMeet").fadeOut();
+	$("#popUpMask").fadeOut();
+	//location.reload(); 直接刷新不兼容
+	setTimeout("location.reload();",300);
+}
+
+function notyuejian_sure() {
+	var cjjl_id  = $("#popup_notmeet_cjjl_id").attr("cjjl_id");
+	var cust_id  = $("#popup_notmeet_cust_id").attr("cust_id");
+	if(cjjl_id != "" && cjjl_id != "") {
+		yuejian(cust_id, cjjl_id, 2);
+	}
+	/*关闭窗口*/
+	$("#notMeet").fadeOut();
+	$("#popUpMask").fadeOut();
+	//location.reload(); 直接刷新不兼容
+	setTimeout("location.reload();",300);
+}
+
+function yuejian(uid, ot_uid, type) {
+	if(start == true) {
+		return;
+	}
+
+    var xmlHttp = initAjax();
+    if(typeof(xmlHttp)!="object") {
+        alert("Your browser does not support ajax");
+        return;
+    }
+    start = true;
+    var url = "service.php?functype=2&uid="+uid+"&ot_uid="+ot_uid+"&type="+type;
+    if (start) {
+        xmlHttp.onreadystatechange=function() {
+            if(xmlHttp.readyState==4 && xmlHttp.status==200) {
+                var Result = xmlHttp.responseText;
+                start = false;
+                var result = Math.ceil(Result);
+            }
+        }
+        xmlHttp.open("GET", url, true);
+        xmlHttp.send(null);
+    }
+}
+
+function yaoqing_sure() {
+	var cjjl_id  = $("#popup_want_cjjl_id").attr("cjjl_id");
+	var cust_id  = $("#popup_want_cust_id").attr("cust_id");
+	//if(cjjl_id != "" && cjjl_id != "") {
+	//	yaoqing(cust_id,cjjl_id);
+	//}
+	/*关闭窗口*/
+		$("#wantMeet").fadeOut();
+		$("#popUpMask").fadeOut();
+		location.reload();
+}
+
+function yaoqing(uid,ot_uid) {
+	if(start == true) {return;}
+
+    var xmlHttp = initAjax();
+    if(typeof(xmlHttp)!="object") {
+        alert("Your browser does not support ajax");
+        return;
+    }
+    start = true;
+    var url = "service.php?functype=3&uid="+uid+"&ot_uid="+ot_uid;
+    if (start) {
+        xmlHttp.onreadystatechange=function() {
+            if(xmlHttp.readyState==4 && xmlHttp.status==200) {
+                var Result = xmlHttp.responseText;
+                start = false;
+                var result = Math.ceil(Result);
+            }
+        }
+        xmlHttp.open("GET", url, true);
+        xmlHttp.send(null);
+    }
+}
+
+(function($,window,undefined){
+	$.fn.popUp=function( _popid, _height, _id){
+		$(this).click(function(){
+			_height=_height || "300px";
+			$("#popUpMask").css("height",getPageHeight()+"px");
+			$("#popUpMask").css("opacity","0.6");
+			$("#popUpMask").fadeIn();
+			$("#"+ _popid).css("position","absolute");
+			$("#"+ _popid).css("z-index","444");
+			$("#"+ _popid).css("top", _height);
+			$("#"+ _popid).css("left",($(document).width()-$("#"+ _popid).width())/2+"px");
+			$("#"+ _popid).fadeIn();
+		});
+	};
+})(jQuery,window);
+	$("#tousuhongniang").popUp("tousuPop","100px");//投诉弹层发生
+	//$("#sureDate").popUp("sureMeet");//
+	//$("#notDate").popUp("notMeet");//
+
+	/**投诉页面右上角关闭按钮*/
+	$(".closepop2").click(function(){
+		$(this).parent().parent().fadeOut();
+		$("#popUpMask").fadeOut();
+	});
+	$(".closepop").click(function(){
+		$(this).parent().fadeOut();
+		$("#popUpMask").fadeOut();
+	});
+
+	/**关闭确定邀请弹层*/
+	$(".suremeetbtn").click(function(){
+		$(this).parent().parent().fadeOut();
+		$("#popUpMask").fadeOut();
+	});
+
+	$(".notmeetbtn").click(function(){
+		$(this).parent().parent().fadeOut();
+		$("#popUpMask").fadeOut();
+	});
+	/**投诉页面取消按钮*/
+	$(".cancelbtn").click(function(){
+		$(this).parent().parent().parent().fadeOut();
+		$("#popUpMask").fadeOut();
+	});
+
+	$(".reasonli li").click(function(){
+		$(this).addClass("on").siblings().removeClass("on");
+	});
+
+
+	/*$(".recmonth a").click(function(){
+		$(this).addClass("on").siblings().removeClass("on");
+		$(".conmonth > div").eq($(this).index()).show();
+		$(".conmonth > div").eq($(this).index()).siblings().hide();
+	});*/
+	//前端效果，js控制三个tab页面，改成php动态控制
+	/*$(".lefttab li a").click(function(){
+		$(this).parent().css("border-bottom-width","0px");
+		$(this).parent().iblings().css("border-bottom-width","1px");
+
+	});*/
+
+	//ie6,7,8阴影背景
+	if (window.PIE){
+		$('.rounded').each(function(index, element) {
+			PIE.attach(this);
+		});
+	}
+
+function openTipWin(winid, windid2){
+	winid.css("height",getPageHeight()+"px");
+	winid.css("opacity","0.6");
+	winid.css("z-index","1000");
+	winid.fadeIn();
+	windid2.css("position","absolute");
+	windid2.css("z-index","1001");
+	windid2.css("top","150px");
+	windid2.css("left",($(document).width()-$("#addFail").width())/2+"px");
+	windid2.fadeIn();
+}
+
+$(".popupclose").click(function(){
+	$(this).parent().fadeOut();
+	$("#popUpMask").fadeOut();
+});
+</script>
+<script type="text/javascript">
+function wait(cond, exec){setTimeout(function(){ if(!cond()) { setTimeout(arguments.callee, 25); return; } exec(); },0);}
+//登录
+function login() {
+  	//登录条登录表单
+  	JY.login.submit(document.getElementById("hder_login_form"), function(user){
+	if(user && user['uid']>0){
+		if(user['errno']==-5){
+		location.href=user['url'];
+		return false;
+		}else if(user['type']==20){//完善资料
+		location.href=user['url'];
+		return true;
+		}
+		window.setTimeout(function(){
+		location.href= location.href;
+		},100);
+
+ 	}else if(user && user['errno']==-1){
+		location.href=user['url'];
+		return false;
+ 	}else if(user && user['errno']==-2){
+
+		alert('登录失败，该用户资料已关闭');
+	}else{
+		if(user['errno'] != 0) {
+			alert('密码错误，请核实您的登录密码');
+		}
+ 	}
+	 //无限次尝试登录；
+	 JY.login.tryTimes=0;
+	});
+}
+
+var vip_host = window.location.host.toLowerCase();	//获取域名
+if(vip_host.indexOf('vip.jiayuan') >= 0 || vip_host.indexOf('vip.miuu') >= 0){
+	var linkurl = "/ajax/vip_header_phone.php";
+}else{
+	var linkurl = "/vip/ajax/vip_header_phone.php";
+}
+///登录处理
+wait(function(){return typeof JY != "undefined"}, function(){
+	var u =JY.login.getUser();
+	if(u.uid){
+		var child = document.getElementById("head_login").getElementsByTagName("a");
+		child[0].href = "http://profile.jiayuan.com/" + u.uid;
+		child[0].innerHTML = u.nickname;
+		//document.getElementById("head_nologin").style.display = "none";
+		document.getElementById("head_login").style.display = "";
+		document.getElementById("logout").style.display = "";
+                        document.getElementById("icon_qgtel").style.display = "none";
+		//$("#topLogin").hide();
+
+		show_tel_phone(linkurl);//显示对应电话
+		send_jy_pv2('|vip_head_v_1|');
+	}else {
+                       $("#icon_qgtel").show();
+		$("#loginBox").show();
+		$("#head_nologin").show();
+		send_jy_pv2('|vip_head_v_0|');
+	}
+});
+
+function show_tel_phone(url) {
+	 var xmlHttp = initAjax();
+     if(typeof(xmlHttp)!="object") {
+         alert("Your browser does not support ajax");
+         return;
+     }
+     var start = true;
+     if (start) {
+        xmlHttp.onreadystatechange=function() {
+            if(xmlHttp.readyState==4 && xmlHttp.status==200) {
+                var Result = xmlHttp.responseText;
+                start = false;
+                var array = Result.split("|");
+                if (array.length == 5) {
+                	document.getElementById("area_tel").innerHTML = '<a style="color:#ad00bc;" href="shop/detail.php?id=' + array[2] + '"><em class="tel"></em>' + array[0] + '</a>';
+                } else if (array[3] == "") {
+                	document.getElementById("area_tel").innerHTML = '<a style="color:#ad00bc;" href="shop/detail.php?id=' + array[2] + '"><em class="tel"></em>' + array[0] + '</a>';
+                } else if(typeof(array[0]) != undefined && typeof(array[2]) != undefined && typeof(array[3]) != undefined){
+                	document.getElementById("area_tel").innerHTML = '<a style="color:#ad00bc;" href="shop/detail.php?id=' + array[2] + '"><em class="tel"></em>' + array[0] + '</a>';
+                }
+				$("#service_phone_header").show();
+			}
+        }
+        xmlHttp.open("GET", url, true);
+        xmlHttp.send(null);
+    }
+}
+
+
+var page_array = Array('','\/msmy_m','\/msmy_f','\/cjjllist.php','\/cj','\/shop','\/aqjz');
+var id_array =Array("shouye","aiqingdingzhi","mingshimingyuan","mingshimingyuan","caijunjiali","caijunjiali","fuwuzhongxin","aiqingjianzheng");
+var url = location.href;
+function getExp(page_name){
+return "\/vip"+page_name+"\/?[#?]+.*|\/vip"+page_name+"\/?$|\/vip"+page_name+"\/index.html[#?]+.*|\/vip"+page_name+"\/index.html$|\/vip"+page_name+"\/[0-9]+\.html$|\/vip"+page_name+"\/[0-9]+\.html[#?]+.*";
+}
+document.getElementById("shouye").className = "curr";
+for(var i=0;i<page_array.length;i++){
+if(url.indexOf(page_array[i])>0){
+document.getElementById(id_array[i]).className = "curr";
+document.getElementById("shouye").className = "";
+break;
+}
+}
+var contextPath = "/vip/";
+if(/xique|vip.jiayuan|vip.miuu/.test(location.host))
+{
+   contextPath = "/";
+   $("#loginuser").attr("href", "javascript:window.location.href='http://login.jiayuan.com/?pre_url=/vip'");//多域名登陆
+}
+
+$("#shouye").attr("href", contextPath );
+$("#gerenzhongxin").attr("href", contextPath +'profile.php' );
+$("#aiqingdingzhi").attr("href", contextPath +'fuwujieshao.html' );
+$("#mingshimingyuan").attr("href", contextPath +'msmy_f/' );
+$("#caijunjiali").attr("href", contextPath +'cjjllist.php' );
+$("#fuwuzhongxin").attr("href", contextPath +'shop/' );
+$("#aiqingjianzheng").attr("href", contextPath +'aqjz/' );
+$("#yiduiyihetong").attr("href", contextPath +'hetong.php' );
+
+function openWindForUrl(url,newpage)
+{
+    var newurl = contextPath + url.replace(/\/vip\//,"");
+   if (newpage == 1)
+   {
+      window.open( newurl);
+   }else
+   {
+      window.location.href= newurl;
+   }
+}
+$(document).ready(function(){
+ $("a").each(function(){
+ var url =$(this).attr("href");
+ if(/xique|vip.jiayuan|vip.miuu/.test(location.host))
+ {
+if (/\/?vip\//.test(url))
+{
+   url = url.replace(/\/?vip\//,"");
+   if(/\.php/.test(url))
+   {
+		//$(this).attr("href","http://vip.jiayuan.com/"+url);
+   }else{
+		//$(this).attr("href",contextPath+url);
+   }
+ }
+  $(".logoLink,#jylogoid").attr("href","http://www.jiayuan.com");
+ }
+
+});
+//write cokie to jiayuan.com for st
+            var stid = JY.tool.cookie.get("FROM_ST_ID");
+var sturl = JY.tool.cookie.get("FROM_ST");
+if(null !=stid)
+{
+$.getScript("http://www.jiayuan.com/general/acrossjyimgdomain.php?expire=2&FROM_ST_ID="+stid+"&FROM_ST="+sturl);
+            }
+});
+
+function timeclock(){
+  		$(".left_time").each(function(){
+        //var lxfday=$(this).attr("lxfday");//用来判断是否显示天数的变量
+        //var endtime = new Date($(this).attr("sys_left_time")).getTime();//取结束日期(毫秒值)
+       	//var nowtime = new Date().getTime();        //今天的日期(毫秒值)
+        //var youtime = endtime-nowtime;//还有多久(毫秒值)
+        //var seconds = youtime/1000;
+        var seconds = $(this).attr("sys_left_time");
+        if(seconds >= 1) {
+	        var minutes = Math.floor(seconds/60);
+	        var hours = Math.floor(minutes/60);
+	        var days = Math.floor(hours/24);
+	        var CDay= days ;
+	        var CHour= hours % 24;
+	        var CMinute= minutes % 60;
+	        var CSecond= Math.floor(seconds%60);//"%"是取余运算，可以理解为60进一后取余数，然后只要余数。
+	        if(seconds<=1){
+	            $(this).html("");//如果结束日期小于当前日期就提示过期啦
+	            var cust_id = $("#time_auto").attr("cust_id");
+				var cjjl_id	= $("#time_auto").attr("cjjl_id");
+				//$("a[myid=auto_sure_close]").hide();
+				//$("a[myid=auto_not_close]").hide();
+				$(".suredate").each(function() {
+					//$(this).attr("disabled","disabled");
+					$(this).hide();
+				});
+				$(".nodate").each(function() {
+					//$(this).attr("disabled","disabled");
+					$(this).hide();
+				});
+
+				yuejian(cust_id, cjjl_id, 3);
+	        }else if(seconds == -10000000) {
+				//忽略手动处理
+	        }else{
+	            if($(this).attr("lxfday")=="no"){
+	                $(this).html("<i></i><span>"+CHour+"</span>时<span>"+CMinute+"</span>分<span>"+CSecond+"</span>秒");          //输出没有天数的数据
+	             }else{
+	             	if(CDay == 0 && CHour == 0 && CMinute == 0) {
+						$(this).html("<i></i><span>"+CSecond+"</span><em>秒后</em>");
+	             	} else if(CDay == 0 && CHour == 0) {
+	             		$(this).html("<i></i><span>"+CMinute+"</span><em>分</em><span>"+CSecond+"</span><em>秒后</em>");
+	             	} else if(CDay == 0) {
+	            		$(this).html("<i></i>"+CHour+"</span><em>时</em><span>"+CMinute+"</span><em>分</em><span>"+CSecond+"</span><em>秒后</em>");
+	             	} else {
+	             		$(this).html("<i></i><span>"+days+"</span><em>天</em><span>"+CHour+"</span><em>时</em><span>"+CMinute+"</span><em>分</em><span>"+CSecond+"</span><em>秒后</em>");//输出有天数的数据
+	             	}
+
+	            }
+	        }
+	        $(this).attr("sys_left_time",seconds-1);
+	      }
+  });
+   setTimeout("timeclock()",1000);
+  };
+
+$(function(){
+      timeclock();
+});
+</script>
+	<script src="//imgv.jiayuan.com/w4/liehun/j/vip_common_footer.js"></script>
+	<div style='text-align:center;'>
+		<script src="//kxlogo.knet.cn/seallogo.dll?sn=e13090211010042251umps000000&size=0"></script>
+	</div>
+
+</body>
+</html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<title>才俊佳丽-世纪佳缘交友网</title>
+<link href="//imgv.jiayuan.com/w4/common/c/base.css" rel="stylesheet" type="text/css" />
+<link href="//imgv.jiayuan.com/w4/liehun/c/new_common.css" rel="stylesheet" type="text/css" />
+<link href="//imgv.jiayuan.com/w4/liehun/c/layout.css" rel="stylesheet" type="text/css" />
+<script type='text/javascript' src='//imgv.jiayuan.com/w4/common/j/jquery.js'></script>
+<script type='text/javascript' src='//imgv.jiayuan.com/w4/hongniang/j/love_common.js'></script>
+<script type="text/javascript" src="//imgv.jiayuan.com/w4/global/j/pv.js"></script>
+<script type="text/javascript" src="//imgv.jiayuan.com/w4/jsLib/JY.login.js"></script> 
+<script type="text/javascript" src="../viplog.js"></script>
+	<!--[if lte IE 6]>
+     <script type='text/javascript' src='//imgv.jiayuan.com/w4/common/j/DD_belatedPNG_0.0.8a_IE6.js'></script>
+     <script>
+        DD_belatedPNG.fix('.ie6png');
+     </script>
+	<![endif]-->
+<!--<script src="//imgv.jiayuan.com/w4/liehun/j/PIE_css.js"></script>-->
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#logo_img").attr("src","//imgv.jiayuan.com/w4/liehun/i/logo_03.gif");
+});
+function get_head_cookie(c_name){
+	if(document.cookie.length>0){
+		c_start=document.cookie.indexOf(c_name + "=");
+		if(c_start!=-1){
+			c_start=c_start + c_name.length+1;
+			c_end=document.cookie.indexOf(";",c_start);
+			if(c_end==-1){
+				c_end=document.cookie.length;
+			}
+			return decodeURIComponent(document.cookie.substring(c_start,c_end));
+		}
+	}
+	return null;
+}
+
+var profile = get_head_cookie('PROFILE');
+if(profile){array_of_profile = profile.split(':');cookie_uid = array_of_profile[0];cookie_sex = array_of_profile[2];cookie_nickname_en = array_of_profile[1];cookie_nickname = decodeURIComponent(cookie_nickname_en);cookie_avatar = array_of_profile[4]=='1' ? 'http://'+array_of_profile[3]+'/avatar.jpg' : array_of_profile[6]+':'+array_of_profile[7];}
+function initAjax() {
+	var ajax = false;
+	if(window.XMLHttpRequest) {
+		ajax = new XMLHttpRequest();
+	}else{
+		try{
+			ajax = new ActiveXObject('Msxml2.XMLHTTP');
+		}catch(e){
+			ajax = new ActiveXObject('Microsoft.XMLHTTP');
+		}
+	}
+	return ajax;
+}
+
+var start = false;
+function checkvip() {
+	if(start == true) {return;}
+		var xmlHttp = initAjax();
+	if(typeof(xmlHttp)!="object") {
+		alert("Your browser does not support ajax");
+		return;
+	}
+	start = true;
+	var url = "checkvip.php";
+	if (start) {
+		xmlHttp.onreadystatechange=function() {
+		if(xmlHttp.readyState==4 && xmlHttp.status==200) {
+			var Result = xmlHttp.responseText;
+			start = false;
+			result = Math.ceil(Result);
+			if(result==4){
+			   $('#service_button').html('<img src="//imgv.jiayuan.com/w4/liehun/i/loginbtn_03.gif" class="ie6png" width="274" height="274">');
+			   $('#service_button').attr('href','profile.php');
+			   $('#service_button').attr('onclick',"send_jy_pv2('|vip_index_myvip_c|')");
+			   send_jy_pv2('|vip_index_myvip_v|');//进入个人中心
+			}else {
+				send_jy_pv2('|vip_index_signup_v|');
+			}
+		}
+		}
+		xmlHttp.open("GET", url, true);
+		xmlHttp.send(null);
+	}
+}
+</script>
+
+<!--[if lte IE 6]>
+     <script type='text/javascript' src='//imgv.jiayuan.com/w4/common/j/DD_belatedPNG_0.0.8a_IE6.js'></script>
+     <script>
+        DD_belatedPNG.fix('.ie6png');
+     </script>
+<![endif]--><!-- IE6 png -->
+<script>
+	var show_app_down_qrcode = false; //包含 //imgv.jiayuan.com/w4/liehun/j/chatbtn.js 必须定义此参数
+	function getVip(){
+		var u = JY.login.getUser();
+		var flag = false;
+		if(u.uid){
+			$.ajax({
+				url: '/ajax/cust_type.php',
+				async: false,
+				type: 'POST',
+				success: function(msg){
+					if(msg == '1'){
+						flag = true;
+					}
+				}
+			})
+		}
+		return flag;
+	}
+	function getUrl(){
+		var arr = '';
+		$.ajax({
+			url: '/ajax/get_looyu_url.php',
+			type: 'POST',
+			async: false,
+			success: function(data){
+				arr = JSON.parse(data);
+			}
+		})
+		return arr;
+	}
+</script>
+<!-- 小能客服 start -->
+<link rel="stylesheet" href="//imgv.jiayuan.com/w4/liehun/c/xiaonengkf.css">
+<script src="//imgv.jiayuan.com/w4/liehun/j/function.js"></script>
+<script src="//imgv.jiayuan.com/w4/liehun/j/xn_chatbtn.js"></script>
+<script src="//imgv.jiayuan.com/w4/liehun/j/xn_talker.js"></script>
+<script>
+    var kf_id = '';
+    var shopid = getUrlParam('sd');
+    function xnClick(){
+        $.ajax({
+            url: '/xiaoneng_kf/index.php',
+            type: 'post',
+            data: "sd=" + shopid,
+            dataType: 'json',
+            success: function(json) {
+                console.log(json);
+                if(json.code == 1 && json.msg !== '') {
+                    kf_id = json.msg;
+                    nTalker();
+                }else{
+                    leaveMsg();
+                }
+            }
+        });
+    }
+    var nTalker = function(){
+        NTKF.im_openInPageChat(kf_id);
+    }
+    var leaveMsg = function(){
+        $('.leavemsgbox').slideDown();
+    }
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return '';
+    }
+</script>
+<div class="leavemsgbox">
+    <div class="leavemsg-head">
+        <span class="logo-magpie"></span>
+        <span class="leavemsg-head-name">世纪佳缘线下服务顾问</span>
+        <a href="javascript:;" class="leavemsg-close"></a>
+    </div>
+    <div class="leavemsg-cont">
+        <div class="leavemsg-success"><p>提交成功</p></div>
+        <form action="" id="leavemsgform">
+            <div class="iptbox fn-clear">
+                <div class="ipt-name">姓名：</div>
+                <div class="ipt-cont">
+                    <input type="text" id="xnfullname" name="xnfullname" class="ipt ipt-fullname" placeholder="请输入您的真实姓名">
+                </div>
+            </div>
+            <div class="iptbox fn-clear">
+                <div class="ipt-name">性别：</div>
+                <div class="ipt-cont">
+                    <input type="radio" class="gender" name="gender" id="gender-male" value="1"> <label for="gender-male">男</label>&nbsp;&nbsp;
+                    <input type="radio" class="gender" name="gender" id="gender-female" value="2"> <label for="gender-female">女</label>
+                </div>
+            </div>
+            <div class="iptbox fn-clear">
+                <div class="ipt-name">手机号：</div>
+                <div class="ipt-cont">
+                    <input type="text" id="xnphone" name="xnphone" class="ipt" maxlength="11" placeholder="请输入您的手机号">
+                    <p class="phonetip">工作人员会通过此手机号与您联系</p>
+                    <p class="leavemsgerr" id="leavemsgerr"></p>
+                </div>
+            </div>
+            <a href="javascript:;" class="btn-leavemsg-sign" id="btn-leavemsg-sign">提交</a>
+        </form>
+    </div>
+</div>
+<script>
+    $(function(){
+        $('.leavemsg-close').on('click', function(){
+            $('.leavemsgbox').slideUp();
+        })
+        $("#xnfullname,#xnphone,#gender-male,#gender-female").focus(function(){
+            $("#leavemsgerr").html('');
+        })
+        $('#btn-leavemsg-sign').on('click', function(){
+            window.location.href='//vip.jiayuan.com/register.php';
+
+            var xnfullname = $.trim($('#xnfullname').val());
+            var gender = $('#leavemsgform .gender[name="gender"]:checked').val();
+            var xnphone = $.trim($('#xnphone').val());
+
+            var submitflag = false;
+            if(xnfullname == "" || xnfullname.length == 0) {
+                $('#leavemsgerr').html("请输入您的真实姓名");
+                submitflag = false;
+            }else if(xnfullname.ByteCount(true) < 2 || xnfullname.ByteCount(true) > 20) {
+                $('#leavemsgerr').html("姓名限2~20个字符");
+                submitflag = false;
+            }else if (!xnfullname.checkNickname()) {
+                $('#leavemsgerr').html("姓名限数字、字母、中文");
+                submitflag = false;
+            }else if (!isNaN(xnfullname)) {
+                $('#leavemsgerr').html("姓名不能全是数字");
+                submitflag = false;
+            }else if(!gender) {
+                $('#leavemsgerr').html('请选择性别');
+                submitflag = false;
+            }else if(xnphone == "" || xnphone.length == 0) {
+                $('#leavemsgerr').html("请填写手机号");
+                submitflag = false;
+            }else if(!is_mobile(xnphone)) {
+                $('#leavemsgerr').html("请填写有效的手机号");
+                submitflag = false;
+            }else{
+                $('#leavemsgerr').html('');
+                submitflag = true;
+            }
+            if(submitflag){
+
+                $.ajax({
+                    url: '/xiaoneng_kf/insert.php?',
+                    type: 'post',
+                    data: {fullname:xnfullname,gender:gender,phone:xnphone},
+                    dataType: 'json',
+                    success: function(data){
+                        if(data.code == '1'){
+                            $('#leavemsgform').hide();
+                            $('.leavemsg-success').show();
+                        }else{
+                            $('#leavemsgerr').html(data.msg);
+                        }
+                    }
+                });
+
+            }
+        })
+
+    })
+</script>
+<!-- 小能客服 end --></head>
+<body>
+<!--头部begin-->
+<div class="head fn-clear">
+	<div class="banner fn-clear" style="background-image:none;">
+    	<a id="shouye_logo" href="../" class="logohref fn-left"><img id="logo_img" src="" width="214" height="61" title=""/></a>
+        <span class="hotline fn-right" id="service_phone_header" style="display:none;width:auto;"><a style="color:#ad00bc;" href="/shop/">服务热线</a>：<span id="area_tel" class="telnum"><a href="/shop/detail.php?id=1">4001 520 062</a></span></span> 
+	<div class="icon_qgtel" id="icon_qgtel"  style="display:none">全国热线：4001 520 062</div>
+ 	<div class="topLogin">
+		<div class="loginBox">
+		<span id="head_nologin"  style="display:none">
+				<iframe id="hder_hid_login_win" name="hder_hid_login_win" width=0 height=0 style="display:none" onload="if(typeof JY != 'undefined'){JY.login.frameLoadCallback();}"></iframe>
+				<form id="hder_login_form" target="hder_hid_login_win" action="/login/dologin.php?channel=15&position=10" method="post">
+				<!--<label class="f_gray_999">用户名</label><input type="text" name="name" id="login_name" class="input_text"/>-->
+				<!--<label class="f_gray_999">密码</label><input type="password" autocomplete="off" id="login_pass" name="password"  onkeydown="if(typeof event !='undefined' && event.keyCode==13)login();"class="input_text"/>-->
+				<!--<a href="javascript:;;" onClick="login();" class="loginBtn"></a>-->
+	 <a href="/register.php?action=login&amp;pre_url=" class="col_2">从这里登录</a>
+				<a target="_blank" href="http://www.jiayuan.com/login/validate.php" class="a_gray_999">忘记密码</a>
+				<a id="51register" target="_blank" href="//vip.jiayuan.com/register.php" class="a_gray_999">免费注册</a>
+				</form>
+		</span>
+		</div>
+	</div>
+
+
+    </div>
+    <div class="navbar">
+    	<div class="nav fn-clear">
+        	<div class="navlinks fn-clear">
+				<a id="shouye" href="../" onClick="send_jy_pv2('|vip_head_navindex_c|');">首页</a>
+				<a id="gerenzhongxin" href="../profile.php" onClick="send_jy_pv2('|vip_head_myvip_c|');">个人中心</a>
+				<a id="aiqingdingzhi" href="../fuwujieshao.html" onClick="send_jy_pv2('|vip_head_navfwjs_c|');">服务介绍</a>
+				<a id="caijunjiali" href="../cjjllist.php" onClick="send_jy_pv2('|vip_head_navcjjl_c|');">才俊佳丽</a>
+				<a id="fuwuzhongxin" href="../shop/" onClick="send_jy_pv2('|vip_head_navfwzx_c|');">全国服务中心</a>
+				<a id="yiduiyihetong" href="../hetong.php" onClick="send_jy_pv2('|vip_head_hetong_c|');">合同查询</a>
+				<a id="recruit" href="../recruit.php" >人员招聘</a>
+				<a id="hongzhengshu" href="../assistcertificate.php">证书查询</a>
+				<a href="../gonggao.php">管理公告</a>
+				<a id="dianzifapiao" href="../electronicinvoice.php" onclick="send_jy_pv2('|vip_head_invoice_c|');">发票信息</a>
+				<a id="marriage_test" href="../marriage/marriage_index.php" onclick="send_jy_pv2('|vip_head_marriage_c|');">婚恋测评</a>
+            </div>
+            <div id="head_login" class="loginbox">
+           	 	<a href="javascript:window.location.href='../login/?pre_url=/vip/'" id="loginuser" class="loginuser"><!-- 登录 --></a>&nbsp;|&nbsp;
+				<a href="/login/logout2.php" id="logout" class="logout" onClick="javascript:document.getElementById('logout').style.display = '';" style="display:none">退出</a><a href="http://www.jiayuan.com" class="backtojy">返回佳缘</a>
+        	</div>
+        </div>
+
+    </div>
+</div>
+<!--头部end-->
+<script>
+var basePath = "/vip/";
+if(/xique|vip.jiayuan|vip.miuu/.test(location.host))
+{
+   basePath = "/";
+}
+$("#shouye_logo").attr("href", basePath );
+
+</script><script type="text/javascript">
+$(document).ready(function(){
+	document.title="才俊佳丽-世纪佳缘交友网"; 
+});
+</script>
+<style>
+
+/* common */
+.f_bold{font-weight:bold;}.aclear{clear:both;height:0px;display: block;width:1px;margin:0;padding:0;border:none;font: normal 0px/0px arial;}
+.btn30_pink_95 {width:95px; height:30px; line-height:30px; text-align:center; color:#fff; background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/buttonBg30.png) no-repeat 0 -540px; _background:url(//imgv.jiayuan.com/w4/common/i/buttonBg30.gif) no-repeat 0 -540px; display:inline-block;}
+.btn30_pink_95:hover { background-position:0 -570px; text-decoration:none;}
+.btn30_pink_108 {width:108px; height:30px; line-height:30px; text-align:center; color:#fff; background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/buttonBg30.png) no-repeat 0 -600px; _background:url(//imgv.jiayuan.com/w4/common/i/buttonBg30.gif) no-repeat 0 -600px; display:inline-block;}
+.btn30_pink_108:hover { background-position:0 -630px; text-decoration:none;}
+.btn30_pink_134 {width:134px; height:30px; line-height:30px; text-align:center; color:#fff; background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/buttonBg30.png) no-repeat 0 -720px; _background:url(//imgv.jiayuan.com/w4/common/i/buttonBg30.gif) no-repeat 0 -720px; display:inline-block;}
+.btn30_pink_134:hover { background-position:0 -750px; text-decoration:none;}
+.btn30_blue_95 {width:95px; height:30px; line-height:30px; text-align:center; color:#fff; background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/buttonBg30.png) no-repeat 0 -960px; _background:url(//imgv.jiayuan.com/w4/common/i/buttonBg30.gif) no-repeat 0 -1020px; display:inline-block;}
+.btn30_blue_95:hover { background-position:0 -990px; text-decoration:none;}
+.btn30_blue_108 {width:108px; height:30px; line-height:30px; text-align:center; color:#fff; background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/buttonBg30.png) no-repeat 0 -1020px; _background:url(//imgv.jiayuan.com/w4/common/i/buttonBg30.gif) no-repeat 0 -1020px; display:inline-block;}
+.btn30_blue_108:hover { background-position:0 -1050px; text-decoration:none;}
+.btn30_gray_95 {width:95px; height:30px; line-height:30px; text-align:center; color:#666; background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/buttonBg30.png) no-repeat 0 -180px; _background:url(//imgv.jiayuan.com/w4/common/i/buttonBg30.gif) no-repeat 0 -180px; display:inline-block;}
+.btn30_gray_95:hover { background-position:0 -210px; text-decoration:none;}
+html,body{background:#f7f7f7;}
+/* pages */
+.pages{width: 100%;margin-bottom:25px;clear:both; overflow:hidden; margin-top:32px;}
+.pages ol{height: 20px;}
+.pages li{float: right;margin: 0 0 0 8px;}
+.pages li a{background: #E8E8E8;color: #333;display: block;height: 20px;line-height: 20px;text-align: center;width: 40px;}
+.pages li a:hover,.pages li.on a{background: #F3969C;color: #FFF;text-decoration: none;}
+/* loginBox */
+/* header_liehun */
+.header_liehun{height:85px;width:100%;background-color:#e36aa3;}
+.header_liehun .headMain{width:970px;margin:0 auto;}
+.header_liehun .logoLink{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_logo.jpg) no-repeat;display:inline-block;width:105px;height:85px;}
+.header_liehun .flashBox{width:270px;height:85px;}
+.header_liehun .mainNav_liehun{height:85px;}
+.mainNav_liehun  li{float:left;margin:35px 5px 0;display:inline;width:75px;}
+.mainNav_liehun  li a{display:inline-block;height:31px;line-height:31px;width:75px;text-align:center;color:#fff;font-weight:bold;font-size:14px;}
+.mainNav_liehun  li.curr a,.mainNav_liehun  li a:hover{background-color:#fff;color:#d34186;text-decoration:none;}
+/* middleWrap */
+.middleWrap{width:100%;}
+.middleMain{width:970px;margin:0 auto;}
+/* loveTestBox */
+.loveTestBox{border:8px solid #d9d9d9;background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_caijunjiali.jpg) no-repeat;height:459px;margin:15px 0 0;}
+.loveTestCon{padding: 112px 0 0 131px;width:601px;}
+.loveTestCon .topTitle{font-weight:bold;margin-bottom:20px;}
+.loveTestCon .btnBox{}
+.btnBox a.testBtn{display:inline-block;background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_btn.png) no-repeat 0 0;width:127px;height:41px;color:#fff;font:bold 16px/41px arial;text-align:center;}
+.btnBox a.testBtn:hover{text-decoration:none;background-position:-129px 0;}
+.btnBox .noteInfor{color:#92777c;margin-left:10px;vertical-align:bottom;}
+dl.step{margin-bottom: 15px;padding-right: 45px;}
+dl.step dt{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_tag_ico.jpg) no-repeat 0 2px;color: #666;font: bold 16px/22px arial;padding-left: 15px;margin-bottom:5px;}
+dl.step dd{color: #999;font: 14px/30px arial;padding-left: 15px;}
+/* applyBox */
+.applyBox{}
+.applyBox .topTitle{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/img_02.jpg) no-repeat center center;height: 27px;padding-right: 5px;padding-top: 35px;text-align: right;}
+/* form_caijun */
+.form_caijun{background-color: #FFF;border-bottom: 1px solid #E5E5E5;padding: 30px 82px;}
+.form_caijun .top1{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/img_03.jpg) no-repeat;height: 30px;margin-bottom: 20px;width: 100%;}
+.form_caijun .top2{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/img_04.jpg) no-repeat;border-bottom: 1px solid #EFEFEF;height: 80px;margin-bottom: 20px;width: 100%;}
+.form_caijun .top3{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/img_05.jpg) no-repeat;height: 80px;margin-bottom: 20px;width: 100%;}
+.formWrap_caijun{position:relative;width:100%;}
+.formWrap_caijun .cTop,.formWrap_caijun .cBottom{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_radiusBox_02.jpg) no-repeat;height:15px;width:100%;overflow:hidden;position:absolute;left:0;}
+.formWrap_caijun .cTop{top:0;}.formWrap_caijun .cBottom{background-position:0 -15px;bottom:0;}
+.formWrap_caijun .cMain{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_radiusBox_01.jpg) repeat-y;padding:15px 20px;}
+.formWrap_caijun .cMain .whiteLine{background-color: #FFF;font-size: 0;height: 1px;margin-bottom: 25px;overflow: hidden;}
+.formTitle_caijun{border-bottom: 1px solid #cac3b7;height: 35px;}
+.formTitle_caijun strong{color: #5d492e;margin-right:10px;}
+.formCon_caijun{}
+.formCon_caijun .formItem{margin-bottom: 20px;}
+.formItem label{color: #745D3E;display: inline-block;font-size: 14px;text-align: right;vertical-align: top;width: 95px;}
+.formItem select{width:140px;vertical-align: middle;padding:1px;}
+.formItem textarea{border: 1px solid #CBC4B8;color: #999;height: 85px;padding: 5px;width: 560px;}
+.formItem .input_text,.formItem .input_text_s{border: 1px solid #CAC3B7;height: 16px;padding: 2px 3px;width: 132px;vertical-align:middle}
+.formItem .input_text_s{width:60px;}
+.formItem .rightNote{color: #f00;margin-left: 5px;}
+.formItem .inputBox{display:inline-block;width:140px;}
+.formCon_caijun  .formSubmit{margin-bottom: 20px;text-align:center;}
+.formCon_caijun  .formSubmit a.submitBtn{display:inline-block;background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_btn.png) no-repeat 0 -45px;width:127px;height:41px;color:#fff;font:bold 16px/41px arial;text-align:center;}
+.formCon_caijun  .formSubmit a.submitBtn:hover{text-decoration:none;background-position:-127px -45px;}
+/* form_liehun */
+.form_liehun{background-color: #FFF;border-bottom: 1px solid #E5E5E5;padding: 40px 82px;}
+.form_liehun .top1{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/img_01.jpg) no-repeat;height: 70px;width: 100%;}
+.form_liehun .top2{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/img_06.jpg) no-repeat;height: 179px;margin-bottom: 20px;width: 100%;}
+.form_liehun .top3{height:40px;margin-bottom: 20px;padding-left:35px;}.form_liehun .top3 img{vertical-align:middle;margin:0 2px;}
+.formWrap_liehun{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_form_01.jpg) no-repeat;height: 374px;margin: 0 auto;position: relative;width: 571px;}
+.formWrap_liehun div{position: absolute;}
+.formWrap_liehun .input_text{border: 1px solid #D6D6D6;height: 16px;padding: 2px 3px;width: 112px;}
+.formWrap_liehun .input_radio{margin: 0 3px 0 0;vertical-align: middle;}
+.formWrap_liehun select{height: 21px;width: 170px;}
+.formItem_name{height: 21px;left: 342px;top: 112px;width: 120px;}
+.formItem_sex{left: 320px;top: 148px;}
+.formItem_mobile{left: 342px;top: 182px;}
+.formItem_salary{left: 342px;top: 218px;}
+.formItem_money{left: 365px;top: 255px;}
+.formWrap_liehun  .formSubmit {left: 260px;text-align: center;top: 315px;}
+.formWrap_liehun  .formSubmit a.submitBtn{display:inline-block;background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_btn.png) no-repeat 0 -90px;width:246px;height:39px;color:#fff;font:bold 16px/41px arial;text-align:center;}
+.formWrap_liehun  .formSubmit a.submitBtn:hover{text-decoration:none;background-position:0 -131px;}
+/* topTitle_liehun */
+.topTitle_liehun{height:50px;}
+.topTitle_liehun .cLeft{display:inline-block;padding-top:13px;height:24px;}
+.topTitle_liehun .cLeft .tag_pink,.topTitle_liehun .cLeft .tag_blue{display:inline-block;background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico.png) no-repeat 0 0;width:4px;height:16px;margin-right:10px;vertical-align:text-bottom;}
+.topTitle_liehun .cLeft .tag_blue{background-position:0 -20px;}
+.topTitle_liehun .cRight{width:300px;text-align:right;line-height:50px;}.topTitle_liehun .cRight a{margin-left:3px;}
+/* helpBox */
+.helpBox{background-color: #FFF;border: 5px solid #E4E4E4;padding:30px 20px;}
+.questionsBox{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_helpBanner.jpg) no-repeat;padding-left:11px;width:897px;}
+.questionsBox .askCurr{height:37px;line-height:37px;padding-left:540px;width:357px;}
+.questionsBox .askBox{width:521px;border:1px solid #b8b8b8;border-top:medium none;height:258px;overflow:hidden;}
+.questionsBox .answerBox{width:373px;border:1px solid #bcbcbc;border-top:medium none;border-left:medium none;height:258px;overflow:hidden;}
+.questionsBox .answerBox p{height: 238px;line-height: 35px;overflow-x: hidden;overflow-y: auto;padding: 10px 3px 10px 50px;text-indent: -3em;width: 320px;}
+.askList{padding: 12px 20px;}
+.askList li{border-bottom: 1px dashed #CCC;height: 22px;line-height: 22px;margin-bottom: 8px;padding-bottom: 8px;}
+.askList li a.askLink{color: #999;font-size: 14px;}
+.askList li a.askLink:hover{color:#333;text-decoration:none;}
+.askList li a.curr{color:#333}
+.myAsk{padding-left:11px;width:897px;}
+.myAsk .topTitle{width:860px;margin:20px auto 0;border-bottom:1px solid #ebebeb;line-height:30px;height:30px;}
+.myAsk .topTitle .buldIco{display:inline-block;background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico.png) no-repeat 0 -90px;width:14px;height:24px;margin-left:5px;margin-bottom:-5px;}
+.myAskForm{width:860px;margin:20px auto 0;}
+.myAskForm .noteInfor{color: #666;line-height: 20px;margin-bottom: 10px;padding-left: 90px;text-indent: -3em;}
+.myAskForm .formBtn_myAsk{margin-bottom: 35px;padding-left: 94px;}
+.myAskForm .formItem_myAsk{margin-bottom: 15px;}
+.formItem_myAsk label{display: inline-block;font-size: 14px;text-align: right;vertical-align: top;width: 90px;}
+.formItem_myAsk label em{display: inline-block;margin-right: 3px;vertical-align: middle;}
+.formItem_myAsk select{padding: 3px;}.formItem_myAsk img{vertical-align: middle;}
+.formItem_myAsk textarea{height: 80px;width: 400px;}
+.formItem_myAsk .input_text,.formItem_myAsk .input_text_s{padding: 3px;vertical-align: middle;width: 180px;}
+.formItem_myAsk .input_text_s{width: 80px;}
+/* successBox */
+.successBox{padding:104px 534px 198px 60px;width:376px;height:148px;background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_success.jpg) no-repeat 440px 104px #fff;border-bottom:1px solid #e5e5e5;margin-top:15px;position:relative;}
+.successBox .bigfont{color: #333;font: bold 30px/45px arial;}
+.successBox .highlight{padding-bottom: 5px;}
+.successBox .highlight span{background-color: #EEE;display: inline-block;height: 20px;line-height: 20px;padding: 2px 5px;}
+.successBox .backPrev,.successBox .backHome{position:absolute;}
+.successBox .backPrev{height: 75px;left: 730px;top: 140px;width: 70px;}
+.successBox .backHome{height: 75px;left: 825px;top: 140px;width: 70px;}
+/* memberInfor_free */
+.memberInfor_free{border:5px solid #fff;padding:35px;position:relative;min-height:542px;_height:542px;}
+.memberInfor_free .memberShow{position:absolute;left:35px;top:35px;}
+.memberShow .photoBox{padding:5px;}
+.memberShow .photoBox img{width:303px;height:352px;}
+.memberShow .btnBox{padding: 40px 0;text-align: center;}
+.memberShow .btnBox a{font-size: 14px;font-weight: bold;}
+.memberInfor_free .memberDesc{width:518px;padding-left:373px;}
+dl.memberMode{margin-bottom:15px;}
+dl.memberMode dt{}
+dl.memberMode dt .cTitle{border-bottom: 2px solid #B8C8C6;font: bold 14px/24px arial;height:24px;margin-bottom: 15px;}
+dl.memberMode dt .arrowPink,dl.memberMode dt .arrowBlue{display:inline-block;background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico.png) no-repeat 0 -60px;width:12px;height:12px;margin-right:3px;overflow:hidden;*vertical-align:middle;}
+dl.memberMode dt .arrowBlue{background-position:0 -75px;}
+dl.memberMode dd p{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_line.gif) repeat;line-height: 29px;padding-bottom:1px;width:415px;color:#666;}
+dl.memberMode dd .item{display:inline-block;width:205px;}
+.caijunInfor{background-color:#ecf2f4}
+.caijunInfor .memberShow .photoBox{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_boy_photo.jpg) no-repeat;}
+.caijunInfor .memberShow .btnBox{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_boy.jpg) no-repeat center center;}
+.jialiInfor{background-color:#f9f1f2}
+.jialiInfor .jialiFlower{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_flower2.png) no-repeat;position:absolute;bottom: -16px;height: 60px;right: -30px;width: 200px;}
+.jialiInfor .memberShow .photoBox{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_girl_photo.jpg) no-repeat;}
+.jialiInfor .memberShow .btnBox{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_girl.jpg) no-repeat center center;}
+/* memberInfor_vip */
+.memberInfor_vip{height: 518px;padding: 20px 10px;position:relative;}
+.memberInfor_vip .headImg{left: 303px;padding: 10px 9px;position: absolute;top: 61px;width: 322px;}
+.memberInfor_vip .baseInfor_vip{left: 30px;position: absolute;top: 80px;width: 270px;}
+.memberInfor_vip .otherInfor_vip{position: absolute;top: 290px;width: 272px;left:31px;}
+.memberInfor_vip .evaluate_vip{left: 670px;position: absolute;top: 140px;width: 260px;}
+.memberInfor_vip a.signupBtn {left: 390px;position: absolute;top: 480px;width:167px;height:50px;}
+.baseInfor_vip td{color: #666;height: 24px;}
+dl.descModel{margin-bottom: 15px;}
+dl.descModel dt{font: bold 14px/30px arial;}
+dl.descModel dt .icoBlue,dl.descModel dt .icoPink{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico.png) no-repeat -24px -25px;display:inline-block;
+height:11px;width:11px;overflow:hidden;margin-right:5px;margin-bottom:-1px;}
+dl.descModel dt .icoPink{background-position:-24px -40px}
+dl.descModel dd{color: #666;line-height: 26px;padding:0 10px 0 15px;}
+.evaluate_vip dl.descModel dd{line-height: 28px;}
+.requires_vip .cTitle{color: #FFF;font-size: 14px;font-weight: bold;padding: 5px;margin-bottom: 15px;}
+.requires_vip  p{color: #666;line-height: 24px;padding:0 6px 0 15px;}
+.mingshiInfor{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_mingshi.jpg) no-repeat 0 30px #fff;}
+.memberInfor_vip a.signupBtn{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_btn_mingshi.png) no-repeat;}
+.mingshiInfor  .requires_vip .cTitle{background-color: #5FB9FF;}
+.mingyuanInfor{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_mingyuan.jpg) no-repeat 0 30px #fff;}
+.mingyuanInfor  .requires_vip .cTitle{background-color: #ff8e8e;}
+.mingyuanInfor a.signupBtn{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_btn_mingyuan.png) no-repeat;}
+/* loveStoryBox */
+.loveStoryBanner{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_loveStory.jpg) no-repeat;height:108px;width:100%;}
+.loveStoryBox{width:100%;background-color:#fff;padding:25px 0;}
+.loveStoryList{padding-left: 74px;}
+.loveStoryList li{border: 1px solid #d4d4d4;float: left;margin-bottom: 25px;margin-right: 74px;padding: 9px;text-align: center;width: 353px;}
+.loveStoryList li img{width:353px;height:259px;display:block}
+.loveStoryList li .headImg{display:block}
+.loveStoryList li .storyLink{display: inline-block;font: bold 14px/22px arial;margin-top: 10px;color:#999;}
+.loveStoryList li a.storyLink:hover{color:#ec444f;text-decoration:none;}
+.loveStoryBox .pages{width:898px;overflow:hidden;}
+/* loveZoneBox */
+.loveZoneBox{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_rightDesc.jpg) repeat-y 602px 0 #fff;padding: 25px 0 5px;width: 100%;}
+.lovePhotoBox{width: 565px;}
+.lovePhotoBox .lovePhotoShow{height: 384px;margin: 0 0 13px 40px;overflow: hidden;width: 524px;}
+.lovePhotoBox .lovePhotoShow img{height: 384px;overflow: hidden;width: 524px;}
+.lovePhotoSliderWrap{height: 96px;margin-left: 40px;overflow: hidden;padding: 0 38px 0 51px;position: relative;width: 435px;}
+.lovePhotoSliderWrap a.arrowLeft,.lovePhotoSliderWrap a.arrowRight,.lovePhotoSliderWrap a.agrayleft,.lovePhotoSliderWrap a.agrayright{
+background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_btn.png) no-repeat 0 -175px;display: inline-block;width: 38px;height: 96px;position: absolute;top: 0;}
+.lovePhotoSliderWrap a.arrowLeft{left: 0;}
+.lovePhotoSliderWrap a.arrowRight{background-position:-40px -175px;right: 0;}
+.lovePhotoSliderWrap a.agrayleft{background-position:-80px -175px;left: 0;}
+.lovePhotoSliderWrap a.agrayright{background-position:-120px -175px;right: 0;}
+.lovePhotoSlider{height: 96px;overflow: hidden;position: relative;width: 435px;}
+.lovePhotoSlideList{position: absolute;top: 0;width: 1440px;}
+.lovePhotoSlideList li{float: left;margin-right: 14px;width: 131px;}
+.lovePhotoSlideList li a{display: block;height: 92px;outline: medium none;overflow: hidden;width: 127px;border:2px solid #ccc;}
+.lovePhotoSlideList li a:hover{border-color:#FF8182;}
+.lovePhotoSlideList li img{width:127px;height:92px;}
+.lovePhotoSlideList li.current a{border-color:#FF8182;}
+.loverDescBox{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_loverDesc.jpg) no-repeat 20px 0 ;margin-top: 20px;padding: 62px 0 0 40px;width: 524px;}
+.loverDescBox .loverDesc{border: 1px solid #EDEDED;border-top:medium none;padding: 10px 38px 20px;width: 446px;margin-bottom:20px;line-height: 28px;}
+.loverDesc p{color: #888;line-height: 28px;}
+.loverDesc .btnBox{text-align:center;margin-top:20px;}
+.loverDesc .btnBox a{color:#ec3839;font-weight:bold;font-size:14px;}
+.loverDesc .btnBox .marSep{margin-right:30px;}
+.loveZoneBox .rightDesc{padding-left: 40px;width: 327px;}
+.item_phone{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_item_phone.jpg) no-repeat;padding-top: 40px;}
+.item_phoneBg{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_item_phone2.jpg) no-repeat right top;height: 90px;padding-right: 90px;width: 200px;}
+.item_phoneBg p{border-bottom: 1px dotted #CCC;height: 32px;line-height: 32px;width: 200px;}
+.item_phoneBg .icoMobile{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico.png) no-repeat 3px -165px;display: inline-block;height: 20px;margin: 0 5px -3px 0;width: 19px;}
+.item_phoneBg .icoTele{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico.png) no-repeat 0 -190px;display: inline-block;height: 20px;margin: 0 5px -3px 0;width: 21px;}
+.item_phoneBg .highLight{color: #FF6061;font: 16px/32px tahoma;}
+.item_moreStory{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_item_moreStory.jpg) no-repeat;padding-top: 32px;}
+.moreLoveStory li{background-color: #F3F3F3;margin-bottom: 20px;text-align: center;width: 286px;}
+.moreLoveStory li img{width:286px;height:210px;display:block;}
+.moreLoveStory li .headImg{}
+.moreLoveStory li .link{color: #666;display: inline-block;font: bold 14px/30px arial;}
+.moreLoveStory li a.link:hover{color:#ec444f;text-decoration:none;}
+/* bannerAd_liehun */
+.bannerAd_liehun {width:970px;}
+/* loveOrder */
+.loveOrder{background-color:#fff;padding:27px 0;}
+.loveOrder .cLeft{width:570px;padding-left:27px}
+.loveOrderStep{}
+.loveOrderStep .topTitle{height:31px;font:bold 14px/31px SimSun;padding:0 0 0 10px;background-color:#ffdada;}
+.orderStepList{border-bottom: 1px solid #e8e8e8;margin-bottom: 20px;padding: 10px 0 10px 10px;}
+.orderStepList li{height: 32px;line-height: 32px;margin-bottom: 5px;}
+.orderStepList .ico1,.orderStepList .ico2,.orderStepList .ico3,.orderStepList .ico4{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico.png) no-repeat 0 -215px;
+display: inline-block;height: 20px;width: 23px;margin-bottom:-6px;}
+.orderStepList .ico2{background-position:0 -240px;}
+.orderStepList .ico3{background-position:0 -265px;}
+.orderStepList .ico4{background-position:0 -290px;}
+.orderStepList .cLabel{color:#d1566d;}
+.loveOrderHelp .topTitle{height:31px;font:bold 14px/31px SimSun;padding:0 0 0 10px;background-color:#ededed;}
+.loveOrderHelp .topTitle a{font:bold 14px/31px SimSun;color:#000}.loveOrderHelp .topTitle a:hover{text-decoration:none;}
+.loveOrderHelp .helpPhone{padding: 15px 0;}
+.helpPhone p{margin-bottom: 15px;padding-left: 10px;}
+.helpPhone select{padding: 2px;width: 140px;}
+.helpPhone .cityPhone{color: #E31F52;}
+.loveOrder .cRight{width:322px;padding-right:27px}
+.loveOrder .applyLiehun{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_applyHunlian.jpg) no-repeat;height: 55px;margin-bottom: 20px;padding: 142px 0 0 22px;width: 300px;}
+.loveOrder .applyLiehun a{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_btn.png) repeat 0 -275px;color: #FFF;display: inline-block;font: 14px/34px simsun;height: 34px;text-align: center;width: 107px;}
+.loveOrder .applyLiehun a:hover{text-decoration:none;}
+.loveOrder .loveOrderAd {text-align:center;}
+/* member_elite member_vip */
+.middleBg{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_middleBg.jpg) repeat-x 0 50px;}
+.member_elite .topIntro,.member_vip .topIntro{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_flower2.jpg) no-repeat 0 0 #FFF;height: 177px;padding: 15px 0 10px;}
+.topIntro .cLeft{border-right: 1px solid #d4d4d4;height: 170px;margin-right: 40px;padding: 2px 0 0 20px;position: relative;width: 444px;}
+.topIntro .cLeft p{height: 37px;}
+.topIntro .cLeft span{color: #666;border-bottom:1px solid #E0E6E8;padding:10px 0;display:inline-block;line-height:16px;}
+.topIntro .cLeft a{position: absolute;right: 40px;top: 125px;}
+.topIntro .cRight{height: 177px;width: 445px;}
+.topIntro .cRight .picIntro{margin-top: 10px;}.topIntro .cRight .sep_mab{margin-bottom: 25px;}
+.picIntro .picItem{float: left;margin-right: 5px;width: 215px;}
+.picIntro .picItem img{float: left;margin-top: 3px;width: 55px;}
+.picIntro .picItem .rightDesc{float: right;width: 150px;}
+.picItem .rightDesc h5{font-family: "Microsoft Yahei","simsun";font-size: 16px;}
+.picItem .rightDesc .c1{color:#ec407d}.picItem .rightDesc .c2{color:#f49b1c}
+.picItem .rightDesc .c3{color:#3470d5}.picItem .rightDesc .c4{color:#51b636}
+.picItem .rightDesc p{color: #999;}
+.middleSubTitle{padding: 20px 0 0 0;}
+.middleSubTitle .subTab{width: 150px;}
+.middleSubTitle .subTab a{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_btn.png) no-repeat 0 -315px;color: #FFF;display: inline-block;font: bold 16px/33px simsun;
+height: 32px;margin-right: 2px;padding-bottom: 6px;text-align: center;width: 68px;}
+.middleSubTitle .subTab a.curr{background-position: -70px -315px;}
+.middleSubTitle a.tipBtn{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_gray_tip.jpg) no-repeat 0 0;color: #F03B85;display: inline-block;font-family: "Microsoft Yahei","SimSun";
+height: 18px;line-height: 18px;margin-top: 4px;padding: 3px 0 14px 8px;width: 97px;}
+.middleSubTitle a.zhenghun{color: #999;font-family: "Microsoft Yahei";font-size: 14px;margin-top: 8px;}
+.middleSubTitle a.zhenghun span{font-family: simsun,serif;font-weight: bold;margin-left: 5px;}
+.middleSubTitle  a:hover{text-decoration:none;}
+.memberList_elite{margin-right: -11px;padding-bottom:15px;}
+.memberList_elite li{background-color:#fff;border: 1px solid #e7e7e7;padding: 14px 14px 10px;text-align: center;width: 157px;float:left;margin:0 8px 8px 0;height:250px;overflow:hidden;}
+.memberList_elite li img{width:157px;height:186px;}
+.memberList_elite li .memberName{color: #FF6464;font-weight: bold;}
+.memberList_elite li p{line-height: 20px;}
+.member_elite .lovePage,.member_vip .lovePage{margin-bottom:15px;}
+/*member_vip add*/
+.member_vip .topIntro{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_flower3.jpg) no-repeat 0 0 #fff;}
+.member_vip .topIntro .cLeft{border-color:#fff;margin-right:0;}
+.member_vip .topIntro .cRight{width:485px;}
+.member_vip .topIntro .picText{padding-top:20px;}
+.topIntro .picText p{font-family:"Microsoft Yahei", "SimHei","simsun";font-size:14px;color:#666;margin-bottom:15px;}
+.picText p .ico_love{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico.png) repeat 0 -365px;display:inline-block;height:18px;width:24px;margin:0 8px -4px 0}
+.memberList_vip_tabCon{width:100%;overflow:hidden;clear:both;}
+.memberList_vip{width:100%;margin-right:-32px;overflow:hidden; clear:both; }
+.memberList_vip li{background-color: #FFF;border: 1px solid #dedede;float: left;padding: 11px;width: 445px;margin:32px 16px 0 0;cursor:pointer; _display:inline;}
+.memberList_vip li.curr{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_flower5.jpg) no-repeat left bottom #fff;border-color:#e36aa3;}
+.memberList_vip li .headImg{float: left;margin-right: 20px;width: 184px;}
+.memberList_vip li .headImg img{height: 214px;width: 184px;}
+.memberList_vip li .memberDesc_right{float: left;width: 240px;}
+.memberDesc_right p{line-height: 30px;}
+.memberDesc_right p.btnBox{margin-top:20px;}
+.memberDesc_right p.btnBox a{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_btn.png) no-repeat 0 -360px;display:inline-block;height:35px;width:106px;text-align:center;
+font:bold 14px/35px "simsun",arial;color:#da4059;}
+.memberDesc_right p.btnBox a:hover{background-position:-108px -360px;color:#fff;text-decoration:none;}
+.member_vip .lovePage a.prev,.member_vip .lovePage a.next,.member_vip .lovePage a.curr{background-color: #e03778;}
+/* contact_jiayuan */
+.contact_jiayuan{background-color: #FFF;border-bottom: 1px solid #E5E5E5;min-height: 363px;_height: 363px;padding: 40px 40px 60px;position: relative;}
+.contact_jiayuan .contactBox{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_contact_line.jpg) no-repeat 438px 0;padding-right: 445px;width: 445px;}
+.contactBox .topBg{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_contact_top.jpg) no-repeat;height: 12px;width: 405px;overflow:hidden;}
+.contactBox .bottomBg{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_contact_bottom.jpg) no-repeat;height: 56px;}
+.contactBox .tabNav_contact{background-color: #CCC;height: 31px;width: 405px;}
+.tabNav_contact li{float: left;}
+.tabNav_contact li a{color: #666;display: inline-block;font-weight: bold;height: 31px;line-height: 31px;text-align: center;width: 42px;}
+.tabNav_contact li a:hover{text-decoration:none;}
+.tabNav_contact li.curr a{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_contact_tab.jpg) no-repeat;width: 62px;}
+.contactBox .tabCon_contact{border-left: 1px solid #CCC;border-right: 1px solid #CCC;width: 403px;}
+.tabItem_contact{height: 240px;overflow: hidden;}
+.tabItem_contact .topTitle{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/phone2.jpg) no-repeat 20px 25px;color: #E36A8F;font: bold 14px/30px simsun;height: 30px;padding: 20px 0 0 50px;}
+.tabItem_contact .phoneBox{color: #666;font-weight: bold;line-height: 30px;padding: 0 20px 0 50px;}
+.tabItem_contact .phoneBox span{margin-right: 25px;}
+.tabItem_contact .phoneBox2{color: #666;font-weight: bold;line-height: 30px;padding: 0 0 0 50px;width:353px;}
+.tabItem_contact .phoneBox2 .ctit{display:inline-block;width:100px;}
+.tabItem_contact .phoneBox2 .desc {width:253px;}
+.tabItem_contact .phoneBox2 .desc span{margin-right: 20px;}
+.tabItem_contact .imgBox{border-bottom: 1px solid #E2E0DF;border-top: 1px solid #E2E0DF;margin-top: 20px;}
+.contact_jiayuan .flash_contact{position:absolute;width:445px;top:40px;right:40px;}
+/*tab add more*/
+.tabNav_contact li {position:relative;z-index:2;}
+.lastCurr{position:absolute;border:1px solid #ececec;border-top:0;border-radius:0 0 5px 5px;display:none;top:31px;left:0;background:#fff;}
+.tabNav_contact li .lastCurr a{display:block;background-color:#fff;border-top:1px solid #ececec;background:none;height:22px;line-height:22px;padding:0;}
+.tabNav_contact li i{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/tarr.png) no-repeat right center;display:inline-block;width:9px;height:7px;padding-left:2px;}
+.tabNav_contact li .lastCurr a:hover{background:#f0f0f0;}
+.tabNav_contact li a{padding:8px 0;line-height:normal;height:15px;}
+/*tab add more E*/
+/*---index page css---*/
+.conBox_index{margin-top:14px;width:970px;overflow:hidden;}
+/* topSlider_index */
+.topSlider_index{width:680px;position:relative;height:284px;}
+.conBox_topSlider{}
+.conBox_topSlider .imgItem_slider{position: relative;width: 680px;}
+.imgItem_slider .slideImg{}
+.imgItem_slider .slideImg img{width:680px;height:284px;display:block;}
+.imgItem_slider .slideBg{background-color: #000;position:absolute;bottom: 0;left:0;height: 37px;width: 680px;opacity:0.7;z-index:2}
+.imgItem_slider .slideText {position:absolute;bottom: 0;left:0;height: 37px;width: 660px;line-height: 37px;padding: 0 10px;z-index:5}
+.imgItem_slider .slideText .aNote{margin-right: 15px;}
+.tab_topSlider{bottom: 8px;height: 15px;position: absolute;right: 10px;z-index: 10;}
+.tab_topSlider a{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico.png) no-repeat 0 -325px;_background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico.gif) no-repeat 0 -325px;display: inline-block;height: 14px;margin-right: 5px;width: 15px;overflow:hidden;}
+.tab_topSlider a.curr{background-position:0 -310px;}
+/* topIntro_index */
+.topIntro_index{background-color:#fff;width:256px;height:254px;padding:12px 6px 6px;border:6px solid #cacaca;}
+.topIntro_index .ico1,.topIntro_index .ico2,.topIntro_index .ico3,.topIntro_index .ico4{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico.png) no-repeat 0 -215px;
+display: inline-block;height: 20px;width: 23px;margin-bottom:-6px;margin-right:10px;}
+.topIntro_index .ico2{background-position:0 -240px;}
+.topIntro_index .ico3{background-position:0 -265px;}
+.topIntro_index .ico4{background-position:3px -290px;}
+.topIntro_index .ico5{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico.png) no-repeat 0 -340px;display: inline-block;height: 18px;margin: 0 0 -3px 5px;width: 15px;overflow:hidden;*vertical-align:middle;*margin-top:-3px!important;}
+.topIntro_index p{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_line_index.jpg) no-repeat left bottom;color: #666;font: 14px/50px "Microsoft Yahei",arial;height: 50px;text-align: center;}
+.topIntro_index p.last{background: none;}
+.topIntro_index p span{display:inline-block;height:50px}
+.topIntro_index .btnBox{height: 54px;text-align: center;}
+.topIntro_index .btnBox a{background-color: #ED63A4;color: #FFF;display: inline-block;font: 20px/54px "Microsoft Yahei",arial;width: 100%;height: 54px;}
+.topIntro_index .btnBox a:hover{text-decoration:none;}
+.topIntro_index .btnBox a span{display: inline-block;cursor:pointer;}
+/* subNav_index */
+.subNav_index{padding: 4px 0 0;width: 100%;height:54px;}
+.lovewitness,.meitibaodao,.gaoduanhuodong,.ico_pink,.more_blue,.more_gray{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico_index.jpg) no-repeat;display: inline-block;}
+.lovewitness{background-position: 0 -170px;height: 32px;width: 310px;}
+.meitibaodao{background-position: 0 -270px;height: 32px;width:110px;}
+.gaoduanhuodong{background-position: 0 -310px;height: 32px;width:112px;}
+.ico_pink{background-position: -10px 0;height: 32px;width:4px;margin-right:8px;margin-bottom:-2px;}
+.more_blue{background-position: 0 -345px;height: 25px;width:40px;}
+.more_gray{background-position: -70px -345px;height: 25px;width:40px;}
+.subNav_index .tabBox{margin-top:4px;}.subNav_index .tabBox a{margin-right:10px;}
+.subNav_index .tabBox .jiali,.subNav_index .tabBox .jiali_curr,.subNav_index .tabBox .caijun,.subNav_index .tabBox .caijun_curr,
+.subNav_index .tabBox .mingshi,.subNav_index .tabBox .mingshi_curr,.subNav_index .tabBox .mingyuan,.subNav_index .tabBox .mingyuan_curr{
+background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico_index.jpg) no-repeat;display: inline-block;}
+.subNav_index .tabBox .jiali{background-position:0 -109px;height:25px;width:48px;}
+.subNav_index .tabBox .jiali_curr{background-position:-60px -109px;}
+.subNav_index .tabBox .caijun{background-position:0 -140px;height:25px;width:48px;}
+.subNav_index .tabBox .caijun_curr{background-position:-60px -140px;}
+.subNav_index .tabBox .mingshi{background-position:0 -40px;height:25px;width:48px;}
+.subNav_index .tabBox .mingshi_curr{background-position:-60px -40px;}
+.subNav_index .tabBox .mingyuan{background-position:0 -75px;height:25px;width:48px;}
+.subNav_index .tabBox .mingyuan_curr{background-position:-60px -75px;}
+.subNav_index .grayTip{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico_index.jpg) no-repeat 0 -380px;display: inline-block;width: 105px;height:37px;margin-top:4px;}
+.caijunjiali_right{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico_index.jpg) no-repeat 0 -245px;display: inline-block;width: 262px;height:20px;margin-top:10px;}
+.caijunjiali_right .appyLink{display: inline-block;height: 20px;width: 202px;}
+.caijunjiali_right .more{display: inline-block;height: 20px;margin-left: 20px;width: 40px;}
+.winners_right{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico_index.jpg) no-repeat 3px -215px;display: inline-block;width: 225px;height:20px;margin-top:10px;}
+.winners_right .appyLink{display: inline-block;height: 20px;width: 165px;}
+.winners_right .more{display: inline-block;height: 20px;margin-left: 20px;width: 40px;}
+/* lovewitnessList */
+.lovewitnessList{border-bottom: 1px solid #DDD;margin-right:-20px;}
+.lovewitnessList li{float: left;margin-right: 20px;width: 178px;}
+.lovewitnessList li a.headImg{}
+.lovewitnessList li img{width:178px;height:112px;display:block;}
+.lovewitnessList li p{height: 35px;line-height: 32px;text-align: center;}
+/* memberList1_index */
+.memberList1_index{margin-right: -3px;}
+.memberList1_index  li{float: left;margin: 0 3px 3px 0;width: 163px;height:190px;overflow:hidden;position:relative;}
+.memberList1_index  li .headImg{}
+.memberList1_index  li  img{display: block;height: 190px;width: 163px;}
+.memberList1_index  li .slideDesc{position:absolute;left:0;bottom:-64px;width:100%;text-align:center;padding:5px 0;height:54px;z-index:5;}
+.memberList1_index  li .slideBg{background:#000;bottom:-64px;height: 64px;left: 0;opacity: 0.7;position: absolute;width: 100%;z-index: 4;}
+.memberList1_index  li.first{width: 306px;height:383px;}
+.memberList1_index  li.first  img{height: 383px;width: 306px;}
+/* memberList2_index */
+.memberList2_index{margin-right:-22px;}
+.memberList2_index  li{float: left;margin-right: 22px;width: 226px;}
+.memberList2_index  li  img{height: 284px;width: 226px;display:block;}
+.memberList2_index  li p{}
+.memberList2_index  li .viewDescLink{border-bottom: 2px solid #CECECE;color: #999;display: inline-block;height: 30px;line-height: 30px;text-align: center;width: 100%;}
+.memberList2_index  li.curr a.viewDescLink,.memberList2_index  li a.viewDescLink:hover{border-color:#f14d90;color:#000;text-decoration:none;}
+/* tvBox ---activityMain */
+.mediaReport{width:282px;margin-right:20px;}
+.tvBox{width:282px;}
+.hignActivity{width:668px;}
+.activityMain{border: 1px solid #E4E4E4;padding: 1px;width: 664px;}
+.tvSlider{margin-right: 20px;width: 280px;position: relative;height: 185px;overflow:hidden; }
+.tabCon_tvSlider{height: 185px;overflow:hidden;}
+.imgItem_tv{height: 185px;position: relative;width: 280px;}
+.imgItem_tv .slideImg{}
+.imgItem_tv .slideImg img{width:280px;height:185px;display:block}
+.imgItem_tv .slideText{bottom: 0;font: bold 14px/30px simsun;height: 30px;padding-left: 10px;position: absolute;width: 270px;z-index: 5;}
+.imgItem_tv .slideBg{background-color: #000;bottom: 0;height: 30px;opacity: 0.7;position: absolute;width: 100%;z-index: 4;}
+.tab_tvSlider{bottom: 10px;height: 10px;overflow: hidden;position: absolute;right: 10px;z-index: 10;}
+.tab_tvSlider a{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico.png) no-repeat -15px -390px;_background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico.gif) no-repeat -15px -390px;display: inline-block;height: 9px;margin-right: 5px;width: 9px;overflow:hidden;}
+.tab_tvSlider a.curr{background-position:0 -390px;}
+.tab_tvSlider a:hover{}
+.activityList_index{padding-top: 10px;width: 343px;}
+.activityList_index ul{}
+.activityList_index li{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_arrow_left.jpg) no-repeat 0 12px;padding-left:20px;border-bottom: 1px dashed #CCC;height: 32px;line-height: 32px;}
+.activityList_index li.last{border-bottom: medium none;}
+.activityList_index li a{color:#999}
+.activityList_index li a:hover{color:#000;text-decoration:none;}
+/* rightPop_love */
+.rightPop_love{width:244px;position:fixed;_position:absolute;bottom:1px;left:1px;z-index:99;}
+.rightPop_love .headTitle{width:100%;height:28px;background-color:#e36aa3;}
+.rightPop_love .headTitle h5{font-weight:bold;line-height:28px;float:left;width:180px;color:#fff;padding-left:10px;}
+.rightPop_love .headTitle .closeThis{color:#fff;float:right;width:32px;line-height:28px;}.rightPop_love .headTitle a.closeThis:hover{text-decoration:none;}
+.rightPop_love .conBox{background-color:#fff;border:1px solid #e8dbe1;border-top:medium none;}
+.loveIndex_rightPop{padding: 10px 0 0;width: 242px;}
+.loveIndex_rightPop  p{color: #E36AA3;font-weight: bold;height: 26px;line-height: 26px;padding-left: 40px;}
+.loveIndex_rightPop  .tele{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico.png) repeat 0 -405px;display: inline-block;height: 16px;margin: 0 5px -3px 0;width: 16px;}
+.loveIndex_rightPop  .phone{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico.png) repeat 2px -425px;display: inline-block;height: 16px;margin:0 6px -2px 0;width: 16px;}
+.loveIndex_rightPop  .popNote{background-color: #EEDFE6;height: 40px;margin: 10px 1px 1px;text-align: center;color:#cf4586;font:bold 14px/40px arial;}
+/* userInforBox */
+.userInforBox{background-color: #FFF;border-bottom: 1px solid #E5E5E5;padding: 26px 26px 0;}
+.leftMenu_user{margin-right: 25px;width: 168px;}
+.leftMenuList_user{width: 100%;}
+.leftMenuList_user li{height: 35px;margin-bottom: 1px;width: 100%;}
+.leftMenuList_user li a{background-color: #F7F7F7;color: #E36AA3;display: block;height: 35px;padding-left: 20px;width: 148px;font:bold 14px/35px sinsum;}
+.leftMenuList_user li.curr a{background-color: #E36AA3;color: #FFF;}.leftMenuList_user li a:hover{text-decoration:none;}
+.rightCon_user{width: 725px;}
+.userInfor_table{border: 1px solid #FDCCEA;border-collapse:collapse;width: 724px;margin-bottom:30px;}
+.userInfor_table td{padding: 5px;text-align: center;border: 1px solid #FDCCEA;empty-cells:show;font-family:sinsum;color:#666;}
+.userInfor_table td.itemName{font-weight: bold;}.userInfor_table td.tal{text-align:left;}
+.userInfor_table td.padleft1{padding-left:10px;}.userInfor_table td.padleft2{padding-left:20px;}
+.userInfor_table td.padleft3{padding-left:25px;}.userInfor_table td.padleft4{padding-left:47px;}
+.userInfor_table td.title{padding-left:10px;color: #E36AA3;font-size: 14px;font-weight: bold;text-align: left;}
+.userInfor_table tr.pinkBg td{background-color:#fff9fd;}
+.userInfor_table .photoList{padding: 15px 20px 0;}
+.userInfor_table .photoList li{width:132px;height:142px;overflow:hidden;float:left;margin:0 20px 0 0;padding-bottom:15px;}
+.userInfor_table .photoList li a{display:table-cell;*display:block;vertical-align:middle;text-align:center;width:130px;height:140px;border:1px solid #e4c0d3;}
+.userInfor_table .photoList li i{*display:inline-block;*height:100%;*vertical-align:middle}
+.userInfor_table .photoList li img{_width: expression(this.width >130 ? 130: true);_height: expression(this.height >140 ? 140: true); max-width: 130px;max-height: 140px;*vertical-align:middle;}
+.fitUserBox{width:100%;}
+.fitUserList{width:100%;}
+.fitUserList li{width:100%;float:left;position:relative;padding-bottom:20px;border-bottom:1px solid #ccc;margin-bottom:20px;}
+.fitUserList li .headImg{width:116px;height:142px;display:block;padding:4px;border:1px solid #ccc;float:left;margin-right:20px;}
+.fitUserList li .headImg img{width:116px;height:142px;display:block}
+.fitUserList li .rightDesc{float: left;width: 370px;}
+.fitUserList li .rightDesc .textDesc{color: #666;line-height: 24px;padding-left: 6em;text-indent: -6em;}
+.fitUserList li .btnBox{bottom: 20px;position: absolute;right: 0;width: 200px;}
+.fitUserList li .btnBox a{float:left;}.fitUserList li .btnBox a.btn30_pink_95{margin-right:10px;}
+.fitUserBox .pages{}
+.fitUserBox .pages ol{}
+.fitUserBox .pages li a{background:#fff;border: 1px solid #CFCFCF;height: 18px;line-height: 18px;}
+.fitUserBox .pages li a:hover,.fitUserBox  .pages li.on a{background:#FFEEF4;border: 1px solid #D32972;color: #D32972;}
+/*--- applyVipBox ---*/
+.applyVipBox{background-color: #FFF;border-bottom: 1px solid #E5E5E5;padding: 30px 0;width:970px;overflow:hidden;}
+/* applyVip_caption */
+.applyVip_caption{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_line_mid.jpg) no-repeat scroll center bottom;height: 52px;margin-bottom: 5px;padding: 10px 82px 0;}
+.applyVip_caption .cTitle{color: #F44698;font: bold 16px/36px simsun;width: 600px;}
+.applyVip_caption .currpage{color: #999;text-align: right;width: 100px;line-height:36px;}
+/* applyVipForm */
+.applyVipForm{padding:0 82px;width:806px;}
+.applyVipForm .input60{width:60px;}.applyVipForm .cNote{padding:5px 0; width:560px;}.applyVipForm .cname{margin-right:5px;color:#666;}
+.applyVipForm .input_text{padding: 2px 5px;vertical-align: middle;}
+.applyVipForm .input_radio{vertical-align:middle;}
+.applyVipForm .input_check{vertical-align: middle;}
+.applyVipForm  select{padding: 2px;vertical-align: middle;}
+.applyVipForm  textarea{height: 80px;vertical-align: middle;width: 450px;padding:5px;}
+.applyVipForm .applyVipTit{float: left;margin-bottom: 20px;width: 806px;}
+.applyVipForm .applyVipTit span{font-size:14px;font-weight:bold;}
+.applyVipForm .applyVipTit .ico{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_btn2.jpg) no-repeat 0 -100px;display:inline-block;width:16px;height:16px;margin:0 8px -3px 0;}
+.applyVipForm .applyVipItem{float: left;margin-bottom: 20px;width: 806px;}
+.applyVipItem .applyVipLeft{display: inline-block;font-size: 14px;margin-right: 10px;width: 96px;text-align:right;}
+.applyVipItem .applyVipRight{width: 700px;}
+.applyVipRight .subLabel{vertical-align: middle;}
+.applyVipRight .checkCon{width:420px;}
+.applyVipRight .checkCon li{float:left;margin:0 3px 5px 0;white-space:nowrap;}
+.applyVipRight .checkCon2{width:445px;}
+.applyVipRight .checkCon2 li{float:left;width:145px;margin:0 3px 5px 0;white-space:nowrap;}
+.applyVipRight .checkCon4{width:470px;}
+.applyVipRight .checkCon4 li{float:left;width:230px;margin:0 3px 5px 0;white-space:nowrap;}
+.applyVipRight .checkCon3{}
+.applyVipRight .checkCon3 .citem{margin-right:3px;}
+.applyVipForm .btnBox{text-align: center;width: 806px;}
+.applyVipForm .btnBox a{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_btn2.jpg) no-repeat;display: inline-block;height: 41px;width: 127px;}
+.applyVipForm .btnBox a:hover{}
+.applyVipForm .btnBox a.nextStepBtn{background-position: 0 -50px;}
+.applyVipForm .btnBox a.nextStepBtn:hover{background-position: -129px -50px;}
+.applyVipForm .btnBox a.submitBtn:hover{background-position: -129px 0;}
+.applyVipStep3 .applyVipLeft{width:176px;}.applyVipStep3 .applyVipRight{width:620px;}
+.applyVipForm .applyVipItems{width: 766px;padding:0 20px;}
+.applyVipItems li{float: left;margin-bottom: 20px;width: 383px;}
+.applyVipItems li label{display: inline-block;text-align: right;width: 80px;margin-right:10px;}
+.applyVipForm  .sendwordBox{background:url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_jiyu.jpg) repeat;border: 1px solid #D8D8D8;margin: 30px auto 20px;padding: 40px 30px;position: relative;width: 669px;}
+.applyVipForm  .sendwordBox h5{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_line39.jpg) repeat;color: #666;font: 18px/38px simsun;height: 38px;margin-bottom: 10px;
+overflow: hidden;padding-bottom: 1px;padding-left: 20px;}
+.applyVipForm  .sendwordBox .textdesc{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_line39.jpg) repeat;color: #666;font: 16px/39px simsun;margin-bottom: 20px;padding:0 20px;text-indent: 2em;}
+.applyVipForm  .sendwordBox .signature{color: #666;font: bold 20px/38px simsun;padding-right: 30px;text-align: right;}
+.applyVipForm  .sendwordBox .bottomShad{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_jiyu_bottom.jpg) no-repeat;bottom: -15px;height: 14px;left: -1px;overflow: hidden;position: absolute;width: 729px;}
+/* 20130416 鐢宠鐚庡�椤甸潰鏍峰紡 write by hongye */
+.cTitle_liehun{height: 32px;}
+.cTitle_liehun .keyTit{font: bold 16px/32px "SimSun";}
+.applyLiehun2{background-color: #FFF;margin-top: 15px;width: 936px;padding: 12px 0 20px 34px;}
+.applyLiehun2 .inforBox{float: left;margin-right: 18px;width: 372px;}
+.applyLiehun2 .applyBox_liehun{float: left;width: 514px;}
+.applyLiehun2 .keyText{color:#f69}
+.cService_liehun{margin:12px 0 15px;}
+.cService_liehun .topImg{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_service.jpg) no-repeat;height: 146px;width: 372px;}
+.cService_liehun .serviceDesc{margin-top: 12px;}
+.cService_liehun .serviceDesc .tit{color: #333;font: 14px/28px "SimSun";}
+.cService_liehun .serviceDesc .cNote{color: #999;font: 12px/24px "SimSun";margin-bottom: 5px;padding-left: 26px;}
+.cService_liehun .serviceDesc  em{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico2.gif) no-repeat;display: inline-block;margin-right: 10px;width: 16px;}
+.cService_liehun .serviceDesc  em.ico1{height: 15px;margin-bottom: -4px;}
+.cService_liehun .serviceDesc  em.ico2{background-position: 0 -23px;height: 12px;margin-bottom: -2px;}
+.cService_liehun .serviceDesc  em.ico3{background-position: 0 -45px;height: 12px;margin-bottom: -1px;}
+.cHotline_liehun{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/balloon.jpg) no-repeat 260px 0;height: 80px;width: 360px;}
+.cHotline_liehun p{color: #666;font: 14px/40px arial;}
+.cHotline_liehun p.top{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_line1.jpg) no-repeat left bottom;}
+.cHotline_liehun p em{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_ico2.gif) no-repeat;display: inline-block;margin-right: 10px;width: 16px;}
+.cHotline_liehun p em.tel{background-position: 0 -66px;height: 15px;margin-bottom: -3px;}
+.cHotline_liehun p em.iphone{background-position: 3px -90px;height: 16px;}
+.applyForm_liehun{border: 1px solid #E5E5E5;margin-top:8px;margin-bottom:13px;}
+.applyForm_liehun .formHead{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_title1.jpg) repeat-x;font: bold 16px/46px "SimSun";height: 46px;margin-bottom: 25px;text-align: center;}
+.applyForm_liehun .applyFormItem{margin-bottom: 18px;}
+.applyFormItem  label{color: #666;display: inline-block;line-height: 24px;margin-right: 5px;text-align: right;width: 135px;vertical-align:middle;}
+.applyFormItem  input{border: 1px solid #CDCDCD;color: #666;height: 22px;line-height: 22px;padding: 0 5px;vertical-align:middle;}
+.applyFormItem  input.grayText{color:#ccc}
+.applyFormItem  input.cPhone{width:180px;}
+.applyFormItem  select{border: 1px solid #CDCDCD;height: 24px;line-height: 24px;padding: 2px;color:#ccc}
+.applyFormItem  .match{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/check.gif) no-repeat;display: inline-block;height: 16px;margin: 0 0 -3px 5px;width: 16px;}
+.applyFormItem  .tipBox{background-color:#fff7f7;border:1px solid #f3d9d9;display: inline-block;height: 22px;line-height: 22px;position: relative;margin-left:10px;
+-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;vertical-align:middle;}
+.applyFormItem  .wrong{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/wrong.gif) no-repeat 0 4px;display: inline-block;height: 22px;line-height: 22px;*line-height: 23px;margin: 0 0 0 5px;padding-left: 20px;color:#c00;padding-right:5px;}
+.applyFormItem a.getValidateBtn{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_btn.png) no-repeat 0 -452px;width:104px;height:24px;display:inline-block;font:12px/24px arial;color:#666;text-align:center;margin-left:5px;}
+.applyFormItem a.getValidateBtn:hover{text-decoration:none;}
+.tipBox .arrow_left{height: 12px;left: -10px;position: absolute;top: 6px;width: 10px;z-index: 10;overflow:hidden;}
+.tipBox .arrow_left em{border-width: 5px;border-style:dashed solid dashed dashed;display: inline-block;height: 0;position: absolute;width: 0;overflow:hidden;}
+.tipBox .arrow_left em.layer1{border-color: transparent #FFF7F7 transparent transparent;left: 0;top: 0;z-index: 12;}
+.tipBox .arrow_left em.layer2{border-color: transparent #F3D9D9 transparent transparent;left: -1px;top: 0;z-index: 11;}
+.applyForm_liehun .formBtn{padding:2px 0 24px;text-align: center;}
+.applyForm_liehun .formBtn a.submitBtn{background: url(//imgv.jiayuan.com/w4/hongniang/i/newImg/bg_btn.png) no-repeat 0 -406px;color: #FFF;display: inline-block;font: bold 16px/41px "SimSun";height: 41px;-moz-text-shadow: -1px -1px #D93F73;-webkit-text-shadow: -1px -1px #D93F73;text-shadow: -1px -1px #D93F73;width: 123px;}
+.applyForm_liehun .formBtn a.submitBtn:hover{background-position:-127px -406px;text-decoration:none;}
+.loverShowList{margin-right: -14px;margin-top:8px;}
+.loverShowList li{float: left;height: 73px;margin-right: 14px;width: 118px;}
+.loverShowList li img{display:block;height: 73px;width: 118px;}
+
+</style>
+
+<div class="middleWrap middleBg">
+<div class="middleMain">
+<div class="topTitle_liehun">
+<span class="cLeft"><em class="tag_pink"></em><strong class="f_16">才俊佳丽</strong></span>
+</div>
+<div class="member_elite">
+<div class="topIntro fn-clear">
+<div class="cLeft fn-left">
+<p><span>您是否拥有足够的自信？</span></p>
+<p><span>您是否拥有傲人的自身条件？</span></p>
+<p><span>您是否苦于周围没有结识精英人士的机会？</span></p>
+<p><span>您是否想拥有免费推荐给名仕名媛的机会？</span></p>
+
+<a href="female.php" target="_blank" class="btn30_pink_95" onclick="send_jy_pv2('|1001483_20|');">申请加入</a>
+</div>
+<div class="cRight fn-left">
+<div class="picIntro sep_mab fn-left">
+<div class="picItem">
+<img src="//imgv.jiayuan.com/w4/hongniang/i/newImg/pic1.jpg" alt="" />
+<div class="rightDesc">
+<h5 class="c1">高端派对</h5>
+<p>免费参加红娘专场交友活动</p>
+</div>
+</div>
+<div class="picItem">
+<img src="//imgv.jiayuan.com/w4/hongniang/i/newImg/pic2.jpg" alt="" />
+<div class="rightDesc">
+
+<h5 class="c2">梦中情人</h5>
+<p>由佳缘红娘不定期的免费为您推荐符合您条件的TA</p>
+</div>
+</div>
+</div>
+<div class="picIntro fn-left">
+<div class="picItem">
+<img src="//imgv.jiayuan.com/w4/hongniang/i/newImg/pic3.jpg" alt="" />
+<div class="rightDesc">
+<h5 class="c3">一见钟情</h5>
+<p>享受佳缘红娘为您和您心仪的TA安排1对1私密二人约会</p>
+</div>
+</div>
+
+<div class="picItem">
+<img src="//imgv.jiayuan.com/w4/hongniang/i/newImg/pic4.jpg" alt="" />
+<div class="rightDesc">
+<h5 class="c4">心灵碰撞</h5>
+<p>与爱情顾问当面沟通，深度了解您的择偶需求</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="middleSubTitle fn-clear">
+<div class="subTab fn-left"><a href="../cjlist.php" class=" ie6png">才俊</a><a href="../cjjllist.php" class="curr ie6png">佳丽</a></div>
+<a href="female.php" target="_blank" class="tipBtn fn-left" onclick="send_jy_pv2('|1001483_21|');">我要出现在这里</a>
+
+<a href="female.php" target="_blank" class="zhenghun fn-right" onclick="send_jy_pv2('|1001483_22|');">我是才俊佳丽，申请一对一服务<span class="f_pink">>></span></a>
+</div>
+<div class="memberList_elite_tabCon">
+
+<ul class="memberList_elite fn-clear">
+
+		<li>
+	<a target="_blank" href="/cjjl.php?cust_id=136353401" class="headImg"><img src="https://vipfile.jiayuan.com/vip_img_url.php?id=136353401&date=1519703465&filename=a6956a743b99b4566db533e4ec874a28.jpg&width=1024&height=1024&token=0ffaedf3c07f78606fd16f26b9a809cf" alt="" /></a>
+	<p><a target="_blank" href="/cjjl.php?cust_id=136353401" class="memberName">复旦大学李小姐</a></p>
+	<p>28岁 167cm 52kg</p>
+	<p>初见她，感觉气质非常好。...</p>
+	</li>
+		<li>
+	<a target="_blank" href="/cjjl.php?cust_id=104894454" class="headImg"><img src="https://vipfile.jiayuan.com/vip_img_url.php?id=104894454&date=1472710139&filename=90c50e7ba88d68bf11dd27b677b9ea8a.jpg&width=1024&height=1024&token=49f820261c74d5be3760dc1f060eae79" alt="" /></a>
+	<p><a target="_blank" href="/cjjl.php?cust_id=104894454" class="memberName">瑶瑶女生</a></p>
+	<p>28岁 165cm 49kg</p>
+	<p>初见女孩子便眼前一亮，明...</p>
+	</li>
+		<li>
+	<a target="_blank" href="/cjjl.php?cust_id=114941035" class="headImg"><img src="https://vipfile.jiayuan.com/vip_img_url.php?id=114941035&date=1505527414&filename=ecd8f223dfaec12d444d8014cb19400e.jpg&width=1024&height=1024&token=ede18bfb9886e0ca00f10c06f462600e" alt="" /></a>
+	<p><a target="_blank" href="/cjjl.php?cust_id=114941035" class="memberName">段凯芩</a></p>
+	<p>29岁 162cm 50kg</p>
+	<p>女孩身材窈窕，性感迷人，...</p>
+	</li>
+		<li>
+	<a target="_blank" href="/cjjl.php?cust_id=134764025" class="headImg"><img src="https://vipfile.jiayuan.com/vip_img_url.php?id=134764025&date=1501739477&filename=c4effaf66e21d4941efbed85f126eacc.jpg&width=1024&height=1024&token=e3369601426c2dcfab838cbc9952bf42" alt="" /></a>
+	<p><a target="_blank" href="/cjjl.php?cust_id=134764025" class="memberName">卢圆媛</a></p>
+	<p>31岁 168cm 58kg</p>
+	<p>女孩广州本地人，父母经商...</p>
+	</li>
+		<li>
+	<a target="_blank" href="/cjjl.php?cust_id=124685210" class="headImg"><img src="https://vipfile.jiayuan.com/vip_img_url.php?id=124685210&date=1492578923&filename=f80301cd108f09ebdba8bf5b4851c118.jpg&width=1024&height=1024&token=a69ef6ffc68220c220d8934005f2ab35" alt="" /></a>
+	<p><a target="_blank" href="/cjjl.php?cust_id=124685210" class="memberName">馨儿</a></p>
+	<p>30岁 169cm 52kg</p>
+	<p>小姐出生在一个很温馨的家...</p>
+	</li>
+		<li>
+	<a target="_blank" href="/cjjl.php?cust_id=133401514" class="headImg"><img src="https://vipfile.jiayuan.com/vip_img_url.php?id=133401514&date=1492846643&filename=bd6e1ab0943a1a047cc341a6484c03e8.jpg&width=1024&height=1024&token=78fc775fd80e3eb3e5fe1f28f7875f2d" alt="" /></a>
+	<p><a target="_blank" href="/cjjl.php?cust_id=133401514" class="memberName">可 可</a></p>
+	<p>27岁 165cm 50kg</p>
+	<p>小姐给人第一感觉是甜美可...</p>
+	</li>
+		<li>
+	<a target="_blank" href="/cjjl.php?cust_id=120960016" class="headImg"><img src="https://vipfile.jiayuan.com/vip_img_url.php?id=120960016&date=1497405918&filename=f68c4931f14e9b2d5edc37268d8bcf10.jpg&width=1024&height=1024&token=d9e65ecf6777746221b43d13981acc8d" alt="" /></a>
+	<p><a target="_blank" href="/cjjl.php?cust_id=120960016" class="memberName">月 儿</a></p>
+	<p>27岁 162cm 45kg</p>
+	<p>小姐给我第一印象非常的甜...</p>
+	</li>
+		<li>
+	<a target="_blank" href="/cjjl.php?cust_id=80823267" class="headImg"><img src="https://vipfile.jiayuan.com/vip_img_url.php?id=80823267&date=1498015459&filename=9a5498795072b6f8f70d188551e9a031.jpg&width=1024&height=1024&token=ebcf03223719c8cd506a624afcebf978" alt="" /></a>
+	<p><a target="_blank" href="/cjjl.php?cust_id=80823267" class="memberName">白 雪</a></p>
+	<p>32岁 170cm 52kg</p>
+	<p>小姐给我第一印象清甜可人...</p>
+	</li>
+		<li>
+	<a target="_blank" href="/cjjl.php?cust_id=105381095" class="headImg"><img src="https://vipfile.jiayuan.com/vip_img_url.php?id=105381095&date=1498016178&filename=abb49de5c8b010b0f77e2d5d1948a6e1.jpg&width=1024&height=1024&token=05eb6c50e8c3aee2ac7f7bbbb81d47d5" alt="" /></a>
+	<p><a target="_blank" href="/cjjl.php?cust_id=105381095" class="memberName">薇 薇</a></p>
+	<p>30岁 170cm 52kg</p>
+	<p>小姐给人第一印象气质很好...</p>
+	</li>
+		<li>
+	<a target="_blank" href="/cjjl.php?cust_id=134939330" class="headImg"><img src="https://vipfile.jiayuan.com/vip_img_url.php?id=134939330&date=1498888872&filename=749bcfabfa4a32ebd03181e6d038af7e.jpg&width=1024&height=1024&token=09471a010517393853a90ce0d96bf42c" alt="" /></a>
+	<p><a target="_blank" href="/cjjl.php?cust_id=134939330" class="memberName">芸 芸</a></p>
+	<p>31岁 160cm 49kg</p>
+	<p>小姐给我第一印象是位非常...</p>
+	</li>
+	</ul>
+ <!--分页符和版权开始 -->
+<div class="aclear"></div>
+<div class="pages">
+<ol>
+ <li><a href='/cjjllist.php?&p=131' class=''>末页</a></li><li><a href='/cjjllist.php?&p=2' class=''>下一页</a></li> <li><a href='/cjjllist.php?&p=10'>10</a></li>   <li><a href='/cjjllist.php?&p=9'>9</a></li>   <li><a href='/cjjllist.php?&p=8'>8</a></li>   <li><a href='/cjjllist.php?&p=7'>7</a></li>   <li><a href='/cjjllist.php?&p=6'>6</a></li>   <li><a href='/cjjllist.php?&p=5'>5</a></li>   <li><a href='/cjjllist.php?&p=4'>4</a></li>   <li><a href='/cjjllist.php?&p=3'>3</a></li>   <li><a href='/cjjllist.php?&p=2'>2</a></li>   <li class='on'><a href='/cjjllist.php?&p=1'>1</a></li> <li><a href='/cjjllist.php?&p=1' class=''>上一页</a></li> <li><a href='/cjjllist.php?&p=1' class=''>首页</a></li> 
+</ol></div>
+
+<!--分页符和版权结束 -->
+</div>
+</div>
+</div>
+</div>
+
+<script>
+function checklength_place(){
+	$(".dateplacecls").each(function(index,element){
+		var _this=$(this);
+		var pos=6;
+		var _html=_this.html();
+		if(_html.length>8){
+			_this.html(_html.substr(0,8));
+		}
+	});
+}
+checklength_place();
+
+
+function initAjax() {
+	var ajax = false;
+	if(window.XMLHttpRequest) {
+		ajax = new XMLHttpRequest();
+	}else{
+		try{
+			ajax = new ActiveXObject('Msxml2.XMLHTTP');
+		}catch(e){
+			ajax = new ActiveXObject('Microsoft.XMLHTTP');
+		}
+	}
+	return ajax;
+}
+var start = false;
+//弹层
+function getPageHeight(){//检测浏览器的渲染模式
+	var body = (document.compatMode&&document.compatMode.toLowerCase() == "css1compat")?document.documentElement:document.body;
+	var bodyOffsetHeight = 0;
+	var bodyScrollHeight = 0;
+	var pageDimensions = 0;
+	pageDimensions=body.clientHeight;
+	bodyOffsetHeight=body.offsetHeight;
+	bodyScrollHeight=body.scrollHeight;
+	if(bodyOffsetHeight > pageDimensions){
+		pageDimensions=bodyOffsetHeight;
+	}
+	if(bodyScrollHeight > pageDimensions){
+		pageDimensions=bodyScrollHeight;
+	}
+	return pageDimensions;
+}
+
+function openWind( _popid, _height, _cust_id, _cjjl_id) {
+	_height=_height || "300px";
+	$("#popUpMask").css("height",getPageHeight()+"px");
+	$("#popUpMask").css("opacity","0.6");
+	$("#popUpMask").fadeIn();
+	$("#"+ _popid).css("position","absolute");
+	$("#"+ _popid).css("z-index","444");
+
+	if(_popid == "sureMeet") {
+		$("#popup_cust_id").attr("cust_id", _cust_id);
+		$("#popup_cjjl_id").attr("cjjl_id", _cjjl_id);
+	}else if(_popid == "wantMeet") {
+		$("#popup_want_cust_id").attr("cust_id", _cust_id);
+		$("#popup_want_cjjl_id").attr("cjjl_id", _cjjl_id);
+	}else if(_popid == "notMeet" ) {
+		$("#popup_notmeet_cust_id").attr("cust_id", _cust_id);
+		$("#popup_notmeet_cjjl_id").attr("cjjl_id", _cjjl_id);
+	}
+
+	$("#"+ _popid).css("top", _height);
+	$("#"+ _popid).css("left",($(document).width()-$("#"+ _popid).width())/2+"px");
+	$("#"+ _popid).fadeIn();
+
+	if(_popid == "wantMeet") {
+		if(_cust_id != "" && _cjjl_id != "") {
+			yaoqing(_cust_id,_cjjl_id);
+		}
+	}
+}
+
+function trim(str){ //删除左右两端的空格
+	return str.replace(/(^\s*)|(\s*$)/g, "");
+}
+/*$("#description").blur(function(){
+	if( trim($("#description").text()) == ''){
+		$("#description").get(0).style.color="#f00";
+		$("#description").text('请填写投诉描述！');
+	}
+});*/
+$("#description").click(function(){
+	if(trim($("#description").val())=='请填写投诉描述！'){
+		$("#description").val('');
+	}
+	$(this).get(0).style.color="#000";
+});
+function send_customers_complain() {
+	var emp_id = ;
+	var cust_id =  ;
+	var reason = $('input[name="reason"]:checked').val();//获取选中的radio值
+	var phone = encodeURI($("#phone").val());
+	var description = encodeURI($("#description").val());
+
+	if( trim($("#description").val()) == '' || trim($("#description").val())=='请填写投诉描述！') {
+		//alert($("#description").val());
+		//openTipWin($("#popUpMask_age"),$("#addFail_age"));
+		$("#description").get(0).style.color="#f00";
+		$("#description").val('请填写投诉描述！');
+		return;
+	}
+
+	var url = "service.php?functype=4&emp_id="+emp_id +"&cust_id="+cust_id + "&reason="+reason + "&phone="+phone + "&description="+description;
+	if(start == true) {
+		return;
+	}
+
+    var xmlHttp = initAjax();
+    if(typeof(xmlHttp)!="object") {
+        alert("Your browser does not support ajax");
+        return;
+    }
+    start = true;
+    if (start) {
+        xmlHttp.onreadystatechange=function() {
+            if(xmlHttp.readyState==4 && xmlHttp.status==200) {
+                var Result = xmlHttp.responseText;
+                start = false;
+                var result = Math.ceil(Result);
+				if(result==1)
+				{
+					alert('您的投诉已经收到，我们会尽快处理');
+					$(".closepop2").trigger("click");
+				}else{
+					alert('提交投诉失败');
+				}
+            }
+        }
+        xmlHttp.open("GET", url, true);
+        xmlHttp.send(null);
+    }
+}
+
+function yuejian_sure() {
+	var cjjl_id  = $("#popup_cjjl_id").attr("cjjl_id");
+	var cust_id  = $("#popup_cust_id").attr("cust_id");
+	if(cjjl_id != "" && cjjl_id != "") {
+		yuejian(cust_id, cjjl_id, 1);
+	}
+	/*关闭窗口*/
+	$("#sureMeet").fadeOut();
+	$("#popUpMask").fadeOut();
+	//location.reload(); 直接刷新不兼容
+	setTimeout("location.reload();",300);
+}
+
+function notyuejian_sure() {
+	var cjjl_id  = $("#popup_notmeet_cjjl_id").attr("cjjl_id");
+	var cust_id  = $("#popup_notmeet_cust_id").attr("cust_id");
+	if(cjjl_id != "" && cjjl_id != "") {
+		yuejian(cust_id, cjjl_id, 2);
+	}
+	/*关闭窗口*/
+	$("#notMeet").fadeOut();
+	$("#popUpMask").fadeOut();
+	//location.reload(); 直接刷新不兼容
+	setTimeout("location.reload();",300);
+}
+
+function yuejian(uid, ot_uid, type) {
+	if(start == true) {
+		return;
+	}
+
+    var xmlHttp = initAjax();
+    if(typeof(xmlHttp)!="object") {
+        alert("Your browser does not support ajax");
+        return;
+    }
+    start = true;
+    var url = "service.php?functype=2&uid="+uid+"&ot_uid="+ot_uid+"&type="+type;
+    if (start) {
+        xmlHttp.onreadystatechange=function() {
+            if(xmlHttp.readyState==4 && xmlHttp.status==200) {
+                var Result = xmlHttp.responseText;
+                start = false;
+                var result = Math.ceil(Result);
+            }
+        }
+        xmlHttp.open("GET", url, true);
+        xmlHttp.send(null);
+    }
+}
+
+function yaoqing_sure() {
+	var cjjl_id  = $("#popup_want_cjjl_id").attr("cjjl_id");
+	var cust_id  = $("#popup_want_cust_id").attr("cust_id");
+	//if(cjjl_id != "" && cjjl_id != "") {
+	//	yaoqing(cust_id,cjjl_id);
+	//}
+	/*关闭窗口*/
+		$("#wantMeet").fadeOut();
+		$("#popUpMask").fadeOut();
+		location.reload();
+}
+
+function yaoqing(uid,ot_uid) {
+	if(start == true) {return;}
+
+    var xmlHttp = initAjax();
+    if(typeof(xmlHttp)!="object") {
+        alert("Your browser does not support ajax");
+        return;
+    }
+    start = true;
+    var url = "service.php?functype=3&uid="+uid+"&ot_uid="+ot_uid;
+    if (start) {
+        xmlHttp.onreadystatechange=function() {
+            if(xmlHttp.readyState==4 && xmlHttp.status==200) {
+                var Result = xmlHttp.responseText;
+                start = false;
+                var result = Math.ceil(Result);
+            }
+        }
+        xmlHttp.open("GET", url, true);
+        xmlHttp.send(null);
+    }
+}
+
+(function($,window,undefined){
+	$.fn.popUp=function( _popid, _height, _id){
+		$(this).click(function(){
+			_height=_height || "300px";
+			$("#popUpMask").css("height",getPageHeight()+"px");
+			$("#popUpMask").css("opacity","0.6");
+			$("#popUpMask").fadeIn();
+			$("#"+ _popid).css("position","absolute");
+			$("#"+ _popid).css("z-index","444");
+			$("#"+ _popid).css("top", _height);
+			$("#"+ _popid).css("left",($(document).width()-$("#"+ _popid).width())/2+"px");
+			$("#"+ _popid).fadeIn();
+		});
+	};
+})(jQuery,window);
+	$("#tousuhongniang").popUp("tousuPop","100px");//投诉弹层发生
+	//$("#sureDate").popUp("sureMeet");//
+	//$("#notDate").popUp("notMeet");//
+
+	/**投诉页面右上角关闭按钮*/
+	$(".closepop2").click(function(){
+		$(this).parent().parent().fadeOut();
+		$("#popUpMask").fadeOut();
+	});
+	$(".closepop").click(function(){
+		$(this).parent().fadeOut();
+		$("#popUpMask").fadeOut();
+	});
+
+	/**关闭确定邀请弹层*/
+	$(".suremeetbtn").click(function(){
+		$(this).parent().parent().fadeOut();
+		$("#popUpMask").fadeOut();
+	});
+
+	$(".notmeetbtn").click(function(){
+		$(this).parent().parent().fadeOut();
+		$("#popUpMask").fadeOut();
+	});
+	/**投诉页面取消按钮*/
+	$(".cancelbtn").click(function(){
+		$(this).parent().parent().parent().fadeOut();
+		$("#popUpMask").fadeOut();
+	});
+
+	$(".reasonli li").click(function(){
+		$(this).addClass("on").siblings().removeClass("on");
+	});
+
+
+	/*$(".recmonth a").click(function(){
+		$(this).addClass("on").siblings().removeClass("on");
+		$(".conmonth > div").eq($(this).index()).show();
+		$(".conmonth > div").eq($(this).index()).siblings().hide();
+	});*/
+	//前端效果，js控制三个tab页面，改成php动态控制
+	/*$(".lefttab li a").click(function(){
+		$(this).parent().css("border-bottom-width","0px");
+		$(this).parent().iblings().css("border-bottom-width","1px");
+
+	});*/
+
+	//ie6,7,8阴影背景
+	if (window.PIE){
+		$('.rounded').each(function(index, element) {
+			PIE.attach(this);
+		});
+	}
+
+function openTipWin(winid, windid2){
+	winid.css("height",getPageHeight()+"px");
+	winid.css("opacity","0.6");
+	winid.css("z-index","1000");
+	winid.fadeIn();
+	windid2.css("position","absolute");
+	windid2.css("z-index","1001");
+	windid2.css("top","150px");
+	windid2.css("left",($(document).width()-$("#addFail").width())/2+"px");
+	windid2.fadeIn();
+}
+
+$(".popupclose").click(function(){
+	$(this).parent().fadeOut();
+	$("#popUpMask").fadeOut();
+});
+</script>
+<script type="text/javascript">
+function wait(cond, exec){setTimeout(function(){ if(!cond()) { setTimeout(arguments.callee, 25); return; } exec(); },0);}
+//登录
+function login() {
+  	//登录条登录表单
+  	JY.login.submit(document.getElementById("hder_login_form"), function(user){
+	if(user && user['uid']>0){
+		if(user['errno']==-5){
+		location.href=user['url'];
+		return false;
+		}else if(user['type']==20){//完善资料
+		location.href=user['url'];
+		return true;
+		}
+		window.setTimeout(function(){
+		location.href= location.href;
+		},100);
+
+ 	}else if(user && user['errno']==-1){
+		location.href=user['url'];
+		return false;
+ 	}else if(user && user['errno']==-2){
+
+		alert('登录失败，该用户资料已关闭');
+	}else{
+		if(user['errno'] != 0) {
+			alert('密码错误，请核实您的登录密码');
+		}
+ 	}
+	 //无限次尝试登录；
+	 JY.login.tryTimes=0;
+	});
+}
+
+var vip_host = window.location.host.toLowerCase();	//获取域名
+if(vip_host.indexOf('vip.jiayuan') >= 0 || vip_host.indexOf('vip.miuu') >= 0){
+	var linkurl = "/ajax/vip_header_phone.php";
+}else{
+	var linkurl = "/vip/ajax/vip_header_phone.php";
+}
+///登录处理
+wait(function(){return typeof JY != "undefined"}, function(){
+	var u =JY.login.getUser();
+	if(u.uid){
+		var child = document.getElementById("head_login").getElementsByTagName("a");
+		child[0].href = "http://profile.jiayuan.com/" + u.uid;
+		child[0].innerHTML = u.nickname;
+		//document.getElementById("head_nologin").style.display = "none";
+		document.getElementById("head_login").style.display = "";
+		document.getElementById("logout").style.display = "";
+                        document.getElementById("icon_qgtel").style.display = "none";
+		//$("#topLogin").hide();
+
+		show_tel_phone(linkurl);//显示对应电话
+		send_jy_pv2('|vip_head_v_1|');
+	}else {
+                       $("#icon_qgtel").show();
+		$("#loginBox").show();
+		$("#head_nologin").show();
+		send_jy_pv2('|vip_head_v_0|');
+	}
+});
+
+function show_tel_phone(url) {
+	 var xmlHttp = initAjax();
+     if(typeof(xmlHttp)!="object") {
+         alert("Your browser does not support ajax");
+         return;
+     }
+     var start = true;
+     if (start) {
+        xmlHttp.onreadystatechange=function() {
+            if(xmlHttp.readyState==4 && xmlHttp.status==200) {
+                var Result = xmlHttp.responseText;
+                start = false;
+                var array = Result.split("|");
+                if (array.length == 5) {
+                	document.getElementById("area_tel").innerHTML = '<a style="color:#ad00bc;" href="shop/detail.php?id=' + array[2] + '"><em class="tel"></em>' + array[0] + '</a>';
+                } else if (array[3] == "") {
+                	document.getElementById("area_tel").innerHTML = '<a style="color:#ad00bc;" href="shop/detail.php?id=' + array[2] + '"><em class="tel"></em>' + array[0] + '</a>';
+                } else if(typeof(array[0]) != undefined && typeof(array[2]) != undefined && typeof(array[3]) != undefined){
+                	document.getElementById("area_tel").innerHTML = '<a style="color:#ad00bc;" href="shop/detail.php?id=' + array[2] + '"><em class="tel"></em>' + array[0] + '</a>';
+                }
+				$("#service_phone_header").show();
+			}
+        }
+        xmlHttp.open("GET", url, true);
+        xmlHttp.send(null);
+    }
+}
+
+
+var page_array = Array('','\/msmy_m','\/msmy_f','\/cjjllist.php','\/cj','\/shop','\/aqjz');
+var id_array =Array("shouye","aiqingdingzhi","mingshimingyuan","mingshimingyuan","caijunjiali","caijunjiali","fuwuzhongxin","aiqingjianzheng");
+var url = location.href;
+function getExp(page_name){
+return "\/vip"+page_name+"\/?[#?]+.*|\/vip"+page_name+"\/?$|\/vip"+page_name+"\/index.html[#?]+.*|\/vip"+page_name+"\/index.html$|\/vip"+page_name+"\/[0-9]+\.html$|\/vip"+page_name+"\/[0-9]+\.html[#?]+.*";
+}
+document.getElementById("shouye").className = "curr";
+for(var i=0;i<page_array.length;i++){
+if(url.indexOf(page_array[i])>0){
+document.getElementById(id_array[i]).className = "curr";
+document.getElementById("shouye").className = "";
+break;
+}
+}
+var contextPath = "/vip/";
+if(/xique|vip.jiayuan|vip.miuu/.test(location.host))
+{
+   contextPath = "/";
+   $("#loginuser").attr("href", "javascript:window.location.href='http://login.jiayuan.com/?pre_url=/vip'");//多域名登陆
+}
+
+$("#shouye").attr("href", contextPath );
+$("#gerenzhongxin").attr("href", contextPath +'profile.php' );
+$("#aiqingdingzhi").attr("href", contextPath +'fuwujieshao.html' );
+$("#mingshimingyuan").attr("href", contextPath +'msmy_f/' );
+$("#caijunjiali").attr("href", contextPath +'cjjllist.php' );
+$("#fuwuzhongxin").attr("href", contextPath +'shop/' );
+$("#aiqingjianzheng").attr("href", contextPath +'aqjz/' );
+$("#yiduiyihetong").attr("href", contextPath +'hetong.php' );
+
+function openWindForUrl(url,newpage)
+{
+    var newurl = contextPath + url.replace(/\/vip\//,"");
+   if (newpage == 1)
+   {
+      window.open( newurl);
+   }else
+   {
+      window.location.href= newurl;
+   }
+}
+$(document).ready(function(){
+ $("a").each(function(){
+ var url =$(this).attr("href");
+ if(/xique|vip.jiayuan|vip.miuu/.test(location.host))
+ {
+if (/\/?vip\//.test(url))
+{
+   url = url.replace(/\/?vip\//,"");
+   if(/\.php/.test(url))
+   {
+		//$(this).attr("href","http://vip.jiayuan.com/"+url);
+   }else{
+		//$(this).attr("href",contextPath+url);
+   }
+ }
+  $(".logoLink,#jylogoid").attr("href","http://www.jiayuan.com");
+ }
+
+});
+//write cokie to jiayuan.com for st
+            var stid = JY.tool.cookie.get("FROM_ST_ID");
+var sturl = JY.tool.cookie.get("FROM_ST");
+if(null !=stid)
+{
+$.getScript("http://www.jiayuan.com/general/acrossjyimgdomain.php?expire=2&FROM_ST_ID="+stid+"&FROM_ST="+sturl);
+            }
+});
+
+function timeclock(){
+  		$(".left_time").each(function(){
+        //var lxfday=$(this).attr("lxfday");//用来判断是否显示天数的变量
+        //var endtime = new Date($(this).attr("sys_left_time")).getTime();//取结束日期(毫秒值)
+       	//var nowtime = new Date().getTime();        //今天的日期(毫秒值)
+        //var youtime = endtime-nowtime;//还有多久(毫秒值)
+        //var seconds = youtime/1000;
+        var seconds = $(this).attr("sys_left_time");
+        if(seconds >= 1) {
+	        var minutes = Math.floor(seconds/60);
+	        var hours = Math.floor(minutes/60);
+	        var days = Math.floor(hours/24);
+	        var CDay= days ;
+	        var CHour= hours % 24;
+	        var CMinute= minutes % 60;
+	        var CSecond= Math.floor(seconds%60);//"%"是取余运算，可以理解为60进一后取余数，然后只要余数。
+	        if(seconds<=1){
+	            $(this).html("");//如果结束日期小于当前日期就提示过期啦
+	            var cust_id = $("#time_auto").attr("cust_id");
+				var cjjl_id	= $("#time_auto").attr("cjjl_id");
+				//$("a[myid=auto_sure_close]").hide();
+				//$("a[myid=auto_not_close]").hide();
+				$(".suredate").each(function() {
+					//$(this).attr("disabled","disabled");
+					$(this).hide();
+				});
+				$(".nodate").each(function() {
+					//$(this).attr("disabled","disabled");
+					$(this).hide();
+				});
+
+				yuejian(cust_id, cjjl_id, 3);
+	        }else if(seconds == -10000000) {
+				//忽略手动处理
+	        }else{
+	            if($(this).attr("lxfday")=="no"){
+	                $(this).html("<i></i><span>"+CHour+"</span>时<span>"+CMinute+"</span>分<span>"+CSecond+"</span>秒");          //输出没有天数的数据
+	             }else{
+	             	if(CDay == 0 && CHour == 0 && CMinute == 0) {
+						$(this).html("<i></i><span>"+CSecond+"</span><em>秒后</em>");
+	             	} else if(CDay == 0 && CHour == 0) {
+	             		$(this).html("<i></i><span>"+CMinute+"</span><em>分</em><span>"+CSecond+"</span><em>秒后</em>");
+	             	} else if(CDay == 0) {
+	            		$(this).html("<i></i>"+CHour+"</span><em>时</em><span>"+CMinute+"</span><em>分</em><span>"+CSecond+"</span><em>秒后</em>");
+	             	} else {
+	             		$(this).html("<i></i><span>"+days+"</span><em>天</em><span>"+CHour+"</span><em>时</em><span>"+CMinute+"</span><em>分</em><span>"+CSecond+"</span><em>秒后</em>");//输出有天数的数据
+	             	}
+
+	            }
+	        }
+	        $(this).attr("sys_left_time",seconds-1);
+	      }
+  });
+   setTimeout("timeclock()",1000);
+  };
+
+$(function(){
+      timeclock();
+});
+</script>
+	<script src="//imgv.jiayuan.com/w4/liehun/j/vip_common_footer.js"></script>
+	<div style='text-align:center;'>
+		<script src="//kxlogo.knet.cn/seallogo.dll?sn=e13090211010042251umps000000&size=0"></script>
+	</div>
+
+</body>
+</html>

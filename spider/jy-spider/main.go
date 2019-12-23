@@ -9,6 +9,7 @@ import (
 	"math/rand"
 	"time"
 	"strings"
+	//"github.com/olivere/elastic/v7"
 )
 
 type Person struct {
@@ -78,4 +79,7 @@ func FetchPage(url string) string {
 		panic(err)
 	}
 	return string(html)
+}
+
+func ParsePage(html string)  {
 }

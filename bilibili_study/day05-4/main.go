@@ -38,6 +38,7 @@ func main() {
 		cla.Students = append(cla.Students, stu.NewStudent(i, fmt.Sprintf("stu%02d", i)))
 	}
 	//fmt.Printf("%#v", cla)
+	// 序列化
 	jsonData, err := json.Marshal(cla)
 	if err != nil {
 		fmt.Printf("%v", err)

@@ -11,6 +11,7 @@ import (
 
 // tar包实现了tar格式压缩文件的存取。本包目标是覆盖大多数tar的变种，包括GNU和BSD生成的tar文件
 func main() {
+	// 压缩
 	buf := new(bytes.Buffer)
 	tw := tar.NewWriter(buf)
 	var files = []struct {
@@ -37,6 +38,7 @@ func main() {
 		log.Fatalln(err)
 	}
 
+	// 读压缩文件
 	r := bytes.NewReader(buf.Bytes())
 	tr := tar.NewReader(r)
 	for {
